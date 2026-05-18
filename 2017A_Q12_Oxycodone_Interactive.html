@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2017A Q12 — Oxycodone Pharmacology</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0a0e14;color:#e8eaed;line-height:1.5;padding:20px}
+  .wrap{max-width:1100px;margin:0 auto}
+  h1{font-size:1.8rem;color:#7dd3fc;margin-bottom:4px}
+  .sub{color:#94a3b8;font-size:0.9rem;margin-bottom:20px}
+  .toc{background:#111827;border:1px solid #1e293b;border-radius:8px;padding:12px 16px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:10px;font-size:0.85rem}
+  .toc a{color:#7dd3fc;text-decoration:none;padding:4px 10px;background:#0f172a;border-radius:4px}
+  .toc a:hover{background:#1e3a5f}
+  section{background:#0f172a;border-radius:10px;padding:18px 22px;margin-bottom:20px;border-left:4px solid #334155}
+  section.framework{border-left-color:#fff;background:#1a1a1a}
+  section.pceutics{border-left-color:#7dd3fc;background:#0c1a26}
+  section.pd{border-left-color:#a78bfa;background:#161029}
+  section.pk{border-left-color:#fbbf24;background:#1f1808}
+  section.metab{border-left-color:#f472b6;background:#1f0c1a}
+  section.tox{border-left-color:#ef4444;background:#1f0a0a}
+  section.compare{border-left-color:#34d399;background:#0a1f17}
+  section.nums{border-left-color:#fb923c;background:#1f1408}
+  section.flashcards{border-left-color:#06b6d4;background:#0a1e22}
+  section.quiz{border-left-color:#fb923c;background:#1f1408}
+  h2{color:#fff;font-size:1.2rem;margin-bottom:12px}
+  h3{color:#e2e8f0;font-size:1rem;margin:14px 0 6px}
+  p,li{font-size:0.92rem;color:#cbd5e1}
+  ul{padding-left:22px;margin:6px 0}
+  li{margin-bottom:3px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.88rem}
+  th,td{padding:8px 10px;text-align:left;border:1px solid #334155;vertical-align:top}
+  th{background:#1e293b;color:#7dd3fc;font-weight:600}
+  .pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.75rem;font-weight:600;margin-right:6px}
+  .pill-red{background:#7f1d1d;color:#fecaca}
+  .pill-green{background:#14532d;color:#bbf7d0}
+  .pill-blue{background:#1e3a8a;color:#bfdbfe}
+  .pill-purple{background:#581c87;color:#e9d5ff}
+  .pill-orange{background:#7c2d12;color:#fed7aa}
+  .callout{padding:10px 14px;border-radius:6px;margin:10px 0;font-size:0.88rem;border-left:3px solid}
+  .c-red{background:#2c0808;border-color:#ef4444}
+  .c-green{background:#082c14;border-color:#22c55e}
+  .c-blue{background:#08172c;border-color:#3b82f6}
+  .c-purple{background:#1d082c;border-color:#a855f7}
+  .c-orange{background:#2c1808;border-color:#fb923c}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:10px 0}
+  .num-card{background:#1e293b;padding:10px 12px;border-radius:6px;text-align:center}
+  .num-card .v{font-size:1.3rem;font-weight:700;color:#fbbf24;display:block}
+  .num-card .l{font-size:0.78rem;color:#94a3b8;margin-top:2px}
+  /* MoA Flow */
+  .moa-flow{display:flex;flex-direction:column;gap:6px;margin:14px 0}
+  .moa-step{padding:10px 14px;background:#1e293b;border-radius:6px;cursor:pointer;border-left:3px solid #475569;transition:all 0.2s;display:flex;align-items:center;gap:10px}
+  .moa-step:hover{background:#334155}
+  .moa-step.revealed{border-left-color:#a78bfa;background:#2c1e4a}
+  .moa-step .num{font-weight:700;color:#a78bfa;min-width:24px;font-size:1.1rem}
+  .moa-step .detail{font-size:0.82rem;color:#94a3b8;margin-top:4px;display:none}
+  .moa-step.revealed .detail{display:block}
+  .moa-controls{display:flex;gap:8px;margin-top:10px}
+  button{background:#1e40af;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:0.85rem;font-weight:500}
+  button:hover{background:#2563eb}
+  button.reset{background:#475569}
+  /* Metabolism diagram */
+  .metab-diagram{background:#0a0e14;border-radius:8px;padding:14px;margin:12px 0}
+  .metab-node{display:inline-block;background:#1e293b;padding:8px 14px;border-radius:6px;margin:4px;font-size:0.85rem;cursor:pointer;border:1px solid #334155;transition:all 0.2s}
+  .metab-node:hover{border-color:#f472b6;background:#2c1f29}
+  .metab-node.parent{background:#581c87;color:#e9d5ff;font-weight:600}
+  .metab-node.active{background:#f472b6;color:#0a0e14}
+  .metab-arrow{color:#64748b;margin:0 4px}
+  .metab-detail{background:#1e293b;padding:10px 14px;border-radius:6px;margin-top:10px;min-height:50px;font-size:0.85rem;color:#cbd5e1}
+  .metab-detail.empty{color:#64748b;font-style:italic}
+  /* Flashcards */
+  .fc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+  .fc{background:#0a1e22;border:1px solid #155e75;border-radius:8px;padding:14px;cursor:pointer;min-height:120px;position:relative;transition:all 0.3s}
+  .fc:hover{border-color:#06b6d4}
+  .fc .q{color:#67e8f9;font-weight:600;font-size:0.9rem;margin-bottom:8px}
+  .fc .a{color:#cbd5e1;font-size:0.85rem;display:none}
+  .fc.flipped .a{display:block}
+  .fc.flipped .q{color:#94a3b8;font-size:0.8rem}
+  .fc::after{content:"tap to reveal";position:absolute;bottom:8px;right:10px;font-size:0.7rem;color:#64748b}
+  .fc.flipped::after{content:"tap to hide"}
+  /* Quiz */
+  .qz-q{background:#1e293b;padding:14px;border-radius:8px;margin:10px 0}
+  .qz-q .qt{color:#fb923c;font-weight:600;margin-bottom:10px}
+  .qz-opts{display:flex;flex-direction:column;gap:6px}
+  .qz-opt{padding:8px 12px;background:#0f172a;border-radius:4px;cursor:pointer;border:1px solid #334155}
+  .qz-opt:hover{border-color:#fb923c}
+  .qz-opt.correct{background:#14532d;border-color:#22c55e;color:#bbf7d0}
+  .qz-opt.wrong{background:#7f1d1d;border-color:#ef4444;color:#fecaca}
+  .qz-score{background:#1e293b;padding:12px;border-radius:8px;margin-top:14px;text-align:center;font-size:1rem;color:#fbbf24;font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>💊 2017A Q12 / 2021A Q12 — Oxycodone Pharmacology</h1>
+<div class="sub">Drug 3-part: Pharmaceutics → PD → PK · Previous attempt 12/20 · Examiner trap = vague PK</div>
+
+<div class="toc">
+  <a href="#fw">Framework</a>
+  <a href="#pc">Pharmaceutics</a>
+  <a href="#pd">PD</a>
+  <a href="#pk">PK</a>
+  <a href="#mt">Metabolism</a>
+  <a href="#tx">Toxicity</a>
+  <a href="#cmp">vs Morphine/Fent</a>
+  <a href="#nm">Numbers</a>
+  <a href="#fc">Flashcards</a>
+  <a href="#qz">Quiz</a>
+</div>
+
+<!-- FRAMEWORK -->
+<section class="framework" id="fw">
+<h2>🎯 Quick-Glance SAQ Framework</h2>
+<table>
+<tr><th style="width:18%">Section</th><th style="width:10%">~%</th><th>Headings to write first</th></tr>
+<tr><td><span class="pill pill-blue">Pharmaceutics</span></td><td>15</td><td>Class · Chemistry · Presentations · Doses · Receptor profile</td></tr>
+<tr><td><span class="pill pill-purple">PD — MoA</span></td><td>20</td><td>μ (MOP) agonist · Gi → ↓cAMP · pre/postsynaptic ion channels</td></tr>
+<tr><td><span class="pill pill-purple">PD — Effects</span></td><td>15</td><td>CNS · Resp · CVS · GIT · GU · Histamine</td></tr>
+<tr><td><span class="pill pill-red">PD — Toxicity</span></td><td>5</td><td>Triad + naloxone</td></tr>
+<tr><td><span class="pill pill-orange">PK — A</span></td><td>10</td><td>Oral BA <b>60-87%</b> (vs morphine 20-30%) · IR vs CR</td></tr>
+<tr><td><span class="pill pill-orange">PK — D</span></td><td>5</td><td>Vd 2.6 L/kg · PB 38-45% · crosses placenta</td></tr>
+<tr><td><span class="pill pill-orange">PK — M</span></td><td>15</td><td><b>CYP3A4 → noroxycodone (inactive)</b> · CYP2D6 → oxymorphone (active, 14× potent)</td></tr>
+<tr><td><span class="pill pill-orange">PK — E</span></td><td>5</td><td>Renal · t½ 3-5h IR · accumulates in renal failure</td></tr>
+<tr><td><span class="pill pill-green">Safe admin</span></td><td>10</td><td>Renal/hepatic dose reduce · don't crush CR · misuse risk</td></tr>
+</table>
+<div class="callout c-red">
+<b>⚠️ Examiner trap (your 12/20 lesson):</b> Vague PK loses marks. Always give <b>numbers</b> — BA %, Vd, PB %, t½, % renal. Don't write "extensively metabolised" — name CYP3A4/2D6 and the metabolites.
+</div>
+</section>
+
+<!-- PHARMACEUTICS -->
+<section class="pceutics" id="pc">
+<h2>① Pharmaceutics</h2>
+<ul>
+  <li><b>Class:</b> Semi-synthetic opioid (thebaine derivative)</li>
+  <li><b>Receptors:</b> Predominant <b>μ (MOP) agonist</b> — some κ (KOP), δ (DOP) activity. All Gi-protein coupled.</li>
+  <li><b>Chemistry:</b> Weak base; pKₐ ~8.5–8.9; logP ~0.7 (low-moderate lipophilicity)</li>
+  <li><b>Presentations:</b>
+    <ul>
+      <li>IR oral (Endone)</li>
+      <li>CR/PR (OxyContin) — biphasic, 12-hr duration</li>
+      <li>Oxycodone/naloxone PR (Targin) — oral naloxone BA &lt;3% → gut antagonism only</li>
+      <li>IV/SC for ICU</li>
+    </ul>
+  </li>
+  <li><b>Potency:</b> ~1.5–2× oral morphine equipotent</li>
+</ul>
+<div class="callout c-blue">
+<b>Endogenous ligands (worth a buzzword):</b> β-endorphin/endomorphins → μ; enkephalins → δ; dynorphins → κ. The <b>MOP receptor mediates analgesia</b>; other subtypes mediate side effects.
+</div>
+</section>
+
+<!-- PD MOA INTERACTIVE -->
+<section class="pd" id="pd">
+<h2>② Pharmacodynamics — MoA Pathway</h2>
+<p style="color:#94a3b8;font-size:0.85rem">Click "Next step" to walk the signalling cascade. Examiners reward both pre- and postsynaptic detail.</p>
+
+<div class="moa-flow" id="moaFlow">
+  <div class="moa-step" data-step="1"><span class="num">1</span><div><b>μ (MOP) receptor agonism</b><div class="detail">Gi-protein coupled receptor on neurons in dorsal horn, PAG, thalamus, limbic system.</div></div></div>
+  <div class="moa-step" data-step="2"><span class="num">2</span><div><b>Gi activation → ↓ adenylate cyclase → ↓ cAMP</b><div class="detail">Reduces neuronal excitability via downstream second messenger reduction.</div></div></div>
+  <div class="moa-step" data-step="3"><span class="num">3</span><div><b>Presynaptic: closes voltage-gated Ca²⁺ channels</b><div class="detail">↓ Ca²⁺ influx → ↓ vesicular release of <b>glutamate and Substance P</b> at primary afferent terminals.</div></div></div>
+  <div class="moa-step" data-step="4"><span class="num">4</span><div><b>Postsynaptic: opens K⁺ channels</b><div class="detail">K⁺ efflux → membrane hyperpolarisation → reduced action potential generation in second-order neurons.</div></div></div>
+  <div class="moa-step" data-step="5"><span class="num">5</span><div><b>Net effect: ↓ nociceptive transmission (spinal + supraspinal)</b><div class="detail">Plus altered affective perception of pain via limbic/cortical effects. <b>Descending modulation</b> from PAG → RVM → dorsal horn is augmented.</div></div></div>
+</div>
+
+<div class="moa-controls">
+  <button id="moaNext">Next step ▼</button>
+  <button id="moaAll">Reveal all</button>
+  <button class="reset" id="moaReset">Reset</button>
+</div>
+
+<h3>System Effects (write as bullet clusters)</h3>
+<table>
+<tr><th>System</th><th>Effects</th></tr>
+<tr><td><span class="pill pill-blue">CNS</span></td><td>Analgesia · sedation · euphoria · <b>miosis</b> (Edinger-Westphal) · seizures/myoclonus at high doses</td></tr>
+<tr><td><span class="pill pill-purple">Resp</span></td><td><b>Respiratory depression</b> — ↓ response to hypercapnia AND hypoxia · CO₂ response curve <b>shifted right</b> (vs benzos = flattened, no shift)</td></tr>
+<tr><td><span class="pill pill-red">CVS</span></td><td>Orthostatic hypotension · ↓ SVR (histamine-mediated vasodilation) · bradycardia (central vagal)</td></tr>
+<tr><td><span class="pill pill-orange">GIT</span></td><td>↓ motility → constipation · N/V (CTZ) · ileus · sphincter of Oddi spasm</td></tr>
+<tr><td><span class="pill pill-green">GU</span></td><td>↑ ureter / bladder sphincter tone → urinary retention</td></tr>
+<tr><td><span class="pill pill-purple">Other</span></td><td>Histamine: pruritus, bronchospasm, hypotension · Tolerance · Dependence · Withdrawal</td></tr>
+</table>
+
+<div class="callout c-purple">
+<b>ICU clinical pearl:</b> <b>Ketamine prevents and reverses opioid tolerance</b> when given concurrently (via NMDA antagonism).
+</div>
+</section>
+
+<!-- PK -->
+<section class="pk" id="pk">
+<h2>③ Pharmacokinetics — A·D·E</h2>
+
+<h3>Absorption</h3>
+<ul>
+  <li><b>Oral BA: 60-87%</b> (vs morphine 20-30%) — limited first-pass</li>
+  <li><b>IR Tmax:</b> ~1–1.5 h</li>
+  <li><b>CR/PR:</b> biphasic absorption, ~12-hr duration</li>
+  <li>Targin: oral naloxone BA &lt;3% → gut μ-antagonism without systemic reversal</li>
+</ul>
+
+<h3>Distribution</h3>
+<ul>
+  <li><b>Vd:</b> ~2.6 L/kg</li>
+  <li><b>Protein binding:</b> ~38–45% (albumin + α1-acid glycoprotein)</li>
+  <li>Crosses placenta · present in breast milk</li>
+  <li>Pregnancy ↑ CYP2D6 activity ~50% → ↑ oxymorphone formation</li>
+</ul>
+
+<h3>Excretion</h3>
+<ul>
+  <li>Primarily <b>renal</b> as parent + metabolites</li>
+  <li>~20% unchanged · ~50% conjugated · ~14% via oxymorphone pathway</li>
+  <li><b>t½:</b> IR ~3–5 h · PR steady state ~24–36 h</li>
+  <li><b>Active metabolites accumulate in renal failure</b> → dose reduce</li>
+</ul>
+</section>
+
+<!-- METABOLISM INTERACTIVE -->
+<section class="metab" id="mt">
+<h2>④ Metabolism — Click Each Node</h2>
+<p style="color:#94a3b8;font-size:0.85rem">CYP3A4 inhibitors are the big interaction story. Click metabolites for detail.</p>
+
+<div class="metab-diagram">
+<div style="text-align:center;margin-bottom:14px">
+  <div class="metab-node parent">Oxycodone</div>
+</div>
+<div style="text-align:center;display:flex;justify-content:center;gap:20px;flex-wrap:wrap">
+  <div>
+    <div style="font-size:0.75rem;color:#64748b;margin-bottom:4px">CYP3A4 (major, ~45%)</div>
+    <div class="metab-node" data-id="noroxy">Noroxycodone</div>
+    <div style="font-size:0.7rem;color:#64748b;margin-top:4px">N-demethylation</div>
+  </div>
+  <div>
+    <div style="font-size:0.75rem;color:#64748b;margin-bottom:4px">CYP2D6 (~10%)</div>
+    <div class="metab-node" data-id="oxymorph">Oxymorphone</div>
+    <div style="font-size:0.7rem;color:#64748b;margin-top:4px">O-demethylation</div>
+  </div>
+  <div>
+    <div style="font-size:0.75rem;color:#64748b;margin-bottom:4px">UGT (minor)</div>
+    <div class="metab-node" data-id="gluc">Oxycodone-glucuronide</div>
+    <div style="font-size:0.7rem;color:#64748b;margin-top:4px">Direct conjugation</div>
+  </div>
+</div>
+</div>
+
+<div class="metab-detail empty" id="metabDetail">Click a metabolite above…</div>
+
+<div class="callout c-red">
+<b>Key interaction:</b> A <b>CYP3A4 inhibitor</b> (e.g. clarithromycin, ketoconazole, ritonavir, grapefruit) → <b>significant ↑ clinical effect</b>. Why? 3A4 is the major pathway; inhibition diverts more drug through CYP2D6 → ↑ oxymorphone AND ↑ parent levels.
+</div>
+
+<div class="callout c-purple">
+<b>CYP2D6 polymorphism (deberisoquine):</b> Poor metabolisers → ↓ oxymorphone → ↓ analgesia. Ultra-rapid metabolisers → ↑ oxymorphone → toxicity risk. Same enzyme that activates codeine and tramadol.
+</div>
+</section>
+
+<!-- TOXICITY -->
+<section class="tox" id="tx">
+<h2>⑤ Toxicity &amp; Reversal</h2>
+<div class="callout c-red">
+<b>Opioid toxidrome:</b> Coma + miosis + respiratory depression (the classic triad).
+</div>
+<ul>
+  <li><b>Naloxone:</b> pure μ-antagonist, IV 40-400 mcg titrated</li>
+  <li><b>t½ naloxone ~30-90 min</b> — much shorter than oxycodone CR → <b>repeat dosing or infusion often needed</b></li>
+  <li>Acute reversal risks: precipitated withdrawal, sympathetic surge, pulmonary oedema</li>
+</ul>
+</section>
+
+<!-- COMPARISONS -->
+<section class="compare" id="cmp">
+<h2>⑥ Comparisons (worth marks if time)</h2>
+<table>
+<tr><th>Feature</th><th>Oxycodone</th><th>Morphine</th><th>Fentanyl</th></tr>
+<tr><td>Oral BA</td><td><b>60-87%</b></td><td>20-30%</td><td>~33% (buccal/SL only)</td></tr>
+<tr><td>Metabolism</td><td>CYP3A4 + 2D6</td><td>UGT (glucuronidation)</td><td>CYP3A4</td></tr>
+<tr><td>Active metabolite in renal failure</td><td><b>Yes</b> (oxymorphone)</td><td><b>Yes</b> (M6G — major issue)</td><td>No (inactive metabolites)</td></tr>
+<tr><td>Histamine release</td><td>Less than morphine</td><td>Significant</td><td>Minimal</td></tr>
+<tr><td>Pulmonary first-pass</td><td>No</td><td>No</td><td><b>Yes</b> (~75% sequestered)</td></tr>
+<tr><td>Lipid solubility</td><td>Low-mod (logP 0.7)</td><td>Low (logP 0.9)</td><td><b>High</b> (logP 4.0)</td></tr>
+</table>
+</section>
+
+<!-- NUMBERS -->
+<section class="nums" id="nm">
+<h2>🔢 High-Yield Numbers</h2>
+<div class="grid">
+  <div class="num-card"><span class="v">60-87%</span><span class="l">Oral BA</span></div>
+  <div class="num-card"><span class="v">2.6 L/kg</span><span class="l">Vd</span></div>
+  <div class="num-card"><span class="v">38-45%</span><span class="l">Protein binding</span></div>
+  <div class="num-card"><span class="v">8.5-8.9</span><span class="l">pKₐ (weak base)</span></div>
+  <div class="num-card"><span class="v">3-5 h</span><span class="l">IR t½</span></div>
+  <div class="num-card"><span class="v">12 h</span><span class="l">CR dosing interval</span></div>
+  <div class="num-card"><span class="v">1.5-2×</span><span class="l">Potency vs oral morphine</span></div>
+  <div class="num-card"><span class="v">14×</span><span class="l">Oxymorphone μ-potency vs parent</span></div>
+  <div class="num-card"><span class="v">~45%</span><span class="l">→ noroxycodone (3A4)</span></div>
+  <div class="num-card"><span class="v">~10%</span><span class="l">→ oxymorphone (2D6)</span></div>
+  <div class="num-card"><span class="v">~20%</span><span class="l">Renal unchanged</span></div>
+  <div class="num-card"><span class="v">&lt;3%</span><span class="l">Naloxone BA (Targin)</span></div>
+</div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="flashcards" id="fc">
+<h2>🃏 Active Recall — Flashcards</h2>
+<div class="fc-grid">
+  <div class="fc"><div class="q">Q: Why does oxycodone have higher oral BA than morphine?</div><div class="a">A: Limited first-pass metabolism. Oxycodone <b>60-87%</b> vs morphine <b>20-30%</b>. Makes it predictable for enteral step-down.</div></div>
+  <div class="fc"><div class="q">Q: Two CYP enzymes that metabolise oxycodone — products and activity?</div><div class="a">A: <b>CYP3A4 → noroxycodone</b> (inactive, ~45% of dose). <b>CYP2D6 → oxymorphone</b> (active, 14× μ-potency, ~10% of dose).</div></div>
+  <div class="fc"><div class="q">Q: What does a CYP3A4 inhibitor do to oxycodone clinical effect?</div><div class="a">A: <b>Significant increase</b>. Diverts drug through CYP2D6 → ↑ oxymorphone (active) AND ↑ parent drug levels.</div></div>
+  <div class="fc"><div class="q">Q: Why does oxycodone accumulate in renal failure?</div><div class="a">A: Active metabolites (oxymorphone) are renally excreted and accumulate. Same problem as morphine (M6G), pethidine, tramadol. Dose reduce.</div></div>
+  <div class="fc"><div class="q">Q: Describe the CO₂ response curve effect of opioids vs benzos.</div><div class="a">A: Opioids — <b>shifted right</b> (reduced ventilatory drive at any PaCO₂). Benzos — <b>flattened</b> (no shift, just reduced slope).</div></div>
+  <div class="fc"><div class="q">Q: μ-receptor signalling cascade?</div><div class="a">A: Gi → ↓ adenylate cyclase → ↓ cAMP. Presynaptic: closes Ca²⁺ channels → ↓ glutamate/Substance P release. Postsynaptic: opens K⁺ channels → hyperpolarisation.</div></div>
+  <div class="fc"><div class="q">Q: How does Targin (oxycodone/naloxone PR) work?</div><div class="a">A: Oral naloxone has <b>&lt;3% BA</b> due to extensive first-pass — provides <b>gut μ-antagonism</b> (reduces constipation) without reversing systemic analgesia.</div></div>
+  <div class="fc"><div class="q">Q: Three sources of "first-pass" reducing oxycodone bioavailability?</div><div class="a">A: <b>Gut bacteria · gut wall enzymes · hepatic extraction</b>. Combined first-pass, not just hepatic.</div></div>
+  <div class="fc"><div class="q">Q: Effect of ageing on oxycodone PK?</div><div class="a">A: ↓ first-pass metabolism → ↑ oral BA → start low, titrate slowly.</div></div>
+  <div class="fc"><div class="q">Q: Naloxone t½ vs oxycodone t½ — clinical implication?</div><div class="a">A: Naloxone t½ <b>30-90 min</b>; oxycodone CR much longer. <b>Repeat dosing or infusion</b> needed to avoid re-narcotisation.</div></div>
+  <div class="fc"><div class="q">Q: Which opioid is sequestered ~75% by pulmonary first-pass?</div><div class="a">A: <b>Fentanyl</b> (not oxycodone). Affects onset/duration kinetics.</div></div>
+  <div class="fc"><div class="q">Q: Endogenous opioid ligands for μ, δ, κ?</div><div class="a">A: μ → β-endorphin, endomorphins. δ → enkephalins (also some μ). κ → dynorphins. All Gi-coupled.</div></div>
+</div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz" id="qz">
+<h2>📝 Rapid-Fire Quiz</h2>
+<div id="quizContainer"></div>
+<div class="qz-score" id="qzScore">Score: 0/0</div>
+<button id="qzReset" class="reset" style="margin-top:10px">Reset quiz</button>
+</section>
+
+</div>
+
+<script>
+// MOA WALKTHROUGH
+let curMoa=0;
+const moaSteps=document.querySelectorAll('#moaFlow .moa-step');
+document.getElementById('moaNext').addEventListener('click',()=>{
+  if(curMoa<moaSteps.length){moaSteps[curMoa].classList.add('revealed');curMoa++;}
+});
+document.getElementById('moaAll').addEventListener('click',()=>{
+  moaSteps.forEach(s=>s.classList.add('revealed'));curMoa=moaSteps.length;
+});
+document.getElementById('moaReset').addEventListener('click',()=>{
+  moaSteps.forEach(s=>s.classList.remove('revealed'));curMoa=0;
+});
+moaSteps.forEach(s=>s.addEventListener('click',e=>{
+  if(!e.target.closest('button'))s.classList.toggle('revealed');
+}));
+
+// METABOLISM CLICKS
+const metabData={
+  noroxy:"<b>Noroxycodone</b> — major metabolite (~45% of dose). N-demethylation by CYP3A4 (and CYP3A5). <b>Weak/negligible μ-receptor activity</b> → does not contribute meaningfully to analgesia. CYP3A4 inhibitors (clarithromycin, ketoconazole, ritonavir, grapefruit) reduce this pathway → divert to CYP2D6 → ↑ effect.",
+  oxymorph:"<b>Oxymorphone</b> — minor pathway (~10%) but <b>highly active: 14× more potent than parent at μ-receptor</b>. O-demethylation by CYP2D6. Subject to <b>deberisoquine polymorphism</b>: poor metabolisers (~7% Caucasians) → ↓ analgesia; ultra-rapid → toxicity. Inhibitors: fluoxetine, paroxetine, bupropion. <b>Accumulates in renal failure</b>.",
+  gluc:"<b>Oxycodone-glucuronide</b> — minor pathway, direct UGT conjugation (no CYP). Inactive. Renally excreted."
+};
+document.querySelectorAll('.metab-node[data-id]').forEach(n=>{
+  n.addEventListener('click',()=>{
+    document.querySelectorAll('.metab-node').forEach(x=>x.classList.remove('active'));
+    n.classList.add('active');
+    const d=document.getElementById('metabDetail');
+    d.innerHTML=metabData[n.dataset.id];
+    d.classList.remove('empty');
+  });
+});
+
+// FLASHCARDS
+document.querySelectorAll('.fc').forEach(c=>{
+  c.addEventListener('click',()=>c.classList.toggle('flipped'));
+});
+
+// QUIZ
+const quizData=[
+  {q:"Oxycodone oral bioavailability?",opts:["20-30%","40-50%","60-87%","~95%"],a:2},
+  {q:"Major CYP enzyme metabolising oxycodone to inactive noroxycodone?",opts:["CYP1A2","CYP2D6","CYP3A4","CYP2C9"],a:2},
+  {q:"Which metabolite is 14× more potent than oxycodone at μ-receptor?",opts:["Noroxycodone","Oxymorphone","Oxycodone-glucuronide","Norhydrocodone"],a:1},
+  {q:"Effect of CYP3A4 inhibitor on oxycodone clinical effect?",opts:["Significant decrease","No change","Significant increase","Variable, depends on race"],a:2},
+  {q:"Mechanism of constipation reduction in Targin (oxycodone/naloxone PR)?",opts:["Systemic naloxone partially reverses gut effects","Oral naloxone has <3% BA — gut μ-antagonism only","Naloxone increases gut motility directly","Oxycodone dose is lower in Targin"],a:1},
+  {q:"How does opioid affect the CO₂ response curve?",opts:["Flattens, no shift","Shifts left","Shifts right","No effect"],a:2},
+  {q:"What is the approximate t½ of IR oxycodone?",opts:["1-2 h","3-5 h","8-12 h","24 h"],a:1},
+  {q:"Which drug prevents/reverses opioid tolerance via NMDA antagonism?",opts:["Clonidine","Ketamine","Dexmedetomidine","Gabapentin"],a:1},
+  {q:"Vd of oxycodone?",opts:["0.4 L/kg","1.2 L/kg","2.6 L/kg","5.8 L/kg"],a:2},
+  {q:"Which opioid undergoes ~75% pulmonary first-pass sequestration?",opts:["Oxycodone","Morphine","Fentanyl","Tramadol"],a:2}
+];
+let qScore=0,qAnswered=0;
+const qc=document.getElementById('quizContainer');
+function renderQuiz(){
+  qc.innerHTML='';qScore=0;qAnswered=0;
+  quizData.forEach((q,i)=>{
+    const div=document.createElement('div');
+    div.className='qz-q';
+    div.innerHTML=`<div class="qt">Q${i+1}: ${q.q}</div><div class="qz-opts">${q.opts.map((o,j)=>`<div class="qz-opt" data-i="${i}" data-j="${j}">${String.fromCharCode(65+j)}. ${o}</div>`).join('')}</div>`;
+    qc.appendChild(div);
+  });
+  document.querySelectorAll('.qz-opt').forEach(opt=>{
+    opt.addEventListener('click',()=>{
+      const i=+opt.dataset.i,j=+opt.dataset.j;
+      const parent=opt.parentElement;
+      if(parent.classList.contains('answered'))return;
+      parent.classList.add('answered');
+      parent.querySelectorAll('.qz-opt').forEach((o,k)=>{
+        if(k===quizData[i].a)o.classList.add('correct');
+        else if(k===j)o.classList.add('wrong');
+      });
+      qAnswered++;
+      if(j===quizData[i].a)qScore++;
+      document.getElementById('qzScore').textContent=`Score: ${qScore}/${qAnswered} (${Math.round(qScore/qAnswered*100)}%)`;
+    });
+  });
+  document.getElementById('qzScore').textContent='Score: 0/0';
+}
+renderQuiz();
+document.getElementById('qzReset').addEventListener('click',renderQuiz);
+</script>
+
+</body>
+</html>

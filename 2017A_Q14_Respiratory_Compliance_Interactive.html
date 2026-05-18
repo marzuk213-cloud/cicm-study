@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<!-- Theme: oceanic | Topic: Respiratory Compliance | Session: /ts 2017A Q14 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Respiratory Compliance — 2017A Q14</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #051824;
+    color: #e0eff5;
+    line-height: 1.6;
+    padding: 20px 16px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 15px;
+  }
+  header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1e4256; }
+  h1 { font-size: 1.75rem; font-weight: 700; color: #67e8f9; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .sub { color: #94c5d6; font-size: 0.88rem; }
+  .sub strong { color: #e0eff5; }
+
+  nav.toc { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+  nav.toc a {
+    background: #0a2230; color: #c5dde6;
+    padding: 6px 12px; border-radius: 16px;
+    text-decoration: none; font-size: 0.82rem;
+    border: 1px solid #1e4256;
+    transition: all 0.2s;
+  }
+  nav.toc a:hover { background: #67e8f9; color: #051824; border-color: #67e8f9; }
+
+  section {
+    margin-bottom: 28px;
+    padding: 20px 22px;
+    border-radius: 12px;
+    border-left: 4px solid;
+    background: #0a1f2a;
+  }
+  section.s-cyan { border-left-color: #67e8f9; background: #0a212e; }
+  section.s-sky { border-left-color: #7dd3fc; background: #0a1f2c; }
+  section.s-teal { border-left-color: #2dd4bf; background: #0a2228; }
+  section.s-indigo { border-left-color: #818cf8; background: #0d1a2e; }
+  section.s-violet { border-left-color: #a78bfa; background: #100b2c; }
+  section.s-pink { border-left-color: #f472b6; background: #1a0c20; }
+  section.s-emerald { border-left-color: #34d399; background: #0a2118; }
+  section.s-amber { border-left-color: #fbbf24; background: #1c1408; }
+
+  h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.01em; }
+  section.s-cyan h2 { color: #67e8f9; }
+  section.s-sky h2 { color: #7dd3fc; }
+  section.s-teal h2 { color: #2dd4bf; }
+  section.s-indigo h2 { color: #a5b1f8; }
+  section.s-violet h2 { color: #c4b5fd; }
+  section.s-pink h2 { color: #f9a8d4; }
+  section.s-emerald h2 { color: #6ee7b7; }
+  section.s-amber h2 { color: #fcd34d; }
+
+  h3 { font-size: 1rem; color: #c5dde6; margin: 16px 0 8px; font-weight: 600; }
+
+  p { margin-bottom: 10px; }
+  ul, ol { margin: 6px 0 12px 22px; }
+  li { margin-bottom: 4px; }
+  strong { color: #ffffff; }
+  em { color: #94c5d6; font-style: normal; font-weight: 500; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px;
+    background: #061826;
+    font-size: 0.88rem;
+  }
+  th, td { padding: 9px 11px; text-align: left; border: 1px solid #1e4256; vertical-align: top; }
+  th { background: #0d2c3e; color: #e0eff5; font-weight: 600; font-size: 0.82rem; }
+  td { color: #d4e6ed; }
+  td.col-key { color: #67e8f9; font-weight: 600; }
+
+  /* Pills */
+  .pill { display: inline-block; padding: 2px 9px; border-radius: 11px; font-size: 0.74rem; font-weight: 600; margin-right: 4px; }
+  .pill-up { background: #052e1a; color: #6ee7b7; border: 1px solid #1f5d3d; }
+  .pill-down { background: #2d0d0d; color: #fca5a5; border: 1px solid #5d1f1f; }
+  .pill-var { background: #1c1408; color: #fcd34d; border: 1px solid #5d3f1f; }
+  .pill-key { background: #0a1f3a; color: #a5b1f8; border: 1px solid #2a3a6a; }
+
+  /* Callouts */
+  .callout { padding: 12px 14px; border-radius: 8px; margin: 12px 0; border-left: 3px solid; font-size: 0.92rem; }
+  .c-red { background: #2d0d0d; border-color: #ef4444; color: #fecaca; }
+  .c-red strong { color: #fef2f2; }
+  .c-amber { background: #2c1c08; border-color: #f59e0b; color: #fde68a; }
+  .c-amber strong { color: #fffbeb; }
+  .c-blue { background: #0a1d33; border-color: #3b82f6; color: #bfdbfe; }
+  .c-blue strong { color: #eff6ff; }
+  .c-purple { background: #1a0e2c; border-color: #a855f7; color: #ddd6fe; }
+  .c-purple strong { color: #f5f3ff; }
+  .c-green { background: #0a2118; border-color: #10b981; color: #a7f3d0; }
+  .c-green strong { color: #ecfdf5; }
+
+  /* PV curve interactive */
+  .pv-container { background: #061826; border-radius: 10px; padding: 18px; margin-top: 10px; border: 1px solid #1e4256; }
+  .pv-svg-wrap { display: flex; justify-content: center; margin-bottom: 14px; }
+  svg#pvSvg { width: 100%; max-width: 480px; height: auto; }
+  .pv-controls { margin-top: 14px; }
+  .pv-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .pv-btn {
+    background: #0d2c3e; color: #c5dde6;
+    border: 1px solid #2a4a5e; padding: 7px 14px;
+    border-radius: 6px; cursor: pointer; font-size: 0.85rem;
+    font-family: inherit; transition: all 0.2s;
+  }
+  .pv-btn:hover { background: #1a3e54; }
+  .pv-btn.active { background: #67e8f9; color: #051824; border-color: #67e8f9; font-weight: 600; }
+  .pv-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 12px; }
+  .stat-card { background: #0d2c3e; padding: 10px 12px; border-radius: 6px; border: 1px solid #1e4256; }
+  .stat-label { font-size: 0.74rem; color: #94c5d6; text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat-val { font-size: 1.1rem; color: #67e8f9; font-weight: 700; margin-top: 2px; }
+  .pv-readout { background: #0a1f2a; padding: 10px 14px; border-radius: 6px; margin-top: 10px; font-size: 0.88rem; border-left: 3px solid #67e8f9; }
+
+  /* Ventilator waveform */
+  .vent-container { background: #061826; border-radius: 10px; padding: 18px; margin-top: 10px; border: 1px solid #1e4256; }
+  svg#ventSvg { width: 100%; max-width: 520px; height: auto; display: block; margin: 0 auto; }
+  .vent-eq { background: #0d2c3e; padding: 12px 14px; border-radius: 6px; margin-top: 12px; font-family: "SF Mono", Monaco, Consolas, monospace; font-size: 0.85rem; }
+  .vent-eq .eq-line { margin: 4px 0; }
+  .vent-eq .label { color: #94c5d6; }
+  .vent-eq .val { color: #6ee7b7; font-weight: 600; }
+  .vent-eq .res { color: #67e8f9; font-weight: 700; }
+
+  /* Walkthrough steps */
+  .flow { margin: 14px 0; }
+  .step {
+    background: #0d2c3e; padding: 12px 14px; border-radius: 8px;
+    margin-bottom: 10px; border-left: 3px solid #2a4a5e;
+    opacity: 0.5; transition: all 0.3s;
+  }
+  .step.revealed { opacity: 1; border-left-color: #67e8f9; }
+  .step .num {
+    display: inline-block; background: #67e8f9; color: #051824;
+    width: 22px; height: 22px; border-radius: 50%;
+    text-align: center; line-height: 22px; font-weight: 700;
+    font-size: 0.78rem; margin-right: 8px;
+  }
+  .step .title { font-weight: 600; color: #e0eff5; }
+  .step .detail { display: none; margin-top: 8px; color: #c5dde6; font-size: 0.9rem; }
+  .step.revealed .detail { display: block; }
+  .flow-controls { display: flex; gap: 8px; margin-top: 12px; }
+  .flow-btn {
+    background: #0d2c3e; color: #c5dde6;
+    border: 1px solid #2a4a5e; padding: 7px 14px;
+    border-radius: 6px; cursor: pointer; font-size: 0.85rem;
+    font-family: inherit;
+  }
+  .flow-btn:hover { background: #1a3e54; }
+
+  /* Numbers grid */
+  .nums-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+  .num-card { background: #1c1408; padding: 12px; border-radius: 8px; border: 1px solid #5d3f1f; text-align: center; }
+  .num-val { font-size: 1.3rem; color: #fcd34d; font-weight: 700; }
+  .num-lab { font-size: 0.78rem; color: #fde68a; margin-top: 4px; }
+
+  /* Flashcards */
+  .fc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+  .fc {
+    background: #0d2c3e; border-radius: 8px; padding: 14px;
+    cursor: pointer; border: 1px solid #2a4a5e;
+    transition: all 0.2s; min-height: 90px;
+  }
+  .fc:hover { border-color: #67e8f9; transform: translateY(-1px); }
+  .fc .q { color: #c5dde6; font-size: 0.9rem; font-weight: 500; }
+  .fc .a { display: none; color: #6ee7b7; font-size: 0.88rem; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #2a4a5e; }
+  .fc.flipped .a { display: block; }
+  .fc.flipped { background: #0a2118; border-color: #34d399; }
+
+  /* Quiz */
+  .quiz-q { background: #1a0e2c; padding: 14px 16px; border-radius: 8px; margin-bottom: 10px; border-left: 3px solid #a855f7; }
+  .quiz-q .qt { font-weight: 600; color: #ddd6fe; margin-bottom: 10px; font-size: 0.95rem; }
+  .quiz-opts { display: flex; flex-direction: column; gap: 6px; }
+  .quiz-opt {
+    background: #0d0820; padding: 8px 12px; border-radius: 5px;
+    border: 1px solid #3a2a5a; cursor: pointer;
+    font-size: 0.88rem; color: #ddd6fe;
+    transition: all 0.15s;
+  }
+  .quiz-opt:hover { background: #1a124a; border-color: #a855f7; }
+  .quiz-opt.correct { background: #0a2118; border-color: #10b981; color: #6ee7b7; }
+  .quiz-opt.wrong { background: #2d0d0d; border-color: #ef4444; color: #fca5a5; }
+  .quiz-opt.locked { cursor: default; pointer-events: none; }
+  .quiz-explain { display: none; margin-top: 10px; padding: 10px; background: #0a1d33; border-radius: 5px; font-size: 0.85rem; color: #bfdbfe; border-left: 3px solid #3b82f6; }
+  .quiz-explain.shown { display: block; }
+  #scorebox {
+    background: #0a212e; padding: 14px 18px; border-radius: 10px;
+    margin-bottom: 16px; border: 1px solid #2a4a5e;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .score-label { font-size: 0.85rem; color: #94c5d6; }
+  .score-val { font-size: 1.5rem; color: #67e8f9; font-weight: 700; }
+  #resetQuiz {
+    background: #2a4a5e; color: #c5dde6; border: none;
+    padding: 6px 12px; border-radius: 5px; cursor: pointer;
+    font-family: inherit; font-size: 0.82rem;
+  }
+  #resetQuiz:hover { background: #1a3e54; }
+
+  /* Misc */
+  .eq-inline {
+    font-family: "SF Mono", Monaco, Consolas, monospace;
+    background: #0d2c3e; padding: 2px 8px; border-radius: 4px;
+    color: #67e8f9; font-size: 0.88em;
+  }
+  .anchor {
+    background: #1c1408; padding: 10px 14px; border-radius: 6px;
+    margin: 10px 0; border-left: 3px solid #f59e0b;
+    font-weight: 600; color: #fcd34d; font-size: 0.92rem;
+  }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🫁 Respiratory Compliance</h1>
+  <p class="sub">
+    <strong>2017A Q14</strong> · 54% pass · Plus <strong>5 other sittings</strong> (14–51%) · Syllabus <strong>F3.ii</strong> · Your history: <strong>13/20 → 12.5/20</strong> · This round: target <strong>15+</strong>
+  </p>
+</header>
+
+<nav class="toc">
+  <a href="#fw">Framework</a>
+  <a href="#pv">PV Curve</a>
+  <a href="#vent">Vent Measurement</a>
+  <a href="#def">Definitions</a>
+  <a href="#sd">Static vs Dynamic</a>
+  <a href="#surf">Surfactant</a>
+  <a href="#fac">Factors</a>
+  <a href="#pit">Pitfalls</a>
+  <a href="#nm">Numbers</a>
+  <a href="#fc">Flashcards</a>
+  <a href="#qz">Quiz</a>
+</nav>
+
+<!-- ================== FRAMEWORK ================== -->
+<section id="fw" class="s-cyan">
+  <h2>⚡ Quick-Glance SAQ Framework (Write This First — Opens 30 s)</h2>
+  <p class="sub" style="margin-bottom: 10px;">10-min paper plan. Hit every row, then fill with mechanism. Skipping any one row = lose 3–4 marks.</p>
+  <table>
+    <thead>
+      <tr><th>Section</th><th>~%</th><th>Headings to write</th><th>Landmines / buzzwords</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-key">Definitions</td>
+        <td>15%</td>
+        <td>ΔV/ΔP · units mL/cmH₂O · Elastance = 1/C · 3 compliances · series eq · specific C</td>
+        <td>Forgetting units. Forgetting <em>elastance</em> as reciprocal.</td>
+      </tr>
+      <tr>
+        <td class="col-key">PV curve + hysteresis</td>
+        <td>10%</td>
+        <td>Sigmoid · max at FRC · BOTH limbs · surfactant recruitment</td>
+        <td>Drawing only one limb. Not labelling FRC.</td>
+      </tr>
+      <tr>
+        <td class="col-key">Static vs Dynamic</td>
+        <td>15%</td>
+        <td>Zero flow (elastic only) vs tidal (incl. resistance) · Cstat ≥ Cdyn</td>
+        <td><strong>2014A flagged this gap.</strong> Frequency dependence (τ = R×C).</td>
+      </tr>
+      <tr>
+        <td class="col-key">Lung factors</td>
+        <td>20%</td>
+        <td>Surfactant · volume · PBV · fibrosis · emphysema · oedema · atelectasis · age · posture</td>
+        <td><strong>EXPLAIN HOW.</strong> Don't list. Fibrosis ↓CL / emphysema ↑CL — anchor pair.</td>
+      </tr>
+      <tr>
+        <td class="col-key">Chest wall factors</td>
+        <td>20%</td>
+        <td>Obesity · pregnancy · burns · kyphoscoliosis · prone (60%↓) · IAP · effusion · flail · CTD · neonatal</td>
+        <td><strong>Bifurcate explicitly from lung.</strong> Don't merge into one list — 2017A examiner specifically rewarded this.</td>
+      </tr>
+      <tr>
+        <td class="col-key">Measurement</td>
+        <td>20%</td>
+        <td>Super-syringe · inspiratory hold (Pplat) · oesophageal balloon · Cdyn from Ppeak</td>
+        <td><strong>2011B = 70% of marks.</strong> Specify <em>how</em> pressures + volumes measured.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="anchor">🔑 Anchor sentence: "Fibrosis = stiff = ↑recoil = ↓C&nbsp;&nbsp;|&nbsp;&nbsp;Emphysema = floppy = ↓recoil = ↑C"</div>
+</section>
+
+<!-- ================== PV CURVE INTERACTIVE ================== -->
+<section id="pv" class="s-sky">
+  <h2>📈 PV Curve — Drag the disease slider</h2>
+  <p>Click the buttons below to morph the PV curve from normal lung to disease states. Watch <em>slope</em> (compliance), <em>position</em>, and <em>shape</em> change in real time.</p>
+
+  <div class="pv-container">
+    <div class="pv-svg-wrap">
+      <svg id="pvSvg" viewBox="0 0 480 360">
+        <!-- Axes -->
+        <line x1="60" y1="320" x2="450" y2="320" stroke="#94c5d6" stroke-width="1.5"/>
+        <line x1="60" y1="40" x2="60" y2="320" stroke="#94c5d6" stroke-width="1.5"/>
+        <!-- Axis labels -->
+        <text x="255" y="350" fill="#c5dde6" font-size="13" text-anchor="middle">Transpulmonary Pressure (cmH₂O)</text>
+        <text x="20" y="180" fill="#c5dde6" font-size="13" text-anchor="middle" transform="rotate(-90, 20, 180)">Volume</text>
+        <!-- Volume markers -->
+        <text x="55" y="60" fill="#94c5d6" font-size="11" text-anchor="end">TLC</text>
+        <text x="55" y="220" fill="#94c5d6" font-size="11" text-anchor="end">FRC</text>
+        <text x="55" y="320" fill="#94c5d6" font-size="11" text-anchor="end">RV</text>
+        <!-- FRC dashed -->
+        <line x1="60" y1="220" x2="450" y2="220" stroke="#1e4256" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Inflation curve -->
+        <path id="curveInf" d="" fill="none" stroke="#67e8f9" stroke-width="2.5"/>
+        <!-- Deflation curve (hysteresis) -->
+        <path id="curveDef" d="" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="4,3"/>
+        <!-- Slope marker (compliance tangent at FRC) -->
+        <line id="slopeLine" x1="0" y1="0" x2="0" y2="0" stroke="#fcd34d" stroke-width="1.5" stroke-dasharray="2,2"/>
+        <!-- Legend -->
+        <rect x="320" y="50" width="14" height="2" fill="#67e8f9"/>
+        <text x="340" y="55" fill="#c5dde6" font-size="11">Inflation</text>
+        <rect x="320" y="68" width="14" height="2" fill="#a78bfa"/>
+        <text x="340" y="73" fill="#c5dde6" font-size="11">Deflation</text>
+        <line x1="320" y1="86" x2="334" y2="86" stroke="#fcd34d" stroke-width="1.5" stroke-dasharray="2,2"/>
+        <text x="340" y="91" fill="#c5dde6" font-size="11">Slope @ FRC</text>
+      </svg>
+    </div>
+
+    <div class="pv-buttons">
+      <button class="pv-btn active" data-state="normal">Normal</button>
+      <button class="pv-btn" data-state="ards">ARDS</button>
+      <button class="pv-btn" data-state="fibrosis">Fibrosis</button>
+      <button class="pv-btn" data-state="emphysema">Emphysema</button>
+      <button class="pv-btn" data-state="oedema">Pulm Oedema</button>
+    </div>
+
+    <div class="pv-stats">
+      <div class="stat-card">
+        <div class="stat-label">CL (mL/cmH₂O)</div>
+        <div class="stat-val" id="statCL">200</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Recoil</div>
+        <div class="stat-val" id="statRecoil">Normal</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">FRC shift</div>
+        <div class="stat-val" id="statFRC">Normal</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Hysteresis</div>
+        <div class="stat-val" id="statHyst">Present</div>
+      </div>
+    </div>
+
+    <div class="pv-readout" id="pvReadout">
+      <strong>Normal lung:</strong> Sigmoid curve, maximal compliance at FRC, deflation limb above inflation (hysteresis from surfactant recruitment + tissue viscoelasticity).
+    </div>
+  </div>
+</section>
+
+<!-- ================== VENT WAVEFORM ================== -->
+<section id="vent" class="s-teal">
+  <h2>📊 Bedside Measurement — Ventilator Waveform</h2>
+  <p>Inspiratory hold on a vented patient. <strong>Pplat</strong> at zero flow → Cstat (elastic only). <strong>Ppeak</strong> during flow → Cdyn (includes resistance). The <em>gap between them</em> = airway resistance.</p>
+
+  <div class="vent-container">
+    <svg id="ventSvg" viewBox="0 0 520 240">
+      <!-- Axes -->
+      <line x1="50" y1="200" x2="500" y2="200" stroke="#94c5d6" stroke-width="1.5"/>
+      <line x1="50" y1="30" x2="50" y2="200" stroke="#94c5d6" stroke-width="1.5"/>
+      <text x="275" y="225" fill="#c5dde6" font-size="12" text-anchor="middle">Time →</text>
+      <text x="22" y="115" fill="#c5dde6" font-size="12" text-anchor="middle" transform="rotate(-90, 22, 115)">Paw (cmH₂O)</text>
+
+      <!-- PEEP baseline -->
+      <line x1="50" y1="180" x2="500" y2="180" stroke="#34d399" stroke-width="1" stroke-dasharray="2,3"/>
+      <text x="55" y="195" fill="#6ee7b7" font-size="10">PEEP = 5</text>
+
+      <!-- Inspiration ramp + Ppeak spike + plateau + decay -->
+      <path d="M 50 180 L 80 180 L 180 70 L 200 50 L 220 80 L 350 80 L 360 180 L 500 180"
+            fill="none" stroke="#67e8f9" stroke-width="2"/>
+
+      <!-- Ppeak marker -->
+      <line x1="200" y1="200" x2="200" y2="50" stroke="#f472b6" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="200" y="42" fill="#f9a8d4" font-size="11" text-anchor="middle">Ppeak ≈ 28</text>
+
+      <!-- Pplat marker -->
+      <line x1="280" y1="200" x2="280" y2="80" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="280" y="72" fill="#fcd34d" font-size="11" text-anchor="middle">Pplat ≈ 20</text>
+
+      <!-- Inspiratory hold annotation -->
+      <line x1="220" y1="60" x2="350" y2="60" stroke="#a78bfa" stroke-width="1"/>
+      <text x="285" y="55" fill="#c4b5fd" font-size="10" text-anchor="middle">Inspiratory hold (zero flow)</text>
+
+      <!-- Resistance gap -->
+      <text x="240" y="105" fill="#f9a8d4" font-size="10">Ppeak − Pplat = Resistive</text>
+    </svg>
+
+    <div class="vent-eq">
+      <div class="eq-line"><span class="label">Vt</span> = 500 mL · <span class="label">PEEP</span> = 5 · <span class="label">Ppeak</span> = 28 · <span class="label">Pplat</span> = 20</div>
+      <div class="eq-line"><span class="label">Cstat</span> = Vt / (Pplat − PEEP) = 500 / (20 − 5) = <span class="res">33 mL/cmH₂O</span></div>
+      <div class="eq-line"><span class="label">Cdyn</span> = Vt / (Ppeak − PEEP) = 500 / (28 − 5) = <span class="res">22 mL/cmH₂O</span></div>
+      <div class="eq-line"><span class="label">Cstat − Cdyn</span> gap widens with ↑ R<sub>aw</sub> or heterogeneous lung disease (asthma, ARDS).</div>
+    </div>
+
+    <div class="callout c-purple" style="margin-top: 14px;">
+      <strong>Oesophageal balloon</strong> → partitions lung from chest wall: CL = Vt / (Pplat − Poes); Ccw = Vt / Poes. Used in advanced ARDS.
+    </div>
+  </div>
+</section>
+
+<!-- ================== DEFINITIONS ================== -->
+<section id="def" class="s-indigo">
+  <h2>📐 Definitions & Components</h2>
+  <div class="callout c-blue">
+    <strong>Compliance = ΔV / ΔP</strong> · units <strong>mL/cmH₂O</strong>. <em>Elastance = 1/C = ΔP/ΔV</em>. High C = floppy lung; low C = stiff lung.
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Compliance</th><th>Equation</th><th>ΔP used</th><th>Normal (mL/cmH₂O)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="col-key">Lung (CL)</td><td>ΔV / ΔP<sub>TP</sub></td><td>P<sub>ALV</sub> − P<sub>PL</sub></td><td><strong>~200</strong></td></tr>
+      <tr><td class="col-key">Chest wall (Ccw)</td><td>ΔV / ΔP<sub>TT</sub></td><td>P<sub>PL</sub> − P<sub>BS</sub></td><td><strong>~200</strong></td></tr>
+      <tr><td class="col-key">Total resp (Crs)</td><td>ΔV / ΔP<sub>TR</sub></td><td>P<sub>ALV</sub> − P<sub>BS</sub></td><td><strong>~100</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout c-green">
+    <strong>In series:</strong> <span class="eq-inline">1/Crs = 1/CL + 1/Ccw</span> → <span class="eq-inline">1/100 = 1/200 + 1/200</span> ✓
+  </div>
+
+  <p><strong>Specific compliance</strong> = CL / FRC ≈ <strong>0.05 cmH₂O⁻¹</strong>. Size-corrected — allows comparison between patients of different lung volumes. Matters because absolute C scales with lung size.</p>
+</section>
+
+<!-- ================== STATIC vs DYNAMIC ================== -->
+<section id="sd" class="s-violet">
+  <h2>⏱️ Static vs Dynamic Compliance</h2>
+  <div class="callout c-amber">
+    <strong>2014A 15 examiner pearl (34% pass):</strong> "Many candidates failed to clearly demonstrate the difference between static and dynamic compliance. Many had little knowledge of how compliance is measured."
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <h3>Static (Cstat)</h3>
+      <ul>
+        <li><strong>Zero-flow</strong> conditions (inspiratory hold)</li>
+        <li>Reflects <strong>elastic properties only</strong></li>
+        <li>Cstat = Vt / (Pplat − PEEPtot)</li>
+        <li>Used to guide PEEP / lung-protective ventilation</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Dynamic (Cdyn)</h3>
+      <ul>
+        <li>Measured during <strong>tidal breathing</strong></li>
+        <li>Includes <strong>airway resistance</strong> component</li>
+        <li>Cdyn = Vt / (Ppeak − PEEPtot)</li>
+        <li><strong>Frequency-dependent:</strong> ↑RR → long τ alveoli can't fill → effective C falls</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout c-blue">
+    <strong>Cstat ≥ Cdyn always.</strong> Gap widens with ↑R<sub>aw</sub>, ↑RR, heterogeneous disease (asthma, ARDS). Time constant <span class="eq-inline">τ = R × C</span>.
+  </div>
+</section>
+
+<!-- ================== SURFACTANT WALKTHROUGH ================== -->
+<section id="surf" class="s-pink">
+  <h2>🧪 Surfactant — Laplace Mechanism (Click "Next" to reveal)</h2>
+  <p><strong>Composition:</strong> 85% phospholipid (DPPC main surface-active) · 10% protein (SP-A, B, C, D) · 5% neutral lipid. Made by Type II pneumocytes.</p>
+
+  <div class="flow" id="surfFlow">
+    <div class="step" data-step="1">
+      <span class="num">1</span><span class="title">Laplace's law applied to alveoli</span>
+      <div class="detail">P = 2T/r. For a liquid sphere, <em>smaller</em> radius → <em>higher</em> collapse pressure. Without surfactant: small alveoli would empty into larger ones (Pascal's network effect).</div>
+    </div>
+    <div class="step" data-step="2">
+      <span class="num">2</span><span class="title">Surfactant orientation at the air-liquid interface</span>
+      <div class="detail">Hydrophilic head sits in aqueous phase, hydrophobic tail projects into airspace. Disrupts intermolecular water H-bonds → reduces surface tension.</div>
+    </div>
+    <div class="step" data-step="3">
+      <span class="num">3</span><span class="title">Concentration effect (the key examiner point)</span>
+      <div class="detail">As alveolus shrinks, surfactant molecules are <strong>pushed closer together</strong> → tension-lowering effect is <em>more potent at smaller radii</em>. Result: T falls faster than r → P stays stable → alveolus doesn't collapse.</div>
+    </div>
+    <div class="step" data-step="4">
+      <span class="num">4</span><span class="title">Multi-functional consequences</span>
+      <div class="detail">↓ Surface tension → ↑ Lung compliance · maintains FRC · provides hysteresis · stabilises alveoli (prevents derecruitment) · opposes Starling forces (keeps fluid out of alveoli).</div>
+    </div>
+    <div class="step" data-step="5">
+      <span class="num">5</span><span class="title">Causes of surfactant deficiency → ↓CL</span>
+      <div class="detail"><strong>IRDS</strong> (premature, type II immaturity) · <strong>ARDS</strong> (plasma protein inactivation) · smoke inhalation · near-drowning · prolonged bypass (washout).</div>
+    </div>
+  </div>
+
+  <div class="flow-controls">
+    <button class="flow-btn" id="surfNext">Next ▼</button>
+    <button class="flow-btn" id="surfAll">Reveal all</button>
+    <button class="flow-btn" id="surfReset">Reset</button>
+  </div>
+</section>
+
+<!-- ================== FACTORS ================== -->
+<section id="fac" class="s-emerald">
+  <h2>🔀 Factors — BIFURCATE Lung vs Chest Wall (the 2017A mark-winner)</h2>
+  <div class="callout c-red">
+    <strong>2017A 14 / 2022A 03 examiner pearl:</strong> "Most candidates provided less than half of these factors and only provided a <em>list</em> rather than <em>explaining how</em> compliance was impacted. Marks were maximised by <strong>dividing impacts into lung vs chest wall</strong>, and the better candidates explained <strong>how and why</strong>."
+  </div>
+
+  <h3>🫁 LUNG factors</h3>
+  <table>
+    <thead><tr><th>Factor</th><th>Effect</th><th>Mechanism</th></tr></thead>
+    <tbody>
+      <tr><td class="col-key">Lung volume</td><td><span class="pill pill-var">Variable</span></td><td>Sigmoid PV — max at FRC; ↓ at extremes (overdistension or closure)</td></tr>
+      <tr><td class="col-key">Surfactant</td><td><span class="pill pill-down">↓ → ↓CL</span></td><td>↑ surface tension → ↑ elastic recoil → ↓CL</td></tr>
+      <tr><td class="col-key">Pulm blood volume</td><td><span class="pill pill-down">↑PBV → ↓CL</span></td><td>Engorgement = stiff lung. LVF, supine, Trendelenburg. <strong>ICU link.</strong></td></tr>
+      <tr><td class="col-key">Fibrosis</td><td><span class="pill pill-down">↓CL</span></td><td>Thickened BM + collagen deposition → <strong>stiff = ↑recoil = ↓CL</strong></td></tr>
+      <tr><td class="col-key">Emphysema</td><td><span class="pill pill-up">↑CL</span></td><td>↓ elastic tissue → <strong>floppy = ↓recoil = ↑CL</strong></td></tr>
+      <tr><td class="col-key">Pulm oedema</td><td><span class="pill pill-down">↓CL</span></td><td>Alveolar/interstitial fluid + surfactant inactivation</td></tr>
+      <tr><td class="col-key">Atelectasis / pneumonia</td><td><span class="pill pill-down">↓CL</span></td><td>Loss of alveolar units; small uncollapsed alveoli need higher P</td></tr>
+      <tr><td class="col-key">Age (older)</td><td><span class="pill pill-up">↑CL</span></td><td>↓ elastic tissue (but ↑ closing capacity)</td></tr>
+      <tr><td class="col-key">Posture (supine)</td><td><span class="pill pill-down">↓CL</span></td><td>↑PBV; diaphragm pushed cephalad</td></tr>
+    </tbody>
+  </table>
+
+  <h3>🦴 CHEST WALL factors</h3>
+  <table>
+    <thead><tr><th>Factor</th><th>Effect</th><th>Mechanism</th></tr></thead>
+    <tbody>
+      <tr><td class="col-key">Obesity</td><td><span class="pill pill-down">↓Ccw</span></td><td>Mass loading + abdominal pressure</td></tr>
+      <tr><td class="col-key">Pregnancy</td><td><span class="pill pill-down">↓Ccw</span></td><td>Gravid uterus → ↑IAP → diaphragm splinting</td></tr>
+      <tr><td class="col-key">Circumferential burns</td><td><span class="pill pill-down">↓Ccw</span></td><td>Eschar tightens chest — escharotomy indication</td></tr>
+      <tr><td class="col-key">Kyphoscoliosis / ossified cartilage</td><td><span class="pill pill-down">↓Ccw</span></td><td>Fixed thoracic deformity</td></tr>
+      <tr><td class="col-key">Prone position</td><td><span class="pill pill-down">↓Ccw (~60%)</span></td><td>Restricts anterior chest expansion</td></tr>
+      <tr><td class="col-key">Abdominal distension / IAH</td><td><span class="pill pill-down">↓Ccw</span></td><td>↑IAP → diaphragm splinting</td></tr>
+      <tr><td class="col-key">Effusion / pneumothorax</td><td><span class="pill pill-down">↓Ccw</span></td><td>Reduces functional volume</td></tr>
+      <tr><td class="col-key">Flail chest / sternotomy</td><td><span class="pill pill-up">↑Ccw</span></td><td>Loss of structural integrity</td></tr>
+      <tr><td class="col-key">CT diseases (Marfan, EDS)</td><td><span class="pill pill-up">↑Ccw</span></td><td>↑ extensibility of connective tissues</td></tr>
+      <tr><td class="col-key">Neonatal</td><td><span class="pill pill-up">↑Ccw vs adult</span></td><td>Cartilaginous ribs + underdeveloped CW muscles</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ================== PITFALLS ================== -->
+<section id="pit" class="s-amber">
+  <h2>⚠️ Examiner Pitfalls — Free Marks Lost By Most Candidates</h2>
+  <div class="callout c-red">
+    <strong>1. Reversing the recoil-compliance arrows.</strong> Fibrosis = stiff = ↑recoil = ↓CL. Emphysema = floppy = ↓recoil = ↑CL. <em>(Your prior attempts had this reversed — anchor it.)</em>
+  </div>
+  <div class="callout c-red">
+    <strong>2. Listing without explaining mechanism.</strong> Every factor needs a "because…" clause. "Obesity ↓Ccw <em>because</em> mass loading + ↑IAP."
+  </div>
+  <div class="callout c-red">
+    <strong>3. Not bifurcating lung vs chest wall.</strong> Use two separate tables/sections. Examiner explicitly rewards this division.
+  </div>
+  <div class="callout c-red">
+    <strong>4. Missing measurement methodology.</strong> 2011B made measurement worth 70% of marks. Specify <em>how</em> Pplat, Ppeak, PEEP, Vt, Poes are measured.
+  </div>
+  <div class="callout c-amber">
+    <strong>5. Hysteresis with one limb only.</strong> Must draw BOTH inflation and deflation. Deflation sits above inflation. Causes: surfactant recruitment, viscoelasticity, alveolar recruitment.
+  </div>
+  <div class="callout c-amber">
+    <strong>6. Forgetting the freebies.</strong> Units (mL/cmH₂O), elastance = 1/C, specific compliance (C/FRC), series equation 1/Crs = 1/CL + 1/Ccw — all explicit easy marks.
+  </div>
+</section>
+
+<!-- ================== NUMBERS ================== -->
+<section id="nm" class="s-amber">
+  <h2>🔢 High-Yield Numbers — Lock These In</h2>
+  <div class="nums-grid">
+    <div class="num-card"><div class="num-val">200</div><div class="num-lab">CL (mL/cmH₂O)</div></div>
+    <div class="num-card"><div class="num-val">200</div><div class="num-lab">Ccw (mL/cmH₂O)</div></div>
+    <div class="num-card"><div class="num-val">100</div><div class="num-lab">Crs (mL/cmH₂O)</div></div>
+    <div class="num-card"><div class="num-val">0.05</div><div class="num-lab">Specific C (cmH₂O⁻¹)</div></div>
+    <div class="num-card"><div class="num-val">85 / 10 / 5</div><div class="num-lab">Surfactant PL / Protein / Lipid (%)</div></div>
+    <div class="num-card"><div class="num-val">DPPC</div><div class="num-lab">Main surface-active phospholipid</div></div>
+    <div class="num-card"><div class="num-val">60%</div><div class="num-lab">Ccw reduction in prone</div></div>
+    <div class="num-card"><div class="num-val">τ = R×C</div><div class="num-lab">Time constant equation</div></div>
+    <div class="num-card"><div class="num-val">FRC</div><div class="num-lab">Maximum compliance on PV curve</div></div>
+    <div class="num-card"><div class="num-val">Type II</div><div class="num-lab">Surfactant-producing pneumocyte</div></div>
+  </div>
+</section>
+
+<!-- ================== FLASHCARDS ================== -->
+<section id="fc" class="s-pink">
+  <h2>🃏 Flashcards — Tap to flip (12 cards, targets prior weak areas)</h2>
+  <div class="fc-grid" id="fcGrid">
+    <div class="fc"><div class="q">Define respiratory compliance with units.</div><div class="a">Compliance = ΔV/ΔP, mL/cmH₂O. It is the reciprocal of elastance.</div></div>
+    <div class="fc"><div class="q">State the series equation for total respiratory compliance.</div><div class="a">1/Crs = 1/CL + 1/Ccw. With Crs ≈ 100, CL ≈ 200, Ccw ≈ 200, the equation balances.</div></div>
+    <div class="fc"><div class="q">Define specific compliance and why it matters.</div><div class="a">Specific C = CL / FRC (~0.05 cmH₂O⁻¹). Size-corrected — allows comparison between patients of different lung volumes since absolute C scales with lung size.</div></div>
+    <div class="fc"><div class="q">FIBROSIS — arrow direction for recoil and compliance?</div><div class="a">Fibrosis = STIFF = ↑ elastic recoil = ↓ CL. (Anchor: stiff lung needs more pressure for same volume.)</div></div>
+    <div class="fc"><div class="q">EMPHYSEMA — arrow direction for recoil and compliance?</div><div class="a">Emphysema = FLOPPY = ↓ elastic recoil = ↑ CL. (Loss of elastic tissue.)</div></div>
+    <div class="fc"><div class="q">Why does Cstat ≥ Cdyn always?</div><div class="a">Cstat is measured at zero flow (elastic only). Cdyn is measured during flow and additionally includes airway resistance, so the denominator (Ppeak − PEEP) is larger.</div></div>
+    <div class="fc"><div class="q">How does surfactant work via Laplace's law? (Concentration effect)</div><div class="a">As alveolus shrinks, surfactant molecules are pushed closer together → tension-lowering effect is more potent at smaller radii. T falls faster than r → P stays stable → small alveoli don't collapse into large.</div></div>
+    <div class="fc"><div class="q">Why does pulmonary blood volume ↑ reduce CL?</div><div class="a">Vascular engorgement increases lung tissue stiffness (interstitial pressure rises, vessels physically take space). Seen in LVF, supine, Trendelenburg, fluid overload.</div></div>
+    <div class="fc"><div class="q">How is Cstat measured on a ventilator (with equation)?</div><div class="a">Inspiratory hold (≥0.5s) until flow stops → read plateau pressure (Pplat). Cstat = Vt / (Pplat − PEEPtot).</div></div>
+    <div class="fc"><div class="q">How does oesophageal balloon allow partitioning into CL vs Ccw?</div><div class="a">Poes ≈ Ppl. Therefore CL = Vt / (Pplat − Poes); Ccw = Vt / Poes. Used in advanced ARDS strategies.</div></div>
+    <div class="fc"><div class="q">Why does frequency-dependent compliance fall with ↑RR in heterogeneous lung disease?</div><div class="a">Units with long time constants (τ = R×C, e.g., fibrotic or partially obstructed alveoli) cannot fill at high RR. Volume distributes only to fast units → apparent Cdyn falls.</div></div>
+    <div class="fc"><div class="q">Two causes of ↑ chest wall compliance.</div><div class="a">Flail chest / sternotomy (loss of structural integrity); connective tissue diseases like Marfan/EDS (↑ extensibility); also neonates relative to adults (cartilaginous ribs).</div></div>
+  </div>
+</section>
+
+<!-- ================== QUIZ ================== -->
+<section id="qz" class="s-violet">
+  <h2>🎯 Rapid-Fire Quiz</h2>
+  <div id="scorebox">
+    <div>
+      <div class="score-label">Score</div>
+      <div class="score-val"><span id="scoreNum">0</span> / <span id="scoreTotal">8</span></div>
+    </div>
+    <button id="resetQuiz">Reset</button>
+  </div>
+  <div id="quizContainer"></div>
+</section>
+
+<script>
+// ============== PV CURVE INTERACTIVE ==============
+const pvStates = {
+  normal: {
+    inf: 'M 60 320 Q 90 318, 120 305 Q 160 290, 200 240 Q 240 175, 280 130 Q 330 85, 380 70 Q 420 65, 450 62',
+    def: 'M 60 320 Q 95 315, 125 290 Q 165 250, 205 200 Q 245 145, 285 110 Q 335 75, 385 65 Q 425 62, 450 62',
+    cl: 200, recoil: 'Normal', frc: 'Normal', hyst: 'Present',
+    txt: '<strong>Normal lung:</strong> Sigmoid curve, max compliance at FRC, hysteresis loop present (surfactant + viscoelasticity).'
+  },
+  ards: {
+    inf: 'M 60 320 Q 110 320, 160 318 Q 220 312, 280 270 Q 320 230, 360 200 Q 400 180, 450 172',
+    def: 'M 60 320 Q 115 318, 170 305 Q 230 280, 290 240 Q 330 210, 370 190 Q 410 178, 450 172',
+    cl: 30, recoil: '↑↑', frc: '↓↓', hyst: 'Wide loop',
+    txt: '<strong>ARDS:</strong> Shifted right + down, lower inflection (start of recruitment), upper inflection (overdistension). Compliance dramatically reduced. Hysteresis loop wide due to recruitment.'
+  },
+  fibrosis: {
+    inf: 'M 60 320 Q 110 318, 160 308 Q 220 295, 280 270 Q 320 250, 360 235 Q 400 225, 450 220',
+    def: 'M 60 320 Q 115 315, 170 298 Q 230 280, 290 258 Q 330 245, 370 232 Q 410 224, 450 220',
+    cl: 50, recoil: '↑↑', frc: '↓',
+    hyst: 'Reduced',
+    txt: '<strong>Fibrosis:</strong> STIFF lung = ↑elastic recoil = ↓CL. Curve flattens and shifts right. Reduced TLC.'
+  },
+  emphysema: {
+    inf: 'M 60 320 Q 80 310, 100 280 Q 130 220, 170 150 Q 220 90, 280 60 Q 360 45, 450 42',
+    def: 'M 60 320 Q 85 305, 110 260 Q 140 190, 180 130 Q 230 75, 290 50 Q 365 42, 450 42',
+    cl: 350, recoil: '↓↓', frc: '↑↑', hyst: 'Reduced',
+    txt: '<strong>Emphysema:</strong> FLOPPY lung = ↓elastic recoil = ↑CL. Curve steepens and shifts up-left. ↑FRC (hyperinflation), ↑TLC. <em>Anchor: floppy lungs need less pressure for same volume.</em>'
+  },
+  oedema: {
+    inf: 'M 60 320 Q 110 318, 160 315 Q 220 305, 280 280 Q 320 255, 360 235 Q 400 220, 450 215',
+    def: 'M 60 320 Q 115 315, 170 300 Q 230 280, 290 255 Q 330 235, 370 225 Q 410 218, 450 215',
+    cl: 60, recoil: '↑', frc: '↓',
+    hyst: 'Wide',
+    txt: '<strong>Pulmonary oedema:</strong> Fluid in alveoli/interstitium + surfactant inactivation by plasma proteins → ↓CL. Recruitable component on inspiration → wide hysteresis.'
+  }
+};
+
+const curveInf = document.getElementById('curveInf');
+const curveDef = document.getElementById('curveDef');
+const slopeLine = document.getElementById('slopeLine');
+const statCL = document.getElementById('statCL');
+const statRecoil = document.getElementById('statRecoil');
+const statFRC = document.getElementById('statFRC');
+const statHyst = document.getElementById('statHyst');
+const pvReadout = document.getElementById('pvReadout');
+
+function setState(state) {
+  const s = pvStates[state];
+  curveInf.setAttribute('d', s.inf);
+  curveDef.setAttribute('d', s.def);
+  statCL.textContent = s.cl;
+  statRecoil.textContent = s.recoil;
+  statFRC.textContent = s.frc;
+  statHyst.textContent = s.hyst;
+  pvReadout.innerHTML = s.txt;
+  document.querySelectorAll('.pv-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.state === state);
+  });
+}
+
+document.querySelectorAll('.pv-btn').forEach(btn => {
+  btn.addEventListener('click', () => setState(btn.dataset.state));
+});
+setState('normal');
+
+// ============== SURFACTANT WALKTHROUGH ==============
+let surfIdx = 0;
+const surfSteps = document.querySelectorAll('#surfFlow .step');
+const surfNext = document.getElementById('surfNext');
+const surfAll = document.getElementById('surfAll');
+const surfReset = document.getElementById('surfReset');
+
+surfNext.addEventListener('click', () => {
+  if (surfIdx < surfSteps.length) {
+    surfSteps[surfIdx].classList.add('revealed');
+    surfIdx++;
+  }
+});
+surfAll.addEventListener('click', () => {
+  surfSteps.forEach(s => s.classList.add('revealed'));
+  surfIdx = surfSteps.length;
+});
+surfReset.addEventListener('click', () => {
+  surfSteps.forEach(s => s.classList.remove('revealed'));
+  surfIdx = 0;
+});
+
+// ============== FLASHCARDS ==============
+document.querySelectorAll('.fc').forEach(card => {
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
+});
+
+// ============== QUIZ ==============
+const quizData = [
+  {
+    q: "A 65 kg male is ventilated with Vt 500 mL, PEEP 5, Ppeak 30, Pplat 22. What is his Cstat?",
+    opts: ["20 mL/cmH₂O", "25 mL/cmH₂O", "29 mL/cmH₂O", "33 mL/cmH₂O"],
+    a: 2,
+    ex: "Cstat = Vt / (Pplat − PEEP) = 500 / (22 − 5) = 500 / 17 ≈ 29 mL/cmH₂O."
+  },
+  {
+    q: "Which of the following INCREASES lung compliance?",
+    opts: ["Pulmonary fibrosis", "Pulmonary oedema", "Emphysema", "Pulmonary blood volume engorgement"],
+    a: 2,
+    ex: "Emphysema = loss of elastic tissue = floppy lung = ↓recoil = ↑CL. The others all stiffen the lung."
+  },
+  {
+    q: "What is the main mechanism by which surfactant prevents alveolar collapse, per Laplace's law?",
+    opts: [
+      "It reduces surface tension equally across all alveolar sizes",
+      "It increases surface tension to splint alveoli open",
+      "Its concentration increases as alveoli shrink, lowering tension more at small radii",
+      "It thickens the alveolar fluid layer"
+    ],
+    a: 2,
+    ex: "Concentration effect — as the alveolus shrinks, surfactant molecules are pushed closer together → tension-lowering effect is more potent at small radii. T falls faster than r → P stays stable."
+  },
+  {
+    q: "The series equation 1/Crs = 1/CL + 1/Ccw reflects what physical arrangement?",
+    opts: [
+      "Lung and chest wall act in parallel",
+      "Lung and chest wall act in series",
+      "Compliance only applies to the lung",
+      "Resistance dominates over elasticity"
+    ],
+    a: 1,
+    ex: "Lung and chest wall are in series mechanically — pressures sum but the reciprocals of compliances do. With CL ≈ Ccw ≈ 200, Crs ≈ 100."
+  },
+  {
+    q: "Frequency-dependent compliance falls at high RR primarily because:",
+    opts: [
+      "Surfactant production cannot keep pace",
+      "Airway resistance falls to zero",
+      "Alveoli with long time constants (τ = R×C) cannot fill in time",
+      "Hysteresis disappears"
+    ],
+    a: 2,
+    ex: "Heterogeneous lung disease creates units with long time constants. At high RR they don't have time to fill → effective Cdyn falls. Otis equation."
+  },
+  {
+    q: "Prone position reduces chest wall compliance by approximately what percentage?",
+    opts: ["20%", "40%", "60%", "80%"],
+    a: 2,
+    ex: "Prone position ↓Ccw by ~60% due to restriction of anterior chest wall expansion. Often cited in ARDS proning literature."
+  },
+  {
+    q: "On the sigmoid PV curve, lung compliance is MAXIMAL at:",
+    opts: ["Total Lung Capacity", "Residual Volume", "Functional Residual Capacity", "Closing Capacity"],
+    a: 2,
+    ex: "Steepest part of the sigmoid is around FRC. Compliance falls at extremes — low volumes (small airway closure) and high volumes (overdistension toward TLC)."
+  },
+  {
+    q: "Which of the following best explains hysteresis on the PV curve?",
+    opts: [
+      "Pleural pressure differs between inspiration and expiration only",
+      "Surfactant recruitment + tissue viscoelasticity + alveolar recruitment",
+      "Airway resistance is higher on inspiration",
+      "Gas dissolves into blood during expiration"
+    ],
+    a: 1,
+    ex: "Hysteresis (deflation limb sits above inflation) reflects: progressive surfactant recruitment lowering tension, viscoelastic tissue properties, and alveolar recruitment. Must draw BOTH limbs."
+  }
+];
+
+const quizContainer = document.getElementById('quizContainer');
+const scoreNum = document.getElementById('scoreNum');
+const scoreTotal = document.getElementById('scoreTotal');
+let score = 0;
+let answered = new Set();
+
+function renderQuiz() {
+  quizContainer.innerHTML = '';
+  scoreTotal.textContent = quizData.length;
+  quizData.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    div.innerHTML = `
+      <div class="qt">Q${i+1}. ${q.q}</div>
+      <div class="quiz-opts">
+        ${q.opts.map((o, j) => `<div class="quiz-opt" data-q="${i}" data-opt="${j}">${String.fromCharCode(65+j)}. ${o}</div>`).join('')}
+      </div>
+      <div class="quiz-explain" id="ex-${i}">${q.ex}</div>
+    `;
+    quizContainer.appendChild(div);
+  });
+  document.querySelectorAll('.quiz-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const qi = +opt.dataset.q;
+      const oi = +opt.dataset.opt;
+      if (answered.has(qi)) return;
+      answered.add(qi);
+      const correct = quizData[qi].a;
+      const opts = document.querySelectorAll(`.quiz-opt[data-q="${qi}"]`);
+      opts.forEach(o => {
+        o.classList.add('locked');
+        if (+o.dataset.opt === correct) o.classList.add('correct');
+        else if (+o.dataset.opt === oi) o.classList.add('wrong');
+      });
+      document.getElementById(`ex-${qi}`).classList.add('shown');
+      if (oi === correct) {
+        score++;
+        scoreNum.textContent = score;
+      }
+    });
+  });
+}
+
+document.getElementById('resetQuiz').addEventListener('click', () => {
+  score = 0;
+  answered.clear();
+  scoreNum.textContent = 0;
+  renderQuiz();
+});
+
+renderQuiz();
+</script>
+
+</body>
+</html>
