@@ -1,31 +1,68 @@
-# cicm-study: instructions for Claude
+# cicm-study — cloud Claude Code home for Maz's CICM First Part workflow
 
-Interactive HTML study pages for the CICM First Part exam. Filename convention:
-`<YEAR><SITTING>_Q<NN>_<Topic>_Interactive.html` (e.g. `2009A_Q20_Organophosphate_Interactive.html`).
+**Exam:** CICM First Part, Tuesday 25 February 2027. **Workflow in force:**
+`CICM-OUTPUT-WORKFLOW-20261028` — output and exam focused. This file supersedes every
+older instruction in this repo (now in `archive/`).
 
-## Delivering a page: ALWAYS publish it as an Artifact
+## What this repo is (and isn't)
 
-The user reads these pages in the Claude app. A raw `.html` file sent as a file
-card (SendUserFile) shows up as **source code**, not a rendered page. So:
+- **Is:** the MAIN cloud Claude Code home for the CICM study workflow — Yearly
+  writing/marking, Syllabus Runthrough + SMARK, chunk repairs ending in a snappy complete
+  model answer, and everyday Notion-grounded questions and casual recall.
+- **Isn't:** a tracker. Live learning data (attempts, scores, repairs, pointers, recall
+  history, timers, receipts) lives in the existing **Notion owners** — never in repo files.
+- **Isn't:** an HTML page factory any more. The old "build an interactive HTML page per SAQ"
+  role is archived (`archive/2026-10-28-pre-output-workflow/`).
 
-1. Keep the standalone file in the repo (full `<!DOCTYPE html>` page, works offline). Commit and push it.
-2. Make a publish copy in the scratchpad:
-   `python3 scripts/artifact_copy.py <page>.html <scratchpad>/publish/<Name>.html`
-   (the Artifact viewer supplies its own doctype/html/head/body wrapper).
-3. Publish that copy with the **Artifact** tool (private by default): a short `<title>`
-   that names the topic (e.g. "Organophosphate Poisoning"), a one-line `description`
-   with the paper/question code, and a one-word `icon` on first publish.
-4. Give the user the artifact link. Do **not** rely on SendUserFile for HTML pages;
-   if a file card is also wanted, send it *in addition to* the link, never instead of it.
-5. To update a page later, re-publish to the same artifact URL (pass `url`) so the link stays stable.
+Mac home is the local **CICM Sidekick** project; this repo is the cloud twin. Same Notion
+owners, no Mac/localhost assumptions here.
 
-This applies even when a request says "don't publish/deploy": a private Artifact is
-how the user views the page. Public sharing (GitHub Pages, public links) still needs an explicit ask.
+## Read first, every session
 
-## Page requirements (match existing pages)
-- Self-contained: inline CSS/JS, no external assets.
-- Works at phone width (~390px) with no sideways page scroll; ≥16px side gutter; wide tables stack or scroll inside their own container.
-- Dark theme committed on purpose: set `:root { color-scheme: dark; }` and explicit body background.
-- Sticky headers use `top: env(safe-area-inset-top, 0px)`.
-- Respect `prefers-reduced-motion`.
-- Cite sources on the page; tag simplified illustrations separately from clinical guidance.
+1. `docs/CURRENT_WORKFLOW.md` — the eight routes (portable guide).
+2. Live Notion **COMMAND** — it wins on any conflict with this repo:
+   https://app.notion.com/p/39a6cdbdfe3d81fbb2dbfeecbd6b5797
+3. **NEXT UP** for current positions (refresh; never trust a dated snapshot):
+   https://app.notion.com/p/3856cdbdfe3d81ec8cbcf3d241b93939
+
+Full owner list: `docs/PROJECT_MAP.md`.
+
+## Routing
+
+| Maz says / needs | Do |
+|---|---|
+| Written attempt photos/attachments, "mark this" | Route 1 Yearly or SMARK marking — `saq-marker` skill; blind first |
+| "repair", "next repair", walking/gym chunks | Route 3 chunk repair — full feedback first, end with the complete model answer |
+| Runthrough / "next syllabus point" / `/smark` | Route 2 — Runthrough owner or SMARK bank, independent progress |
+| Short question: "vanc?", "digoxin kinetics" | Route 4 — retrieve his Notion templates/rundowns first, answer short, link sources |
+| "quiz me", casual recall | Route 5 — one source-backed question at a time, shared history first |
+| Daily repair **board** HTML build/rebuild | Specialist: **`marzuk213-cloud/repair-board-builder`** (+ `saq-repair-board` skill) |
+| New/corrected graph, diagram, image | Specialist: **`marzuk213-cloud/cicm-exam-visuals`**; Notion-first, reuse checked assets |
+
+## Retired — do not trigger
+
+Archived, not deleted; run only if Maz **names one explicitly** for maintenance:
+`saq-template-study` (/ts), `cicm-systematic-study` (old /next menus), `cicm-study-buddy`,
+`cicm-tangent-buddy`, `cicm-study-html`, `cicm-revision-html`, `cicm-speechify-extract`,
+`saq-autopipeline`, `saq-craft-refiner`, `craft-migrator`, `cicm-exam-layer`,
+`corpus-merge`, `pharmacopeia-populator`; plus READ, generic Socratic study-buddy mode,
+minimal-tool/no-source tangent defaults, and this repo's old per-SAQ HTML delivery rule.
+
+Mainstay skills that stay live: `saq-marker`, `saq-repair-board`, `airdrop-handwriting`
+(cloud = actual attachments only), `cicm-recall-deck` (explicit Rapid Recall route only),
+`hq-command-centre`, `cicm-organizer`, `whimsical-lookup`, and all non-CICM skills.
+
+## Hard rules
+
+- **Sources:** Maz's Notion first; external authoritative sources (CICM, Deranged
+  Physiology, LITFL, Part One, Jenny's Jam Jar, CICM Wrecks, standard texts) only for
+  verification, conflicts, updates or genuine gaps. Never present trained knowledge as
+  retrieved material. Retrieval failure ≠ image absence.
+- **Records:** refresh before every write, preserve other writers, dedupe, read back.
+  Never invent XP, mastery, attempts, scores or completion. Board build/delivery and timer
+  expiry are never completion — only Maz's explicit "done" closes an exact scope.
+- **Time:** check live Sydney time (`TZ=Australia/Sydney date`) before any time claim.
+- **Style:** informal, direct, mobile-friendly. Fix dictation silently; correct real
+  science errors bluntly. Keep answers as short as the question allows.
+- **Repo:** commit only workflow docs/config here. No study records, trackers, boards or
+  timers in git. Don't edit the specialist repos from this project.
