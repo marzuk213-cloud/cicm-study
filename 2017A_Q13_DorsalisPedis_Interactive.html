@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2017A Q13 — Dorsalis Pedis Anatomy + BP</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0a0e14;color:#e8eaed;line-height:1.5;padding:20px}
+  .wrap{max-width:1100px;margin:0 auto}
+  h1{font-size:1.8rem;color:#7dd3fc;margin-bottom:4px}
+  .sub{color:#94a3b8;font-size:0.9rem;margin-bottom:20px}
+  .toc{background:#111827;border:1px solid #1e293b;border-radius:8px;padding:12px 16px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:10px;font-size:0.85rem}
+  .toc a{color:#7dd3fc;text-decoration:none;padding:4px 10px;background:#0f172a;border-radius:4px}
+  .toc a:hover{background:#1e3a5f}
+  section{background:#0f172a;border-radius:10px;padding:18px 22px;margin-bottom:20px;border-left:4px solid #334155}
+  section.framework{border-left-color:#fff;background:#1a1a1a}
+  section.anat{border-left-color:#7dd3fc;background:#0c1a26}
+  section.relations{border-left-color:#a78bfa;background:#161029}
+  section.branches{border-left-color:#fbbf24;background:#1f1808}
+  section.bp{border-left-color:#ef4444;background:#1f0a0a}
+  section.waveform{border-left-color:#f472b6;background:#1f0c1a}
+  section.mech{border-left-color:#34d399;background:#0a1f17}
+  section.nums{border-left-color:#fb923c;background:#1f1408}
+  section.flashcards{border-left-color:#06b6d4;background:#0a1e22}
+  section.quiz{border-left-color:#fb923c;background:#1f1408}
+  h2{color:#fff;font-size:1.2rem;margin-bottom:12px}
+  h3{color:#e2e8f0;font-size:1rem;margin:14px 0 6px}
+  p,li{font-size:0.92rem;color:#cbd5e1}
+  ul{padding-left:22px;margin:6px 0}
+  li{margin-bottom:3px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.88rem}
+  th,td{padding:8px 10px;text-align:left;border:1px solid #334155;vertical-align:top}
+  th{background:#1e293b;color:#7dd3fc;font-weight:600}
+  .pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.75rem;font-weight:600;margin-right:6px}
+  .pill-red{background:#7f1d1d;color:#fecaca}
+  .pill-green{background:#14532d;color:#bbf7d0}
+  .pill-blue{background:#1e3a8a;color:#bfdbfe}
+  .pill-purple{background:#581c87;color:#e9d5ff}
+  .pill-orange{background:#7c2d12;color:#fed7aa}
+  .callout{padding:10px 14px;border-radius:6px;margin:10px 0;font-size:0.88rem;border-left:3px solid}
+  .c-red{background:#2c0808;border-color:#ef4444}
+  .c-green{background:#082c14;border-color:#22c55e}
+  .c-blue{background:#08172c;border-color:#3b82f6}
+  .c-purple{background:#1d082c;border-color:#a855f7}
+  .c-orange{background:#2c1808;border-color:#fb923c}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:10px 0}
+  .num-card{background:#1e293b;padding:10px 12px;border-radius:6px;text-align:center}
+  .num-card .v{font-size:1.3rem;font-weight:700;color:#fbbf24;display:block}
+  .num-card .l{font-size:0.78rem;color:#94a3b8;margin-top:2px}
+  button{background:#1e40af;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:0.85rem;font-weight:500}
+  button:hover{background:#2563eb}
+  button.reset{background:#475569}
+  /* Foot SVG */
+  .foot-svg{display:block;margin:14px auto;max-width:100%;height:auto;background:#0a0e14;border-radius:8px;padding:10px}
+  .foot-svg .struct{cursor:pointer;transition:all 0.2s}
+  .foot-svg .struct:hover{filter:brightness(1.4)}
+  .foot-svg .struct.active{filter:brightness(1.6) drop-shadow(0 0 6px #fbbf24)}
+  .label-box{background:#1e293b;padding:10px 14px;border-radius:6px;margin-top:8px;min-height:60px;font-size:0.88rem;color:#e2e8f0}
+  .label-box.empty{color:#64748b;font-style:italic}
+  /* Waveform animation */
+  .wf-container{background:#0a0e14;border-radius:8px;padding:20px;margin:14px 0}
+  .wf-controls{display:flex;gap:8px;margin-bottom:14px;align-items:center;flex-wrap:wrap}
+  .wf-controls label{color:#94a3b8;font-size:0.85rem}
+  .wf-slider{flex:1;min-width:200px}
+  .wf-pos-label{color:#fbbf24;font-weight:600;min-width:120px;font-size:0.85rem}
+  .wf-svg{width:100%;height:auto;display:block}
+  .wf-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:14px}
+  .wf-stat{background:#1e293b;padding:10px;border-radius:6px;text-align:center}
+  .wf-stat .l{font-size:0.7rem;color:#94a3b8;text-transform:uppercase}
+  .wf-stat .v{font-size:1.1rem;font-weight:700;color:#fbbf24}
+  /* Pulse animation */
+  @keyframes pulse-travel{0%{transform:translateX(-100%);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateX(400%);opacity:0}}
+  /* Mechanism cards */
+  .mech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:12px 0}
+  .mech-card{background:#0a1f17;border:1px solid #14532d;border-radius:8px;padding:14px;cursor:pointer;transition:all 0.2s}
+  .mech-card:hover{border-color:#22c55e;transform:translateY(-2px)}
+  .mech-card .t{color:#bbf7d0;font-weight:600;margin-bottom:6px;font-size:0.9rem}
+  .mech-card .d{font-size:0.82rem;color:#94a3b8}
+  /* Flashcards */
+  .fc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+  .fc{background:#0a1e22;border:1px solid #155e75;border-radius:8px;padding:14px;cursor:pointer;min-height:120px;position:relative;transition:all 0.3s}
+  .fc:hover{border-color:#06b6d4}
+  .fc .q{color:#67e8f9;font-weight:600;font-size:0.9rem;margin-bottom:8px}
+  .fc .a{color:#cbd5e1;font-size:0.85rem;display:none}
+  .fc.flipped .a{display:block}
+  .fc.flipped .q{color:#94a3b8;font-size:0.8rem}
+  .fc::after{content:"tap to reveal";position:absolute;bottom:8px;right:10px;font-size:0.7rem;color:#64748b}
+  .fc.flipped::after{content:"tap to hide"}
+  /* Quiz */
+  .qz-q{background:#1e293b;padding:14px;border-radius:8px;margin:10px 0}
+  .qz-q .qt{color:#fb923c;font-weight:600;margin-bottom:10px}
+  .qz-opts{display:flex;flex-direction:column;gap:6px}
+  .qz-opt{padding:8px 12px;background:#0f172a;border-radius:4px;cursor:pointer;border:1px solid #334155}
+  .qz-opt:hover{border-color:#fb923c}
+  .qz-opt.correct{background:#14532d;border-color:#22c55e;color:#bbf7d0}
+  .qz-opt.wrong{background:#7f1d1d;border-color:#ef4444;color:#fecaca}
+  .qz-score{background:#1e293b;padding:12px;border-radius:8px;margin-top:14px;text-align:center;font-size:1rem;color:#fbbf24;font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>🦶 2017A Q13 — Dorsalis Pedis Cannula + BP Comparison</h1>
+<div class="sub">Pass rate 30% · 50/50 split · X.ii Procedure Anatomy · Examiner trap = listing differences without mechanisms</div>
+
+<div class="toc">
+  <a href="#fw">Framework</a>
+  <a href="#an">Anatomy</a>
+  <a href="#br">Branches</a>
+  <a href="#wf">Waveform Animation</a>
+  <a href="#cmp">Comparison</a>
+  <a href="#mc">Mechanisms</a>
+  <a href="#nm">Numbers</a>
+  <a href="#fc">Flashcards</a>
+  <a href="#qz">Quiz</a>
+</div>
+
+<!-- FRAMEWORK -->
+<section class="framework" id="fw">
+<h2>🎯 Quick-Glance SAQ Framework</h2>
+<table>
+<tr><th style="width:18%">Section</th><th style="width:8%">%</th><th>Headings to write first</th></tr>
+<tr><td><span class="pill pill-blue">Anatomy</span></td><td>50</td><td>Origin · Course · Surface landmarks · Relations · Branches · Collateral · Variations (3-12% absent) · Cannulation</td></tr>
+<tr><td><span class="pill pill-red">BP — Differences</span></td><td>25</td><td>Comparison table: SBP↑ · DBP↓ · PP↑ · MAP= · Notch · Delay</td></tr>
+<tr><td><span class="pill pill-green">BP — Mechanisms</span></td><td>25</td><td><b>4 mechanisms (this is where 30% pass-rate dies):</b> Wave reflection · Impedance mismatch · ↓ Compliance · Loss of Windkessel</td></tr>
+</table>
+<div class="callout c-red">
+<b>⚠️ Examiner pitfall (the 70% who failed):</b> Listed waveform differences <b>without explaining mechanisms</b>. The marks are in the <i>"why"</i> — wave reflection, impedance, compliance, windkessel. Write them as separate paragraphs/bullets.
+</div>
+<div class="callout c-purple">
+<b>Buzzword cluster:</b> "Pulse pressure amplification · Pulse wave velocity · Incisura vs dicrotic notch · Windkessel effect · Impedance mismatch"
+</div>
+</section>
+
+<!-- ANATOMY SVG -->
+<section class="anat" id="an">
+<h2>① Anatomy — Click the Foot</h2>
+<p style="color:#94a3b8;font-size:0.85rem">Click each structure on the dorsum to reveal exam-ready detail.</p>
+
+<svg class="foot-svg" viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg">
+  <!-- Foot outline (dorsal view, right foot) -->
+  <path d="M 80 180 Q 80 100 200 80 Q 360 60 480 120 Q 540 160 540 200 Q 530 240 480 250 Q 360 280 250 280 Q 130 280 90 240 Q 70 220 80 180 Z" 
+        fill="#1a1f2e" stroke="#475569" stroke-width="2"/>
+  
+  <!-- Ankle indication -->
+  <ellipse cx="100" cy="170" rx="20" ry="35" fill="#334155" stroke="#64748b" stroke-width="1"/>
+  <text x="50" y="175" fill="#94a3b8" font-size="10">Ankle</text>
+  
+  <!-- Inferior extensor retinaculum -->
+  <rect class="struct" data-id="ier" x="115" y="155" width="50" height="30" fill="#a78bfa" opacity="0.5" rx="4"/>
+  <text x="120" y="145" fill="#a78bfa" font-size="10">Inf ext retinaculum</text>
+  
+  <!-- Tarsal bones markers -->
+  <circle class="struct" data-id="talus" cx="170" cy="170" r="14" fill="#64748b" opacity="0.6"/>
+  <text x="156" y="174" fill="#fff" font-size="9">Tal</text>
+  <circle class="struct" data-id="navicular" cx="220" cy="170" r="14" fill="#64748b" opacity="0.6"/>
+  <text x="206" y="174" fill="#fff" font-size="9">Nav</text>
+  <circle class="struct" data-id="cuneiform" cx="270" cy="170" r="14" fill="#64748b" opacity="0.6"/>
+  <text x="256" y="174" fill="#fff" font-size="9">Cun</text>
+  
+  <!-- Metatarsal bases -->
+  <rect class="struct" data-id="metabase" x="310" y="155" width="120" height="30" fill="#475569" opacity="0.5" rx="3"/>
+  <text x="335" y="148" fill="#94a3b8" font-size="10">1st-2nd metatarsal base</text>
+  
+  <!-- Anterior tibial artery (entry) -->
+  <text x="50" y="155" fill="#dc2626" font-size="10">Ant tibial a.</text>
+  
+  <!-- DPA path (main artery) -->
+  <path class="struct" data-id="dpa" d="M 100 170 Q 130 168 165 170 Q 200 172 235 170 Q 270 168 305 170 Q 340 172 380 170" 
+        fill="none" stroke="#dc2626" stroke-width="5"/>
+  <text x="200" y="200" fill="#dc2626" font-size="12" font-weight="bold">Dorsalis Pedis Artery</text>
+  
+  <!-- Deep plantar branch (dives) -->
+  <path class="struct" data-id="deepplantar" d="M 380 170 Q 395 200 390 235" 
+        fill="none" stroke="#b91c1c" stroke-width="4" stroke-dasharray="4,3"/>
+  <text x="395" y="225" fill="#b91c1c" font-size="10">Deep plantar a. (→ deep plantar arch)</text>
+  
+  <!-- Arcuate artery -->
+  <path class="struct" data-id="arcuate" d="M 305 170 Q 350 130 410 130 Q 460 130 480 145" 
+        fill="none" stroke="#f97316" stroke-width="3"/>
+  <text x="360" y="120" fill="#f97316" font-size="10">Arcuate a.</text>
+  
+  <!-- EHL tendon (medial to DPA) -->
+  <path class="struct" data-id="ehl" d="M 120 130 Q 200 128 280 130 Q 360 130 440 130" 
+        fill="none" stroke="#fbbf24" stroke-width="4" opacity="0.7"/>
+  <text x="180" y="118" fill="#fbbf24" font-size="11">EHL tendon (medial to DPA)</text>
+  
+  <!-- EDL tendons (lateral) -->
+  <path class="struct" data-id="edl" d="M 120 215 Q 200 220 280 218 Q 360 218 440 215" 
+        fill="none" stroke="#facc15" stroke-width="3" opacity="0.6"/>
+  <text x="180" y="240" fill="#facc15" font-size="11">EDL tendons (lateral)</text>
+  
+  <!-- Deep peroneal nerve -->
+  <path class="struct" data-id="dpn" d="M 125 195 Q 200 200 280 198 Q 340 198 360 195" 
+        fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-dasharray="3,2"/>
+  <text x="180" y="265" fill="#06b6d4" font-size="10">Deep peroneal nerve (lateral to a.)</text>
+  
+  <!-- Cannulation site -->
+  <circle class="struct" data-id="cannsite" cx="305" cy="170" r="8" fill="none" stroke="#22c55e" stroke-width="3"/>
+  <text x="285" y="100" fill="#22c55e" font-size="11" font-weight="bold">✓ Cannulation site</text>
+  <line x1="305" y1="105" x2="305" y2="160" stroke="#22c55e" stroke-width="1" stroke-dasharray="2,2"/>
+  
+  <!-- Toes hint -->
+  <text x="500" y="200" fill="#64748b" font-size="11">→ Toes</text>
+</svg>
+
+<div class="label-box empty" id="footLabel">Click a structure above…</div>
+</section>
+
+<!-- BRANCHES & RELATIONS -->
+<section class="branches" id="br">
+<h2>② Relations &amp; Branches (write as a clean table)</h2>
+<h3>Relations</h3>
+<table>
+<tr><th>Direction</th><th>Structure</th></tr>
+<tr><td><span class="pill pill-orange">Medial</span></td><td><b>EHL tendon</b> (Extensor Hallucis Longus) — palpation landmark</td></tr>
+<tr><td><span class="pill pill-orange">Lateral</span></td><td><b>EDL tendons</b> + <b>deep peroneal nerve</b> (terminal branch)</td></tr>
+<tr><td><span class="pill pill-blue">Superficial</span></td><td>Inferior extensor retinaculum crosses over proximally · skin · subcutaneous tissue</td></tr>
+<tr><td><span class="pill pill-purple">Deep</span></td><td>Tarsal bones: <b>talus → navicular → intermediate cuneiform</b></td></tr>
+</table>
+
+<h3>Branches (proximal → distal)</h3>
+<ul>
+  <li><b>Medial tarsal arteries</b> (2-3) — supply medial midfoot</li>
+  <li><b>Lateral tarsal artery</b> — over navicular</li>
+  <li><b>Arcuate artery</b> — over metatarsal bases → 2nd-4th dorsal metatarsal arteries</li>
+  <li><b>1st dorsal metatarsal artery</b> — at base of 1st intermetatarsal space</li>
+  <li><b>Deep plantar artery</b> — terminal; dives plantarward to complete <b>deep plantar arch</b> (anastomoses with lateral plantar artery from PT)</li>
+</ul>
+
+<div class="callout c-green">
+<b>Collateral circulation:</b> Extensive anastomosis between DPA and <b>posterior tibial</b> (via deep plantar arch). <b>Modified Allen test</b> should be performed pre-cannulation.
+</div>
+
+<h3>Cannulation</h3>
+<ul>
+  <li>Site: between 1st and 2nd metatarsal bases, lateral to EHL, distal to navicular prominence</li>
+  <li>Cannula: <b>20-22G</b> (small calibre, ~2 mm artery)</li>
+  <li>Superficial, fixed over bony surface → easier insertion, prone to <b>kinking with dorsiflexion</b></li>
+  <li><b>Absent in 3-12%</b> of population</li>
+</ul>
+</section>
+
+<!-- WAVEFORM ANIMATION -->
+<section class="waveform" id="wf">
+<h2>③ Waveform Morphing — Aorta → Dorsalis Pedis</h2>
+<p style="color:#94a3b8;font-size:0.85rem">Drag the slider to see the waveform transform as it travels distally. This is the visual story examiners want explained.</p>
+
+<div class="wf-container">
+  <div class="wf-controls">
+    <label>Position along arterial tree:</label>
+    <input type="range" id="wfSlider" class="wf-slider" min="0" max="100" value="0">
+    <div class="wf-pos-label" id="wfPosLabel">Aortic arch</div>
+  </div>
+  
+  <svg class="wf-svg" id="wfSvg" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+    <!-- Grid -->
+    <g stroke="#1e293b" stroke-width="0.5">
+      <line x1="50" y1="40" x2="680" y2="40"/>
+      <line x1="50" y1="100" x2="680" y2="100"/>
+      <line x1="50" y1="160" x2="680" y2="160"/>
+      <line x1="50" y1="220" x2="680" y2="220"/>
+    </g>
+    <!-- Axes -->
+    <line x1="50" y1="20" x2="50" y2="240" stroke="#64748b" stroke-width="1.5"/>
+    <line x1="50" y1="240" x2="680" y2="240" stroke="#64748b" stroke-width="1.5"/>
+    
+    <!-- Y labels -->
+    <text x="20" y="45" fill="#94a3b8" font-size="10">160</text>
+    <text x="20" y="105" fill="#94a3b8" font-size="10">120</text>
+    <text x="20" y="165" fill="#94a3b8" font-size="10">80</text>
+    <text x="20" y="225" fill="#94a3b8" font-size="10">40</text>
+    <text x="15" y="135" fill="#94a3b8" font-size="10" transform="rotate(-90 15 135)">mmHg</text>
+    
+    <!-- SBP & DBP lines (move dynamically) -->
+    <line id="sbpLine" x1="50" y1="100" x2="680" y2="100" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+    <line id="dbpLine" x1="50" y1="160" x2="680" y2="160" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+    <text id="sbpLabel" x="585" y="95" fill="#ef4444" font-size="11">SBP: 120</text>
+    <text id="dbpLabel" x="585" y="175" fill="#3b82f6" font-size="11">DBP: 80</text>
+    <text id="mapLabel" x="585" y="135" fill="#fbbf24" font-size="11">MAP: 93</text>
+    
+    <!-- Waveform path (will animate) -->
+    <path id="wfPath" d="" fill="none" stroke="#f472b6" stroke-width="2.5"/>
+    
+    <!-- MAP indicator line (stays constant) -->
+    <line id="mapLine" x1="50" y1="130" x2="680" y2="130" stroke="#fbbf24" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+    
+    <!-- Annotation labels (dynamic) -->
+    <text id="wfAnnot" x="350" y="265" fill="#cbd5e1" font-size="11" text-anchor="middle"></text>
+  </svg>
+  
+  <div class="wf-info">
+    <div class="wf-stat"><div class="l">SBP</div><div class="v" id="sbpVal">120</div></div>
+    <div class="wf-stat"><div class="l">DBP</div><div class="v" id="dbpVal">80</div></div>
+    <div class="wf-stat"><div class="l">Pulse Press.</div><div class="v" id="ppVal">40</div></div>
+    <div class="wf-stat"><div class="l">MAP</div><div class="v" id="mapVal">93</div></div>
+    <div class="wf-stat"><div class="l">Delay</div><div class="v" id="delayVal">0 ms</div></div>
+  </div>
+</div>
+
+<div class="callout c-orange">
+<b>What to notice as you slide distally:</b>
+<ul style="margin-top:6px">
+  <li>SBP <b>rises</b> (~10-20 mmHg by DPA) — wave reflection summates with forward wave</li>
+  <li>DBP <b>falls</b> — loss of windkessel buffering</li>
+  <li>Pulse pressure <b>widens</b> — amplification</li>
+  <li>MAP stays <b>flat</b> — the only reliable trans-site value</li>
+  <li>Upstroke gets <b>steeper</b> · incisura becomes a <b>diastolic hump</b></li>
+  <li><b>180-200 ms delay</b> from R-wave to DPA upstroke</li>
+</ul>
+</div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="bp" id="cmp">
+<h2>④ Direct Comparison — Use This Exact Table</h2>
+<table>
+<tr><th>Feature</th><th>Aortic Arch</th><th>Dorsalis Pedis</th></tr>
+<tr><td>Systolic pressure</td><td>Lower</td><td>↑ <b>10-20 mmHg higher</b></td></tr>
+<tr><td>Diastolic pressure</td><td>Higher</td><td>Lower</td></tr>
+<tr><td>Pulse pressure</td><td>Narrower</td><td><b>Wider (amplification)</b></td></tr>
+<tr><td><b>MAP</b></td><td>Reference</td><td><b>Similar (↓ 1-2 mmHg only)</b></td></tr>
+<tr><td>Systolic upstroke</td><td>Gradual</td><td>Steeper, sharper</td></tr>
+<tr><td>Dicrotic notch</td><td><b>Incisura</b> (sharp, aortic valve closure)</td><td><b>Absent</b> → replaced by diastolic wave/hump</td></tr>
+<tr><td>Diastolic decline</td><td>Gradual (windkessel)</td><td>Steeper</td></tr>
+<tr><td>Timing</td><td>Immediate</td><td>Delayed ~180-200 ms</td></tr>
+</table>
+</section>
+
+<!-- MECHANISMS (4 cards) -->
+<section class="mech" id="mc">
+<h2>⑤ The Four Mechanisms — Where 70% Lose Marks</h2>
+<p style="color:#94a3b8;font-size:0.85rem">Don't just list differences. Explain each with the underlying physics. Click cards for detail.</p>
+
+<div class="mech-grid">
+  <div class="mech-card" data-mech="reflection">
+    <div class="t">① Wave Reflection</div>
+    <div class="d">Forward pressure wave reflects off high-resistance peripheral arterioles and bifurcations. Reflected wave summates with forward wave at distal sites → augmented systolic peak. The further from the heart, the more time for reflection to summate during systole.</div>
+  </div>
+  <div class="mech-card" data-mech="impedance">
+    <div class="t">② Impedance Mismatch</div>
+    <div class="d">Progressive tapering and increased stiffness of distal muscular arteries creates an impedance mismatch at every transition (elastic → muscular). Each mismatch generates a reflected wave. By DPA, multiple reflections have summated → systolic augmentation.</div>
+  </div>
+  <div class="mech-card" data-mech="compliance">
+    <div class="t">③ Reduced Compliance</div>
+    <div class="d">DPA is a <b>muscular artery</b> with less elastic tissue than the aorta. Same volume of blood generates higher pressure (P = V/C). Result: <b>steeper upstroke, sharper peak, steeper downstroke</b>. Less buffering of pulsatility.</div>
+  </div>
+  <div class="mech-card" data-mech="windkessel">
+    <div class="t">④ Loss of Windkessel</div>
+    <div class="d">The aorta stores energy in its elastic walls during systole and releases it during diastole — maintains diastolic pressure (Windkessel). Muscular arteries lack this elastic recoil → <b>diastolic pressure falls more rapidly</b>. Also explains why DBP drops at DPA.</div>
+  </div>
+</div>
+
+<h3>Why does the dicrotic notch disappear?</h3>
+<div class="callout c-purple">
+<b>Two reasons combined:</b>
+<ul>
+<li><b>High-frequency damping:</b> The sharp incisura is a high-frequency signal from aortic valve closure. Arterial walls progressively damp high-frequency components during transmission.</li>
+<li><b>Wave reflection:</b> Reflected waves from the periphery summate during diastole → replace the sharp notch with a broader <b>diastolic wave</b>.</li>
+</ul>
+</div>
+
+<h3>Why is MAP preserved?</h3>
+<div class="callout c-green">
+MAP = area under arterial waveform / time. Increased systolic <b>and</b> decreased diastolic <b>largely cancel out</b>. Loss is only ~1-2 mmHg from frictional resistance. <b>MAP is the most reliable measurement across all arterial sites.</b>
+<br><br>
+<b>Calibration pearl:</b> Static calibration determines MAP accuracy · Dynamic (frequency response) calibration determines SBP/DBP accuracy.
+</div>
+
+<h3>Effect of Ageing</h3>
+<div class="callout c-orange">
+Arterial stiffening with age → ↑ pulse wave velocity → reflected waves return <b>earlier</b> (during systole, not diastole) → augment <b>systolic</b> pressure centrally. Central and peripheral pressures <b>converge</b> in elderly. Loss of normal pulse pressure amplification gradient.
+</div>
+</section>
+
+<!-- NUMBERS -->
+<section class="nums" id="nm">
+<h2>🔢 High-Yield Numbers</h2>
+<div class="grid">
+  <div class="num-card"><span class="v">3-12%</span><span class="l">DPA absent</span></div>
+  <div class="num-card"><span class="v">~2 mm</span><span class="l">DPA diameter</span></div>
+  <div class="num-card"><span class="v">20-22G</span><span class="l">Cannula size</span></div>
+  <div class="num-card"><span class="v">~120 cm</span><span class="l">Aorta → DPA distance</span></div>
+  <div class="num-card"><span class="v">4-10 m/s</span><span class="l">Pulse wave velocity</span></div>
+  <div class="num-card"><span class="v">180-200 ms</span><span class="l">R-wave → DPA upstroke</span></div>
+  <div class="num-card"><span class="v">10-20 mmHg</span><span class="l">SBP amplification</span></div>
+  <div class="num-card"><span class="v">1-2 mmHg</span><span class="l">MAP drop (negligible)</span></div>
+</div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="flashcards" id="fc">
+<h2>🃏 Active Recall</h2>
+<div class="fc-grid">
+  <div class="fc"><div class="q">Q: Origin of dorsalis pedis artery?</div><div class="a">A: Direct continuation of the <b>anterior tibial artery</b>, beginning at the inferior extensor retinaculum at the ankle joint line.</div></div>
+  <div class="fc"><div class="q">Q: Relations of DPA — medial vs lateral structures?</div><div class="a">A: <b>Medial:</b> EHL tendon. <b>Lateral:</b> EDL tendons + deep peroneal nerve. Deep: talus → navicular → cuneiform.</div></div>
+  <div class="fc"><div class="q">Q: What % of population have absent DPA?</div><div class="a">A: <b>3-12%</b>. Replaced by branches from peroneal or posterior tibial arteries. Always do modified Allen test.</div></div>
+  <div class="fc"><div class="q">Q: Terminal branch of DPA?</div><div class="a">A: <b>Deep plantar artery</b> — dives plantarward through 1st intermetatarsal space to complete the deep plantar arch (anastomosis with lateral plantar from PT).</div></div>
+  <div class="fc"><div class="q">Q: Name the 4 mechanisms of pulse pressure amplification.</div><div class="a">A: ① <b>Wave reflection</b> ② <b>Impedance mismatch</b> ③ <b>Reduced compliance</b> ④ <b>Loss of windkessel</b>.</div></div>
+  <div class="fc"><div class="q">Q: Why is MAP similar at aorta and DPA?</div><div class="a">A: MAP = area under waveform/time. ↑SBP and ↓DBP <b>cancel out</b>. Only ~1-2 mmHg drop from frictional resistance. MAP is the reliable trans-site measurement.</div></div>
+  <div class="fc"><div class="q">Q: What replaces the dicrotic notch at DPA?</div><div class="a">A: A broader <b>diastolic wave/hump</b>. Two reasons: high-frequency damping of the sharp incisura, and summated wave reflections.</div></div>
+  <div class="fc"><div class="q">Q: What is the difference between incisura and dicrotic notch?</div><div class="a">A: <b>Incisura</b> = sharp central (aortic) signal from aortic valve closure. <b>Dicrotic notch</b> = peripheral waveform feature replaced by a diastolic wave in distal sites.</div></div>
+  <div class="fc"><div class="q">Q: Pulse wave velocity in peripheral arteries?</div><div class="a">A: <b>4-10 m/s</b>. PWV ↑ with stiffer arteries → earlier reflected wave arrival.</div></div>
+  <div class="fc"><div class="q">Q: Approximate timing delay R-wave → DPA upstroke?</div><div class="a">A: <b>180-200 ms</b> (from aortic ejection). Reflects distance + PWV.</div></div>
+  <div class="fc"><div class="q">Q: How does ageing affect pulse pressure amplification?</div><div class="a">A: <b>Reduces it</b>. Stiff arteries → ↑ PWV → reflected waves return earlier (during systole) → augment central SBP. Central and peripheral pressures converge.</div></div>
+  <div class="fc"><div class="q">Q: What calibration determines MAP vs SBP/DBP accuracy?</div><div class="a">A: <b>Static</b> calibration → MAP accuracy. <b>Dynamic (frequency response)</b> calibration → SBP/DBP accuracy.</div></div>
+</div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz" id="qz">
+<h2>📝 Rapid-Fire Quiz</h2>
+<div id="quizContainer"></div>
+<div class="qz-score" id="qzScore">Score: 0/0</div>
+<button id="qzReset" class="reset" style="margin-top:10px">Reset quiz</button>
+</section>
+
+</div>
+
+<script>
+// FOOT SVG CLICKS
+const footData={
+  ier:"<b>Inferior extensor retinaculum</b> — Y-shaped fibrous band at ankle. DPA begins at its inferior border. Crosses superficial to the tendons.",
+  talus:"<b>Talus</b> — first tarsal bone the DPA crosses. Forms ankle joint with tibia/fibula above.",
+  navicular:"<b>Navicular bone</b> — DPA's <b>most reliable landmark</b>. Dorsal prominence palpable; DPA runs just distal to it.",
+  cuneiform:"<b>Intermediate cuneiform</b> — DPA continues distally over this bone toward 1st intermetatarsal space.",
+  metabase:"<b>1st-2nd metatarsal bases</b> — DPA terminates here, diving plantarward as the deep plantar artery.",
+  dpa:"<b>Dorsalis pedis artery</b> — direct continuation of anterior tibial. Runs distally on dorsum of foot from inferior extensor retinaculum to 1st intermetatarsal space. ~2 mm calibre.",
+  deepplantar:"<b>Deep plantar artery</b> — terminal branch of DPA. Dives plantarward to complete the <b>deep plantar arch</b> by anastomosis with lateral plantar artery (from posterior tibial). Source of collateral flow.",
+  arcuate:"<b>Arcuate artery</b> — branches laterally over metatarsal bases. Gives off 2nd-4th dorsal metatarsal arteries.",
+  ehl:"<b>Extensor hallucis longus (EHL) tendon</b> — runs <b>medial</b> to DPA. Key palpation landmark — DPA pulse just lateral to EHL.",
+  edl:"<b>Extensor digitorum longus (EDL) tendons</b> — lie <b>lateral</b> to DPA. Bound deep peroneal nerve runs in this lateral group.",
+  dpn:"<b>Deep peroneal nerve</b> (terminal branch) — runs <b>lateral</b> to the artery. Avoid lateral overshoot during cannulation to prevent nerve injury.",
+  cannsite:"<b>Cannulation site</b> — lateral to EHL, distal to navicular prominence, proximal to 1st intermetatarsal space. Use 20-22G. Avoid excessive dorsiflexion (kinks the cannula)."
+};
+document.querySelectorAll('.foot-svg .struct').forEach(el=>{
+  el.addEventListener('click',()=>{
+    document.querySelectorAll('.foot-svg .struct').forEach(s=>s.classList.remove('active'));
+    el.classList.add('active');
+    const box=document.getElementById('footLabel');
+    box.innerHTML=footData[el.dataset.id]||'';
+    box.classList.remove('empty');
+  });
+});
+
+// WAVEFORM MORPHING
+// Position 0 = aortic arch, 100 = dorsalis pedis
+// Map SBP from 120 → 138, DBP from 80 → 65, MAP stays 93
+// Pulse delay: 0 → 200ms (visual shift)
+function makeWaveformPath(pos){
+  // pos 0-100
+  const p=pos/100;
+  // Y conversion: pressure in mmHg → y. y=40 at 160 mmHg, y=240 at 0 mmHg → y = 240 - mmHg*1.25
+  function py(mmhg){return 240 - mmhg*1.25;}
+  
+  const SBP=120 + p*18;        // 120 → 138
+  const DBP=80 - p*15;         // 80 → 65
+  const MAP=93 - p*1;          // stays ~constant
+  const delay=p*200;           // visual delay in pixels (1px = ~1ms scaled)
+  const xShift=p*50;           // delay along x-axis
+  
+  // Build path. 1 cardiac cycle ~ 60 units wide, repeated 3-4×
+  const baseX=80+xShift;
+  const cycleW=180;
+  
+  // Aortic shape: smooth upstroke, rounded peak, gradual decline, sharp incisura
+  // Peripheral shape: steeper upstroke, sharp peak, steep decline, broad diastolic hump (no incisura)
+  
+  let d='';
+  for(let i=0;i<3;i++){
+    const x0=baseX + i*cycleW;
+    const xPeak=x0 + 20 - p*10;  // peak comes earlier (steeper) with distance
+    const xPeakEnd=x0 + 30 + (1-p)*15;
+    const xNotch=x0 + 70 - p*30; // notch moves and becomes hump
+    const xHump=x0 + 100;
+    const xEnd=x0 + cycleW;
+    
+    if(i===0)d+=`M ${x0} ${py(DBP)} `;
+    
+    // Upstroke: aortic = curved, peripheral = sharper
+    if(p<0.5){
+      d+=`Q ${x0+10} ${py(DBP+15)} ${xPeak} ${py(SBP-3)} `;
+      d+=`Q ${(xPeak+xPeakEnd)/2} ${py(SBP+1)} ${xPeakEnd} ${py(SBP-5)} `;
+    }else{
+      d+=`L ${xPeak} ${py(SBP)} `;
+      d+=`L ${xPeakEnd} ${py(SBP-8)} `;
+    }
+    
+    // Descent + incisura (becomes hump)
+    if(p<0.4){
+      // Sharp incisura
+      const notchDip=py(DBP+25)+5;
+      d+=`Q ${xPeakEnd+15} ${py(DBP+30)} ${xNotch-5} ${notchDip} `;
+      d+=`L ${xNotch} ${py(DBP+25)+2-p*5} `;
+      d+=`L ${xNotch+5} ${notchDip+2} `;
+      d+=`Q ${(xNotch+xHump)/2} ${py(DBP+15)} ${xHump} ${py(DBP+8)} `;
+      d+=`Q ${(xHump+xEnd)/2} ${py(DBP+3)} ${xEnd} ${py(DBP)} `;
+    }else{
+      // Diastolic hump replacing notch
+      d+=`Q ${xPeakEnd+10} ${py(SBP-20)} ${xNotch-10} ${py(DBP+18)} `;
+      d+=`Q ${xNotch} ${py(DBP+25-p*5)} ${xNotch+15} ${py(DBP+15)} `;
+      d+=`Q ${xHump} ${py(DBP+8)} ${xEnd} ${py(DBP)} `;
+    }
+  }
+  return {path:d,SBP:Math.round(SBP),DBP:Math.round(DBP),MAP:Math.round((SBP+2*DBP)/3),delay:Math.round(delay)};
+}
+
+function updateWaveform(){
+  const pos=+document.getElementById('wfSlider').value;
+  const {path,SBP,DBP,MAP,delay}=makeWaveformPath(pos);
+  document.getElementById('wfPath').setAttribute('d',path);
+  document.getElementById('sbpVal').textContent=SBP;
+  document.getElementById('dbpVal').textContent=DBP;
+  document.getElementById('ppVal').textContent=SBP-DBP;
+  document.getElementById('mapVal').textContent=MAP;
+  document.getElementById('delayVal').textContent=delay+' ms';
+  // Update SBP/DBP lines
+  document.getElementById('sbpLine').setAttribute('y1',240-SBP*1.25);
+  document.getElementById('sbpLine').setAttribute('y2',240-SBP*1.25);
+  document.getElementById('sbpLabel').setAttribute('y',240-SBP*1.25-5);
+  document.getElementById('sbpLabel').textContent='SBP: '+SBP;
+  document.getElementById('dbpLine').setAttribute('y1',240-DBP*1.25);
+  document.getElementById('dbpLine').setAttribute('y2',240-DBP*1.25);
+  document.getElementById('dbpLabel').setAttribute('y',240-DBP*1.25+15);
+  document.getElementById('dbpLabel').textContent='DBP: '+DBP;
+  document.getElementById('mapLabel').textContent='MAP: '+MAP;
+  // Position label
+  const labels=['Aortic arch','Descending aorta','Common iliac','Femoral','Popliteal','Dorsalis pedis'];
+  const idx=Math.min(5,Math.floor(pos/20));
+  document.getElementById('wfPosLabel').textContent=labels[idx];
+  // Annotation
+  const annots=[
+    'Aortic arch: gradual upstroke, sharp incisura, gradual diastolic decline (windkessel)',
+    'Descending aorta: SBP still low, incisura still visible',
+    'Iliac: amplification starting, notch dampening',
+    'Femoral: SBP up ~5-10, incisura → diastolic wave',
+    'Popliteal: SBP up ~10-15, steep upstroke, broad diastolic hump',
+    'Dorsalis pedis: SBP up 10-20, DBP down, MAP preserved, no incisura'
+  ];
+  document.getElementById('wfAnnot').textContent=annots[idx];
+}
+document.getElementById('wfSlider').addEventListener('input',updateWaveform);
+updateWaveform();
+
+// FLASHCARDS
+document.querySelectorAll('.fc').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('flipped')));
+
+// QUIZ
+const quizData=[
+  {q:"Dorsalis pedis artery is the continuation of which artery?",opts:["Posterior tibial","Anterior tibial","Peroneal","Common iliac"],a:1},
+  {q:"DPA is palpated where in relation to EHL tendon?",opts:["Medial","Lateral","Deep","Superficial"],a:1},
+  {q:"What % of population have absent DPA?",opts:["<1%","3-12%","15-25%","~30%"],a:1},
+  {q:"Approximate SBP increase from aorta to DPA?",opts:["0-5 mmHg","10-20 mmHg","30-40 mmHg","50+ mmHg"],a:1},
+  {q:"What happens to MAP from aorta to DPA?",opts:["Falls ~20 mmHg","Falls 10 mmHg","Falls only 1-2 mmHg","Increases like SBP"],a:2},
+  {q:"Which is NOT one of the 4 mechanisms of pulse pressure amplification?",opts:["Wave reflection","Increased compliance","Impedance mismatch","Loss of windkessel"],a:1},
+  {q:"What replaces the dicrotic notch at peripheral sites?",opts:["A flat plateau","A sharper incisura","A broader diastolic wave","Nothing — it stays the same"],a:2},
+  {q:"Effect of ageing on pulse pressure amplification?",opts:["Increases","Decreases (pressures converge)","No change","Reverses (central > peripheral)"],a:1},
+  {q:"What is the deep peroneal nerve's relation to DPA?",opts:["Medial","Lateral","Deep","Superficial"],a:1},
+  {q:"Terminal branch of DPA?",opts:["Arcuate artery","1st dorsal metatarsal","Deep plantar artery","Medial tarsal"],a:2}
+];
+let qScore=0,qAnswered=0;
+const qc=document.getElementById('quizContainer');
+function renderQuiz(){
+  qc.innerHTML='';qScore=0;qAnswered=0;
+  quizData.forEach((q,i)=>{
+    const div=document.createElement('div');
+    div.className='qz-q';
+    div.innerHTML=`<div class="qt">Q${i+1}: ${q.q}</div><div class="qz-opts">${q.opts.map((o,j)=>`<div class="qz-opt" data-i="${i}" data-j="${j}">${String.fromCharCode(65+j)}. ${o}</div>`).join('')}</div>`;
+    qc.appendChild(div);
+  });
+  document.querySelectorAll('.qz-opt').forEach(opt=>{
+    opt.addEventListener('click',()=>{
+      const i=+opt.dataset.i,j=+opt.dataset.j;
+      const parent=opt.parentElement;
+      if(parent.classList.contains('answered'))return;
+      parent.classList.add('answered');
+      parent.querySelectorAll('.qz-opt').forEach((o,k)=>{
+        if(k===quizData[i].a)o.classList.add('correct');
+        else if(k===j)o.classList.add('wrong');
+      });
+      qAnswered++;
+      if(j===quizData[i].a)qScore++;
+      document.getElementById('qzScore').textContent=`Score: ${qScore}/${qAnswered} (${Math.round(qScore/qAnswered*100)}%)`;
+    });
+  });
+  document.getElementById('qzScore').textContent='Score: 0/0';
+}
+renderQuiz();
+document.getElementById('qzReset').addEventListener('click',renderQuiz);
+</script>
+
+</body>
+</html>

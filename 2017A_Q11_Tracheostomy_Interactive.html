@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2017A Q11 — Tracheostomy Anatomy</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0a0e14;color:#e8eaed;line-height:1.5;padding:20px}
+  .wrap{max-width:1100px;margin:0 auto}
+  h1{font-size:1.8rem;color:#7dd3fc;margin-bottom:4px}
+  .sub{color:#94a3b8;font-size:0.9rem;margin-bottom:20px}
+  .toc{background:#111827;border:1px solid #1e293b;border-radius:8px;padding:12px 16px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:10px;font-size:0.85rem}
+  .toc a{color:#7dd3fc;text-decoration:none;padding:4px 10px;background:#0f172a;border-radius:4px}
+  .toc a:hover{background:#1e3a5f}
+  section{background:#0f172a;border-radius:10px;padding:18px 22px;margin-bottom:20px;border-left:4px solid #334155}
+  section.surface{border-left-color:#7dd3fc;background:#0c1a26}
+  section.layers{border-left-color:#a78bfa;background:#161029}
+  section.trachea{border-left-color:#fbbf24;background:#1f1808}
+  section.relations{border-left-color:#34d399;background:#0a1f17}
+  section.nerves{border-left-color:#f472b6;background:#1f0c1a}
+  section.hazards{border-left-color:#ef4444;background:#1f0a0a}
+  section.framework{border-left-color:#fff;background:#1a1a1a}
+  section.flashcards{border-left-color:#06b6d4;background:#0a1e22}
+  section.quiz{border-left-color:#fb923c;background:#1f1408}
+  h2{color:#fff;font-size:1.2rem;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h3{color:#e2e8f0;font-size:1rem;margin:14px 0 6px}
+  p,li{font-size:0.92rem;color:#cbd5e1}
+  ul{padding-left:22px;margin:6px 0}
+  li{margin-bottom:3px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.88rem}
+  th,td{padding:8px 10px;text-align:left;border:1px solid #334155;vertical-align:top}
+  th{background:#1e293b;color:#7dd3fc;font-weight:600}
+  .pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.75rem;font-weight:600;margin-right:6px}
+  .pill-red{background:#7f1d1d;color:#fecaca}
+  .pill-green{background:#14532d;color:#bbf7d0}
+  .pill-blue{background:#1e3a8a;color:#bfdbfe}
+  .pill-purple{background:#581c87;color:#e9d5ff}
+  .pill-orange{background:#7c2d12;color:#fed7aa}
+  .callout{padding:10px 14px;border-radius:6px;margin:10px 0;font-size:0.88rem;border-left:3px solid}
+  .c-red{background:#2c0808;border-color:#ef4444}
+  .c-green{background:#082c14;border-color:#22c55e}
+  .c-blue{background:#08172c;border-color:#3b82f6}
+  .c-purple{background:#1d082c;border-color:#a855f7}
+  .c-orange{background:#2c1808;border-color:#fb923c}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0}
+  .num-card{background:#1e293b;padding:10px 12px;border-radius:6px;text-align:center}
+  .num-card .v{font-size:1.4rem;font-weight:700;color:#fbbf24;display:block}
+  .num-card .l{font-size:0.78rem;color:#94a3b8;margin-top:2px}
+  /* SVG diagram */
+  .anat-svg{display:block;margin:14px auto;max-width:100%;height:auto;background:#0a0e14;border-radius:8px;padding:10px}
+  .anat-svg .struct{cursor:pointer;transition:all 0.2s}
+  .anat-svg .struct:hover{filter:brightness(1.4)}
+  .anat-svg .struct.active{filter:brightness(1.6) drop-shadow(0 0 6px #fbbf24)}
+  .label-box{background:#1e293b;padding:10px 14px;border-radius:6px;margin-top:8px;min-height:60px;color:#e2e8f0;font-size:0.88rem}
+  .label-box.empty{color:#64748b;font-style:italic}
+  /* Layers walkthrough */
+  .layers-flow{display:flex;flex-direction:column;gap:6px;margin:14px 0}
+  .layer{padding:10px 14px;background:#1e293b;border-radius:6px;cursor:pointer;border-left:3px solid #475569;transition:all 0.2s;display:flex;align-items:center;gap:10px}
+  .layer:hover{background:#334155}
+  .layer.revealed{border-left-color:#a78bfa;background:#2c1e4a}
+  .layer .num{font-weight:700;color:#a78bfa;min-width:24px}
+  .layer .detail{font-size:0.8rem;color:#94a3b8;margin-top:4px;display:none}
+  .layer.revealed .detail{display:block}
+  .layer-controls{display:flex;gap:8px;margin-top:10px}
+  button{background:#1e40af;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:0.85rem;font-weight:500}
+  button:hover{background:#2563eb}
+  button.reset{background:#475569}
+  /* Flashcards */
+  .fc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+  .fc{background:#0a1e22;border:1px solid #155e75;border-radius:8px;padding:14px;cursor:pointer;min-height:120px;position:relative;transition:all 0.3s}
+  .fc:hover{border-color:#06b6d4}
+  .fc .q{color:#67e8f9;font-weight:600;font-size:0.9rem;margin-bottom:8px}
+  .fc .a{color:#cbd5e1;font-size:0.85rem;display:none}
+  .fc.flipped .a{display:block}
+  .fc.flipped .q{color:#94a3b8;font-size:0.8rem}
+  .fc::after{content:"tap to reveal";position:absolute;bottom:8px;right:10px;font-size:0.7rem;color:#64748b}
+  .fc.flipped::after{content:"tap to hide"}
+  /* Quiz */
+  .qz-q{background:#1e293b;padding:14px;border-radius:8px;margin:10px 0}
+  .qz-q .qt{color:#fb923c;font-weight:600;margin-bottom:10px}
+  .qz-opts{display:flex;flex-direction:column;gap:6px}
+  .qz-opt{padding:8px 12px;background:#0f172a;border-radius:4px;cursor:pointer;border:1px solid #334155}
+  .qz-opt:hover{border-color:#fb923c}
+  .qz-opt.correct{background:#14532d;border-color:#22c55e;color:#bbf7d0}
+  .qz-opt.wrong{background:#7f1d1d;border-color:#ef4444;color:#fecaca}
+  .qz-score{background:#1e293b;padding:12px;border-radius:8px;margin-top:14px;text-align:center;font-size:1rem;color:#fbbf24;font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>🫁 2017A Q11 — Tracheostomy Anatomy</h1>
+<div class="sub">Also: 2018B Q1 (79%) · 2017A 11 (44%) · 2012A 10 (40%) · 2009A 08 (20%) · 2026.1 Q08 — 4× repeat | F1.i + X.iv | Last attempt 14/20</div>
+
+<div class="toc">
+  <a href="#fw">Framework</a>
+  <a href="#surf">Surface (30%)</a>
+  <a href="#lay">Layers</a>
+  <a href="#tra">Trachea</a>
+  <a href="#rel">Relations</a>
+  <a href="#nrv">Nerves</a>
+  <a href="#haz">Hazards</a>
+  <a href="#nums">Numbers</a>
+  <a href="#fc">Flashcards</a>
+  <a href="#qz">Quiz</a>
+</div>
+
+<!-- ============ QUICK-GLANCE SAQ FRAMEWORK ============ -->
+<section class="framework" id="fw">
+<h2>🎯 Quick-Glance SAQ Framework</h2>
+<p style="color:#94a3b8;font-size:0.85rem;margin-bottom:8px">10-min handwriting scaffold. 30/70 split. Write headings first, then fill.</p>
+<table>
+<tr><th style="width:18%">Section</th><th style="width:8%">%</th><th>Headings to write before you fill</th></tr>
+<tr><td><span class="pill pill-blue">Surface</span></td><td>30</td><td><b>Midline (sup→inf):</b> hyoid · thyroid cart · cricothyroid mem · cricoid · rings · isthmus · suprasternal notch &nbsp;|&nbsp; <b>Lateral:</b> SCM · carotid pulse</td></tr>
+<tr><td><span class="pill pill-purple">Layers</span></td><td>~20</td><td>Skin → SubQ/platysma → investing fascia → strap muscles (+ <b>linea alba cervicalis</b>) → pretracheal fascia → <b>isthmus (rings 2-4)</b> → annular lig → trachea</td></tr>
+<tr><td><span class="pill pill-orange">Trachea</span></td><td>~15</td><td>Fibrocartilaginous · C6→T4/5 · ~10cm (5cm cervical) · D-shaped · 16-20 C-rings · trachealis posteriorly</td></tr>
+<tr><td><span class="pill pill-green">Relations</span></td><td>~25</td><td><b>A / P / L / Below</b> table — isthmus · oesophagus · carotid sheath + RLN · brachiocephalic a.</td></tr>
+<tr><td><span class="pill pill-red">Hazards</span></td><td>~10</td><td>Inf thyroid veins · thyroidea ima (3-10%) · jugular venous arch · tracheo-innominate fistula</td></tr>
+</table>
+<div class="callout c-purple">
+<b>Examiner-mark phrase to memorise:</b> "Midline approach exploits the <b>linea alba cervicalis</b> — avascular raphe between strap muscles."
+</div>
+</section>
+
+<!-- ============ SURFACE ANATOMY INTERACTIVE ============ -->
+<section class="surface" id="surf">
+<h2>① Surface Anatomy — Anterior Neck <span class="pill pill-blue">30%</span></h2>
+<p style="color:#94a3b8;font-size:0.85rem">Click each structure on the diagram to reveal exam-ready detail.</p>
+
+<svg class="anat-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Neck outline -->
+  <path d="M 100 50 Q 100 30 200 30 Q 300 30 300 50 L 320 200 L 340 480 L 60 480 L 80 200 Z" fill="#1a1f2e" stroke="#475569" stroke-width="1.5"/>
+  <!-- SCM left -->
+  <path class="struct" data-id="scm" d="M 110 80 Q 140 180 100 350" fill="none" stroke="#dc2626" stroke-width="6" opacity="0.6"/>
+  <!-- SCM right -->
+  <path class="struct" data-id="scm" d="M 290 80 Q 260 180 300 350" fill="none" stroke="#dc2626" stroke-width="6" opacity="0.6"/>
+  <!-- Hyoid -->
+  <path class="struct" data-id="hyoid" d="M 160 100 Q 200 90 240 100" fill="none" stroke="#fbbf24" stroke-width="5"/>
+  <text x="250" y="105" fill="#fbbf24" font-size="11">Hyoid (C3)</text>
+  <!-- Thyroid cartilage -->
+  <path class="struct" data-id="thyroidcart" d="M 170 130 L 195 120 L 205 120 L 230 130 L 225 170 L 175 170 Z" fill="#7dd3fc" opacity="0.7"/>
+  <text x="245" y="150" fill="#7dd3fc" font-size="11">Thyroid cartilage</text>
+  <!-- Cricothyroid membrane -->
+  <rect class="struct" data-id="ctm" x="180" y="172" width="40" height="8" fill="#f472b6"/>
+  <text x="230" y="180" fill="#f472b6" font-size="10">CTM</text>
+  <!-- Cricoid -->
+  <rect class="struct" data-id="cricoid" x="178" y="182" width="44" height="14" fill="#a78bfa" rx="2"/>
+  <text x="230" y="194" fill="#a78bfa" font-size="11">Cricoid (C6)</text>
+  <!-- Tracheal rings -->
+  <g class="struct" data-id="rings">
+    <rect x="180" y="200" width="40" height="6" fill="#94a3b8" rx="3"/>
+    <rect x="180" y="210" width="40" height="6" fill="#94a3b8" rx="3"/>
+    <rect x="180" y="220" width="40" height="6" fill="#94a3b8" rx="3"/>
+    <rect x="180" y="230" width="40" height="6" fill="#94a3b8" rx="3"/>
+    <rect x="180" y="240" width="40" height="6" fill="#94a3b8" rx="3"/>
+    <rect x="180" y="250" width="40" height="6" fill="#94a3b8" rx="3"/>
+  </g>
+  <text x="230" y="225" fill="#94a3b8" font-size="11">Rings 1-6</text>
+  <!-- Thyroid isthmus (overlies rings 2-4) -->
+  <rect class="struct" data-id="isthmus" x="170" y="208" width="60" height="28" fill="#22c55e" opacity="0.5" rx="4"/>
+  <text x="240" y="225" fill="#22c55e" font-size="10">Isthmus (2-4)</text>
+  <!-- Suprasternal notch -->
+  <path class="struct" data-id="notch" d="M 170 290 Q 200 305 230 290" fill="#fb923c" stroke="#fb923c" stroke-width="2"/>
+  <text x="240" y="298" fill="#fb923c" font-size="11">Suprasternal notch (~T2)</text>
+  <!-- Carotid pulse markers -->
+  <circle class="struct" data-id="carotid" cx="140" cy="150" r="5" fill="#ef4444"/>
+  <circle class="struct" data-id="carotid" cx="260" cy="150" r="5" fill="#ef4444"/>
+  <!-- Labels for SCM -->
+  <text x="20" y="220" fill="#dc2626" font-size="11">SCM →</text>
+  <text x="346" y="220" fill="#dc2626" font-size="11">← SCM</text>
+  <text x="20" y="155" fill="#ef4444" font-size="10">Carotid →</text>
+</svg>
+
+<div class="label-box empty" id="surfLabel">Click a structure above…</div>
+</section>
+
+<!-- ============ LAYERS INTERACTIVE ============ -->
+<section class="layers" id="lay">
+<h2>② Layers — Skin → Trachea (Needle Path)</h2>
+<p style="color:#94a3b8;font-size:0.85rem">Click "Next layer" to reveal each step. The avascular midline raphe is the whole game.</p>
+
+<div class="layers-flow" id="layersFlow">
+  <div class="layer" data-step="1"><span class="num">1</span><div><b>Skin</b><div class="detail">Incision typically 1-2 cm vertical at level of rings 1-2 (perc) or 2-3/3-4 (surgical).</div></div></div>
+  <div class="layer" data-step="2"><span class="num">2</span><div><b>Subcutaneous tissue + Platysma</b><div class="detail">Variable fat. Platysma is a thin sheet in superficial fascia — innervated by facial nerve (cervical branch).</div></div></div>
+  <div class="layer" data-step="3"><span class="num">3</span><div><b>Investing layer of deep cervical fascia</b><div class="detail">Encloses SCM and trapezius laterally; in midline it splits to enclose strap muscles.</div></div></div>
+  <div class="layer" data-step="4"><span class="num">4</span><div><b>Strap muscles + <span style="color:#a78bfa">LINEA ALBA CERVICALIS</span></b><div class="detail">Sternohyoid (superficial) and sternothyroid (deep). Separated in midline by the avascular linea alba cervicalis — <b>examiner buzzword #1</b>. Stay midline = bloodless dissection.</div></div></div>
+  <div class="layer" data-step="5"><span class="num">5</span><div><b>Pretracheal fascia</b><div class="detail">Encloses thyroid gland and contains the pretracheal venous plexus (inferior thyroid veins).</div></div></div>
+  <div class="layer" data-step="6"><span class="num">6</span><div><b>Thyroid isthmus (rings 2-4)</b><div class="detail">Retract superiorly or divide between clamps. Berry's ligament anchors thyroid to cricoid + upper rings — RLN risk here.</div></div></div>
+  <div class="layer" data-step="7"><span class="num">7</span><div><b>Fibroelastic annular ligament</b><div class="detail">Between tracheal rings — where the needle/scalpel enters the airway.</div></div></div>
+  <div class="layer" data-step="8"><span class="num">8</span><div><b>Trachea</b><div class="detail"><b>Perc:</b> rings 1-2 (or between 1st and 2nd). <b>Surgical:</b> rings 2-3 or 3-4.</div></div></div>
+</div>
+
+<div class="layer-controls">
+  <button id="layerNext">Next layer ▼</button>
+  <button id="layerAll">Reveal all</button>
+  <button class="reset" id="layerReset">Reset</button>
+</div>
+</section>
+
+<!-- ============ TRACHEA STRUCTURE ============ -->
+<section class="trachea" id="tra">
+<h2>③ Trachea — Core Structure</h2>
+<ul>
+  <li><b>Definition:</b> Fibrocartilaginous tube</li>
+  <li><b>Extent:</b> C6 → T4/5 (sternal angle / carina)</li>
+  <li><b>Length:</b> ~10 cm total; ~5 cm cervical, ~5 cm thoracic</li>
+  <li><b>Diameter:</b> ~1.8–2.5 cm</li>
+  <li><b>Shape:</b> <b>D-shaped</b> (flat posteriorly)</li>
+  <li><b>Rings:</b> 16–20 incomplete C-shaped hyaline cartilage; connected by annular ligaments; <b>trachealis muscle</b> bridges posterior gap</li>
+  <li><b>Course:</b> Becomes more posterior as it descends</li>
+</ul>
+</section>
+
+<!-- ============ RELATIONS ============ -->
+<section class="relations" id="rel">
+<h2>④ Relations — The 70% Mark Engine</h2>
+<p style="color:#94a3b8;font-size:0.85rem">Use this exact 4-row table format on the page. Examiners reward grid structure.</p>
+<table>
+<tr><th>Direction</th><th>Structures</th></tr>
+<tr>
+  <td><span class="pill pill-purple">Anterior</span></td>
+  <td><b>Thyroid isthmus</b> (rings 2-4) · <b>Berry's ligament</b> · inferior thyroid veins / pretracheal venous plexus · strap muscles · jugular venous arch · pretracheal fascia</td>
+</tr>
+<tr>
+  <td><span class="pill pill-blue">Posterior</span></td>
+  <td><b>Oesophagus</b> (membranous wall adjacent) · vertebral column</td>
+</tr>
+<tr>
+  <td><span class="pill pill-green">Lateral</span></td>
+  <td><b>Carotid sheath</b> (CCA, IJV, vagus) · thyroid lobes · inferior thyroid arteries · <b>recurrent laryngeal nerves</b> (tracheo-oesophageal groove)</td>
+</tr>
+<tr>
+  <td><span class="pill pill-red">Below</span></td>
+  <td><b>Brachiocephalic (innominate) artery</b> crosses anterior to trachea at thoracic inlet — risk of <b>tracheo-innominate fistula</b> with low placement</td>
+</tr>
+</table>
+</section>
+
+<!-- ============ NERVES + BLOOD ============ -->
+<section class="nerves" id="nrv">
+<h2>⑤ Nerves &amp; Blood Supply</h2>
+<h3>Nerves</h3>
+<ul>
+  <li><b>Recurrent laryngeal nerve (RLN):</b> tracheo-oesophageal groove bilaterally
+    <ul>
+      <li>Right loops under right subclavian a.</li>
+      <li>Left loops under aortic arch</li>
+    </ul>
+  </li>
+  <li><b>Superior laryngeal nerve:</b> external branch supplies cricothyroid (motor); internal branch sensory above cords</li>
+  <li><b>Vagus nerve:</b> within carotid sheath (more lateral)</li>
+</ul>
+<div class="callout c-green"><b>Mark phrase:</b> "RLN lies in the tracheo-oesophageal groove — injured by lateral dissection or deep lateral needle trajectory."</div>
+
+<h3>Blood supply</h3>
+<ul>
+  <li><b>Arterial:</b> Inferior thyroid artery (upper ⅔); bronchial arteries (lower ⅓)</li>
+  <li><b>Venous:</b> Inferior thyroid venous plexus → brachiocephalic veins</li>
+  <li><b>Lymph:</b> Pretracheal + paratracheal nodes</li>
+</ul>
+</section>
+
+<!-- ============ HAZARDS ============ -->
+<section class="hazards" id="haz">
+<h2>⑥ Catastrophic Hazards</h2>
+<div class="callout c-red"><b>① Inferior thyroid veins / pretracheal venous plexus</b> — most common bleeding source</div>
+<div class="callout c-red"><b>② Thyroidea ima artery (3–10%)</b> — unpaired midline vessel from brachiocephalic / aortic arch. Catches you out if you don't stay strictly midline.</div>
+<div class="callout c-red"><b>③ Jugular venous arch</b> — runs transversely across suprasternal space</div>
+<div class="callout c-red"><b>④ Brachiocephalic (innominate) artery</b> — tracheo-innominate fistula with low insertion → exsanguination 1–6 weeks post-op</div>
+<div class="callout c-red"><b>⑤ Oesophageal perforation</b> — posterior wall (membranous) breach</div>
+</section>
+
+<!-- ============ NUMBERS ============ -->
+<section class="trachea" id="nums">
+<h2>🔢 High-Yield Numbers</h2>
+<div class="grid">
+  <div class="num-card"><span class="v">C6→T4/5</span><span class="l">Trachea extent</span></div>
+  <div class="num-card"><span class="v">~10 cm</span><span class="l">Total length</span></div>
+  <div class="num-card"><span class="v">~5 cm</span><span class="l">Cervical length</span></div>
+  <div class="num-card"><span class="v">1.8-2.5 cm</span><span class="l">Diameter</span></div>
+  <div class="num-card"><span class="v">16-20</span><span class="l">Cartilage rings</span></div>
+  <div class="num-card"><span class="v">2-4</span><span class="l">Isthmus overlies</span></div>
+  <div class="num-card"><span class="v">3-10%</span><span class="l">Thyroidea ima</span></div>
+  <div class="num-card"><span class="v">1-2</span><span class="l">Perc insertion rings</span></div>
+</div>
+</section>
+
+<!-- ============ FLASHCARDS ============ -->
+<section class="flashcards" id="fc">
+<h2>🃏 Active Recall — Flashcards</h2>
+<p style="color:#94a3b8;font-size:0.85rem">Tap each card to reveal. These target your last-attempt gaps.</p>
+<div class="fc-grid">
+  <div class="fc"><div class="q">Q: What is the avascular midline raphe between the strap muscles called?</div><div class="a">A: <b>Linea alba cervicalis</b>. Examiner buzzword — staying within it = bloodless midline dissection.</div></div>
+  <div class="fc"><div class="q">Q: Name the two strap muscles divided by the linea alba cervicalis.</div><div class="a">A: <b>Sternohyoid</b> (superficial) and <b>sternothyroid</b> (deep).</div></div>
+  <div class="fc"><div class="q">Q: What anchors the thyroid gland to the cricoid + upper tracheal rings?</div><div class="a">A: <b>Berry's ligament</b> — RLN runs adjacent → key injury site.</div></div>
+  <div class="fc"><div class="q">Q: Tracheal blood supply — upper ⅔ vs lower ⅓?</div><div class="a">A: Upper ⅔ → <b>inferior thyroid artery</b>. Lower ⅓ → <b>bronchial arteries</b>.</div></div>
+  <div class="fc"><div class="q">Q: Where does the right vs left RLN loop?</div><div class="a">A: Right loops under <b>right subclavian artery</b>; left loops under <b>aortic arch</b>.</div></div>
+  <div class="fc"><div class="q">Q: Prevalence of thyroidea ima artery?</div><div class="a">A: <b>3–10%</b>. Unpaired midline vessel from brachiocephalic or aortic arch.</div></div>
+  <div class="fc"><div class="q">Q: Lymphatic drainage of the trachea?</div><div class="a">A: <b>Pretracheal + paratracheal nodes</b>.</div></div>
+  <div class="fc"><div class="q">Q: At what vertebral level does the trachea begin and end?</div><div class="a">A: <b>C6 to T4/5</b> (sternal angle / carina).</div></div>
+  <div class="fc"><div class="q">Q: Catastrophic complication of low tracheostomy insertion?</div><div class="a">A: <b>Tracheo-innominate fistula</b> — brachiocephalic a. erosion → exsanguination, classically 1-6 weeks post-op.</div></div>
+  <div class="fc"><div class="q">Q: Superior laryngeal nerve — motor vs sensory branches?</div><div class="a">A: <b>External branch</b> → motor to cricothyroid. <b>Internal branch</b> → sensory above vocal cords (piercing thyrohyoid membrane).</div></div>
+</div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="quiz" id="qz">
+<h2>📝 Rapid-Fire Quiz</h2>
+<div id="quizContainer"></div>
+<div class="qz-score" id="qzScore">Score: 0/0</div>
+<button id="qzReset" class="reset" style="margin-top:10px">Reset quiz</button>
+</section>
+
+</div>
+
+<script>
+// ============ SURFACE ANATOMY CLICKS ============
+const surfData = {
+  hyoid: "<b>Hyoid bone (C3)</b> — U-shaped, doesn't articulate with any other bone. Suspended by stylohyoid ligament. Marks upper border of anterior triangle.",
+  thyroidcart: "<b>Thyroid cartilage</b> — largest laryngeal cartilage. Thyroid notch (laryngeal prominence / Adam's apple) palpable superiorly. Lower border = level C5.",
+  ctm: "<b>Cricothyroid membrane (CTM)</b> — between thyroid and cricoid cartilages. <b>Emergency cricothyroidotomy site</b>. ~10mm vertical x 22mm transverse. Crossed by cricothyroid arteries in upper third.",
+  cricoid: "<b>Cricoid cartilage (C6)</b> — <b>only complete cartilaginous ring</b> in airway. Marks start of trachea, level of cricopharyngeus (UOS) and vertebral level C6.",
+  rings: "<b>Tracheal rings 1-6</b> — palpable below cricoid. Perc tracheostomy usually between rings 1-2. Surgical between 2-3 or 3-4.",
+  isthmus: "<b>Thyroid isthmus</b> — overlies rings <b>2-4</b>. Connects right and left thyroid lobes. Crossed by inferior thyroid veins anteriorly. Retract or divide during surgical tracheostomy.",
+  notch: "<b>Suprasternal (jugular) notch</b> — between sternal heads of SCM. Marks inferior extent of cervical trachea (~T2). Below this = thoracic inlet → brachiocephalic risk.",
+  scm: "<b>Sternocleidomastoid (SCM)</b> — defines anterior and posterior cervical triangles. Anterior border at thyroid cartilage level = carotid pulse landmark.",
+  carotid: "<b>Carotid pulse</b> — anterior border of SCM at level of thyroid cartilage (C4). Carotid bifurcation typically at upper border of thyroid cartilage."
+};
+document.querySelectorAll('.anat-svg .struct').forEach(el=>{
+  el.addEventListener('click',()=>{
+    document.querySelectorAll('.anat-svg .struct').forEach(s=>s.classList.remove('active'));
+    el.classList.add('active');
+    const id=el.dataset.id;
+    const box=document.getElementById('surfLabel');
+    box.innerHTML=surfData[id];
+    box.classList.remove('empty');
+  });
+});
+
+// ============ LAYERS WALKTHROUGH ============
+let curLayer=0;
+const layers=document.querySelectorAll('#layersFlow .layer');
+document.getElementById('layerNext').addEventListener('click',()=>{
+  if(curLayer<layers.length){
+    layers[curLayer].classList.add('revealed');
+    curLayer++;
+  }
+});
+document.getElementById('layerAll').addEventListener('click',()=>{
+  layers.forEach(l=>l.classList.add('revealed'));
+  curLayer=layers.length;
+});
+document.getElementById('layerReset').addEventListener('click',()=>{
+  layers.forEach(l=>l.classList.remove('revealed'));
+  curLayer=0;
+});
+// Also clickable individually
+layers.forEach(l=>l.addEventListener('click',e=>{
+  if(!e.target.closest('button')) l.classList.toggle('revealed');
+}));
+
+// ============ FLASHCARDS ============
+document.querySelectorAll('.fc').forEach(c=>{
+  c.addEventListener('click',()=>c.classList.toggle('flipped'));
+});
+
+// ============ QUIZ ============
+const quizData=[
+  {q:"What's the avascular raphe between strap muscles?",opts:["Linea aspera","Linea alba cervicalis","Pretracheal fascia","Berry's ligament"],a:1},
+  {q:"Thyroid isthmus overlies which tracheal rings?",opts:["Rings 1-2","Rings 2-4","Rings 4-6","Rings 3-5"],a:1},
+  {q:"What vertebral level does the trachea begin at?",opts:["C4","C5","C6","T1"],a:2},
+  {q:"Catastrophic complication of LOW tracheostomy insertion?",opts:["RLN palsy","Tracheo-innominate fistula","Pneumothorax","Tracheomalacia"],a:1},
+  {q:"Tracheal blood supply — upper two-thirds?",opts:["Bronchial arteries","Inferior thyroid artery","Superior thyroid artery","Thyroidea ima"],a:1},
+  {q:"Which nerve runs in the tracheo-oesophageal groove?",opts:["Vagus","Phrenic","Recurrent laryngeal","Superior laryngeal"],a:2},
+  {q:"Approximate prevalence of thyroidea ima artery?",opts:["1-2%","3-10%","15-20%","30%"],a:1},
+  {q:"What anchors thyroid gland to cricoid + upper rings?",opts:["Suspensory ligament","Berry's ligament","Pretracheal fascia","Cricothyroid ligament"],a:1}
+];
+let qScore=0,qAnswered=0;
+const qc=document.getElementById('quizContainer');
+function renderQuiz(){
+  qc.innerHTML='';qScore=0;qAnswered=0;
+  quizData.forEach((q,i)=>{
+    const div=document.createElement('div');
+    div.className='qz-q';
+    div.innerHTML=`<div class="qt">Q${i+1}: ${q.q}</div><div class="qz-opts">${q.opts.map((o,j)=>`<div class="qz-opt" data-i="${i}" data-j="${j}">${String.fromCharCode(65+j)}. ${o}</div>`).join('')}</div>`;
+    qc.appendChild(div);
+  });
+  document.querySelectorAll('.qz-opt').forEach(opt=>{
+    opt.addEventListener('click',()=>{
+      const i=+opt.dataset.i,j=+opt.dataset.j;
+      const parent=opt.parentElement;
+      if(parent.classList.contains('answered'))return;
+      parent.classList.add('answered');
+      parent.querySelectorAll('.qz-opt').forEach((o,k)=>{
+        if(k===quizData[i].a)o.classList.add('correct');
+        else if(k===j)o.classList.add('wrong');
+      });
+      qAnswered++;
+      if(j===quizData[i].a)qScore++;
+      document.getElementById('qzScore').textContent=`Score: ${qScore}/${qAnswered} (${Math.round(qScore/qAnswered*100)}%)`;
+    });
+  });
+  document.getElementById('qzScore').textContent='Score: 0/0';
+}
+renderQuiz();
+document.getElementById('qzReset').addEventListener('click',renderQuiz);
+</script>
+
+</body>
+</html>

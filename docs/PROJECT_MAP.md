@@ -27,7 +27,7 @@ the job is a board build or a visual build.
 
 | Owner | Holds |
 |---|---|
-| COMMAND | Shared rules — authority on conflicts |
+| COMMAND | Shared rules — overrides stale repo text; Maz's latest explicit instruction overrides it |
 | NEXT UP | Current Yearly / SMARK / Runthrough positions |
 | Runthrough owner | Syllabus Runthrough checkpoint |
 | SAQ Practice | Past SAQs, refined templates, model answers |
@@ -42,7 +42,10 @@ Links: [`docs/CURRENT_WORKFLOW.md`](CURRENT_WORKFLOW.md#live-sources-refresh-pos
 
 ## Repo housekeeping
 
-- `archive/2026-10-28-pre-output-workflow/` — old per-SAQ HTML pages and superseded instructions.
+- Root `2017A_Q11–Q14_*_Interactive.html` — legacy outputs kept at their original URLs;
+  their production route is retired.
+- `archive/2026-10-28-pre-output-workflow/` — archive copies of all six per-SAQ pages and
+  the superseded instructions.
 - Open PR [marzuk213-cloud/cicm-study#1](https://github.com/marzuk213-cloud/cicm-study/pull/1)
   (Cursor static-server config for the old HTML pages, 1 Sep) is superseded by this
   workflow. Left untouched — Maz's call to close it.

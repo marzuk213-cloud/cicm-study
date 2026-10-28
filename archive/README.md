@@ -20,8 +20,16 @@ by `CLAUDE.md` and `docs/CURRENT_WORKFLOW.md`.
 | `superseded-instructions/README.md.2026-05-18.md` | Old README ("Interactive HTML study pages") | `main` |
 | `maintenance-tools/artifact_copy.py` | Strips doctype/html/head/body to make an Artifact publish copy | `claude/clever-cori-5udi2j` |
 
-Pages were moved with `git mv`, so `git log --follow <path>` shows full history. The two
-branch pages were merged (not copied) so their original commits are preserved too.
+**Retired = the production route, not the outputs.** The route that built one interactive
+HTML page per SAQ (and the 12 Oct "always publish as Artifact" rule) is retired. The
+outputs themselves are kept:
+
+- The four 2017A pages that were on `main` **also stay at their original repo-root paths,
+  byte-for-byte identical** (same git blob SHAs as `main` at `e71f2a5`), so existing links
+  keep working. The copies here are archive copies.
+- The two 2009A pages were never on `main`; they live only here. Their branches
+  (`claude/clever-cori-5udi2j`, `claude/trusting-edison-497g9b`) were merged, not copied,
+  so their original commits are preserved.
 
 ### SHA-256 at archive time
 
@@ -38,8 +46,9 @@ ca158d47aa66bc8930e680c7d8330e1d3c8a3131242f5fba248e4fdc52882b4e  maintenance-to
 ```
 
 Verify: `cd archive/2026-10-28-pre-output-workflow && sha256sum -c` with the block above.
+The four repo-root 2017A pages have the same SHA-256 values as their archive copies.
 
 ### Restore
 
-`git mv archive/2026-10-28-pre-output-workflow/<path> <destination>`. To view a page, open
+Copy `archive/2026-10-28-pre-output-workflow/<path>` to the destination with `cp`, then commit. To view a page, open
 it in a browser, or publish it as a private Artifact via `maintenance-tools/artifact_copy.py`.

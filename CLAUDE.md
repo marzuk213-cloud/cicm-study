@@ -1,8 +1,16 @@
 # cicm-study — cloud Claude Code home for Maz's CICM First Part workflow
 
-**Exam:** CICM First Part, Tuesday 25 February 2027. **Workflow in force:**
-`CICM-OUTPUT-WORKFLOW-20261028` — output and exam focused. This file supersedes every
-older instruction in this repo (now in `archive/`).
+**Workflow in force:** `CICM-OUTPUT-WORKFLOW-20261028` — output and exam focused. This
+file supersedes every older instruction in this repo (now in `archive/`). Exam dates,
+sittings and eligibility are not asserted here — take them from the live campaign pages in
+Notion or the official CICM source.
+
+## Authority order
+
+1. **Maz's latest explicit instruction** — always wins.
+2. **Live Notion owners** (COMMAND for shared rules; NEXT UP, Runthrough, Attempt Log etc.
+   for positions and records).
+3. **This repo's guidance** — COMMAND wins over it when the repo text is stale.
 
 ## What this repo is (and isn't)
 
@@ -20,7 +28,7 @@ owners, no Mac/localhost assumptions here.
 ## Read first, every session
 
 1. `docs/CURRENT_WORKFLOW.md` — the eight routes (portable guide).
-2. Live Notion **COMMAND** — it wins on any conflict with this repo:
+2. Live Notion **COMMAND** — overrides stale repo guidance (never overrides Maz):
    https://app.notion.com/p/39a6cdbdfe3d81fbb2dbfeecbd6b5797
 3. **NEXT UP** for current positions (refresh; never trust a dated snapshot):
    https://app.notion.com/p/3856cdbdfe3d81ec8cbcf3d241b93939

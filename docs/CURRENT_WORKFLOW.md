@@ -2,8 +2,13 @@
 
 **Event:** `CICM-OUTPUT-WORKFLOW-20261028` · set by Maz 28 Oct 2026 · supersedes all older
 CICM skill defaults. Portable: paste this into any Claude surface (projectless chat,
-CICM Sidekick, Cowork, local or cloud Claude Code). The live Notion **COMMAND** page is the
-authority; if this file and COMMAND disagree, COMMAND wins and this file is stale.
+CICM Sidekick, Cowork, local or cloud Claude Code).
+
+**Authority order:** (1) Maz's latest explicit instruction; (2) the live Notion owners —
+COMMAND for shared rules, the owner databases for positions and records; (3) this file. If
+this file and COMMAND disagree, this file is stale and COMMAND wins — but neither overrides Maz.
+Exam dates and sittings come from the live campaign pages or the official CICM source, not
+from this guide.
 
 > **Name of the game:** output and exam focused. Use the Notion databases built over the
 > years; pull outside sources only when the situation calls for it.

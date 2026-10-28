@@ -6,7 +6,8 @@ description: Maz's current CICM First Part workflow (CICM-OUTPUT-WORKFLOW-202610
 # CICM output workflow — entry point
 
 1. Read `docs/CURRENT_WORKFLOW.md` (the eight routes) and refresh live Notion COMMAND
-   (https://app.notion.com/p/39a6cdbdfe3d81fbb2dbfeecbd6b5797). COMMAND wins on conflict.
+   (https://app.notion.com/p/39a6cdbdfe3d81fbb2dbfeecbd6b5797). Authority: Maz's latest
+   explicit instruction → live Notion owners → repo text (COMMAND overrides stale repo text only).
 2. Refresh the position you need from its live owner (NEXT UP, Runthrough owner, Attempt
    Log, SMARK administration, Running Recall Log, Repair Boards) — never a dated snapshot.
 3. Pick the route:

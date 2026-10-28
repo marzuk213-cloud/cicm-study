@@ -1,6 +1,6 @@
 # cicm-study
 
-Cloud Claude Code home for Maz's **CICM First Part** study workflow (exam 25 Feb 2027).
+Cloud Claude Code home for Maz's **CICM First Part** study workflow.
 
 Current workflow: **`CICM-OUTPUT-WORKFLOW-20261028`** — output and exam focused, built on
 the Notion databases. The repo holds the *instructions*; the learning data lives in Notion.
@@ -24,5 +24,20 @@ the Notion databases. The repo holds the *instructions*; the learning data lives
 7. **Repair production** — daily board HTML → [`repair-board-builder`](https://github.com/marzuk213-cloud/repair-board-builder).
 8. **Shared coordination** — existing owners and receipts, refresh before writes, no invented credit.
 
-Old roles (per-SAQ interactive HTML pages, `/ts`, old `/next` menus, Socratic study-buddy)
-are retired to [`archive/`](archive/README.md) — nothing deleted.
+Authority: Maz's latest explicit instruction → live Notion owners → this repo (COMMAND
+overrides stale repo text, never Maz).
+
+## Legacy study pages (kept at their original URLs)
+
+The four 2017A pages below stay at their original paths so existing links keep working.
+They are historical outputs only — the **route that produced them (one interactive HTML
+page per SAQ) is retired**; don't add new pages here.
+
+- [`2017A_Q11_Tracheostomy_Interactive.html`](2017A_Q11_Tracheostomy_Interactive.html)
+- [`2017A_Q12_Oxycodone_Interactive.html`](2017A_Q12_Oxycodone_Interactive.html)
+- [`2017A_Q13_DorsalisPedis_Interactive.html`](2017A_Q13_DorsalisPedis_Interactive.html)
+- [`2017A_Q14_Respiratory_Compliance_Interactive.html`](2017A_Q14_Respiratory_Compliance_Interactive.html)
+
+Other old roles (`/ts`, old `/next` menus, Socratic study-buddy, the per-SAQ HTML delivery
+rule) and archive copies of every historical output are in [`archive/`](archive/README.md) —
+nothing deleted.
