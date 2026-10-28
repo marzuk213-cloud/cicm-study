@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<!-- Theme: ember-tide | Topic: TCAs vs SSRIs vs MAOIs — mechanism of action and side effects | Session: 2009A Q21 (official Paper 2 Q09) -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCAs, SSRIs and MAOIs</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0a0f1a;
+    --panel: #0d1424;
+    --line: #23304a;
+    --line2: #2f3d5e;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --tca: #fbbf24;  --tca-bg: #241a06;  --tca-bd: #6b4f12;
+    --ssri: #2dd4bf; --ssri-bg: #052421; --ssri-bd: #135e55;
+    --maoi: #f472b6; --maoi-bg: #2a0b1f; --maoi-bd: #7a1e55;
+    --ht: #a78bfa;   --na: #fb923c;     --tyr: #a3e635;
+    --focus: #a3e635;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px 16px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 15px;
+  }
+  header { margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+  h1 { font-size: 1.75rem; font-weight: 700; color: #fde68a; letter-spacing: -0.02em; margin-bottom: 8px; }
+  h1 .c-t { color: var(--tca); } h1 .c-s { color: var(--ssri); } h1 .c-m { color: var(--maoi); }
+  .sub { color: var(--muted); font-size: 0.88rem; }
+  .sub strong { color: var(--text); }
+  .qbox { margin-top: 12px; background: #111a2c; border: 1px solid #2a3654; border-radius: 10px; padding: 12px 14px; font-size: 0.95rem; }
+  .qbox .ql { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tyr); font-weight: 700; display: block; margin-bottom: 2px; }
+
+  nav.toc { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+  nav.toc a {
+    background: #111a2c; color: #cbd5e1;
+    padding: 6px 12px; border-radius: 16px;
+    text-decoration: none; font-size: 0.8rem;
+    border: 1px solid var(--line); transition: all 0.2s; white-space: nowrap;
+  }
+  nav.toc a:hover, nav.toc a:focus-visible { background: #fde68a; color: var(--bg); border-color: #fde68a; }
+
+  section { margin-bottom: 26px; padding: 20px 22px; border-radius: 12px; border-left: 4px solid; background: #0f1626; scroll-margin-top: 12px; }
+  section.s-violet { border-left-color: #a78bfa; background: #110d26; }
+  section.s-lime { border-left-color: #a3e635; background: #0f1a0c; }
+  section.s-teal { border-left-color: #2dd4bf; background: #071d1c; }
+  section.s-sky { border-left-color: #60a5fa; background: #0b1730; }
+  section.s-pink { border-left-color: #f472b6; background: #1c0c1d; }
+  section.s-amber { border-left-color: #fbbf24; background: #1a1408; }
+  section.s-emerald { border-left-color: #34d399; background: #0a1f18; }
+  section.s-rose { border-left-color: #fb7185; background: #1f0c12; }
+  section.s-slate { border-left-color: #94a3b8; background: #111827; }
+  h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.01em; }
+  section.s-violet h2 { color: #c4b5fd; }
+  section.s-lime h2 { color: #bef264; }
+  section.s-teal h2 { color: #5eead4; }
+  section.s-sky h2 { color: #93c5fd; }
+  section.s-pink h2 { color: #f9a8d4; }
+  section.s-amber h2 { color: #fcd34d; }
+  section.s-emerald h2 { color: #6ee7b7; }
+  section.s-rose h2 { color: #fda4af; }
+  section.s-slate h2 { color: #e2e8f0; }
+  h3 { font-size: 1rem; color: var(--text); margin: 16px 0 8px; font-weight: 600; }
+  p { margin-bottom: 10px; }
+  ul, ol { margin: 6px 0 12px 22px; }
+  li { margin-bottom: 4px; }
+  strong { color: #ffffff; }
+  em { color: #c4b5fd; font-style: normal; font-weight: 500; }
+  a { color: #93c5fd; }
+  .muted { color: var(--muted); font-size: 0.86rem; }
+  .t { color: var(--tca); font-weight: 600; } .s { color: var(--ssri); font-weight: 600; } .m { color: var(--maoi); font-weight: 600; }
+
+  /* Tables */
+  .tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0 14px; border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; background: #0b1220; font-size: 0.88rem; }
+  th, td { padding: 9px 11px; text-align: left; border: 1px solid var(--line); vertical-align: top; }
+  th { background: #16213a; color: var(--text); font-weight: 600; font-size: 0.82rem; }
+  th.h-t { color: var(--tca); border-top: 3px solid var(--tca); }
+  th.h-s { color: var(--ssri); border-top: 3px solid var(--ssri); }
+  th.h-m { color: var(--maoi); border-top: 3px solid var(--maoi); }
+  td { color: #d5deea; }
+  td.col-key { color: #fde68a; font-weight: 600; }
+
+  /* Pills & tags */
+  .pill { display: inline-block; padding: 1px 9px; border-radius: 11px; font-size: 0.74rem; font-weight: 600; margin: 1px 4px 1px 0; white-space: nowrap; }
+  .p-t { background: var(--tca-bg); color: var(--tca); border: 1px solid var(--tca-bd); }
+  .p-s { background: var(--ssri-bg); color: var(--ssri); border: 1px solid var(--ssri-bd); }
+  .p-m { background: var(--maoi-bg); color: var(--maoi); border: 1px solid var(--maoi-bd); }
+  .p-x { background: #1f2937; color: #e5e7eb; border: 1px dashed #64748b; }
+  .p-od { background: #2d0d0d; color: #fca5a5; border: 1px solid #5d1f1f; }
+  .p-tx { background: #0a1d33; color: #bfdbfe; border: 1px solid #1e3a8a; }
+  .tag-sim { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; background: #3b2a06; color: #fcd34d; border: 1px solid #7a5a12; margin-left: 6px; vertical-align: middle; }
+  .tag-clin { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; background: #3a0d14; color: #fda4af; border: 1px solid #7f1d2d; margin-left: 6px; vertical-align: middle; }
+  sup.ref a { color: var(--muted); text-decoration: none; font-size: 0.72rem; }
+  sup.ref a:hover { color: #fde68a; }
+
+  /* Callouts */
+  .callout { padding: 12px 14px; border-radius: 8px; margin: 12px 0; border-left: 3px solid; font-size: 0.92rem; }
+  .c-red { background: #2d0d0d; border-color: #ef4444; color: #fecaca; }
+  .c-amber { background: #2c1c08; border-color: #f59e0b; color: #fde68a; }
+  .c-blue { background: #0a1d33; border-color: #3b82f6; color: #bfdbfe; }
+  .c-purple { background: #1a0e2c; border-color: #a855f7; color: #ddd6fe; }
+  .c-green { background: #0a2118; border-color: #10b981; color: #a7f3d0; }
+  .c-slate { background: #131c2e; border-color: #64748b; color: #cbd5e1; }
+  .callout strong { color: #fff; }
+  .anchor { background: #1a1408; padding: 10px 14px; border-radius: 6px; margin: 10px 0; border-left: 3px solid #f59e0b; font-weight: 600; color: #fcd34d; font-size: 0.92rem; }
+
+  /* Buttons */
+  button, select, input { font-family: inherit; }
+  .btn {
+    background: #16213a; color: #cbd5e1; border: 1px solid var(--line2);
+    padding: 8px 14px; border-radius: 7px; cursor: pointer; font-size: 0.86rem;
+    transition: background 0.15s, color 0.15s; min-height: 38px;
+  }
+  .btn:hover { background: #22305a; }
+  .btn.primary { background: #b45309; border-color: #d97706; color: #fff; }
+  .btn.primary:hover { background: #d97706; }
+  .btn.active, .btn[aria-pressed="true"] { background: #fde68a; color: var(--bg); border-color: #fde68a; font-weight: 600; }
+  .btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  /* ===== Synapse simulator ===== */
+  .sim { background: #070b14; border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .stage-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .chip {
+    background: #111a2c; color: #cbd5e1; border: 1px solid var(--line2); border-radius: 16px;
+    padding: 5px 11px; font-size: 0.8rem; cursor: pointer; min-height: 34px;
+  }
+  .chip[aria-pressed="true"] { background: var(--tyr); color: var(--bg); border-color: var(--tyr); font-weight: 700; }
+  .chip .k { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+  .sim-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+  svg.dia { width: 100%; height: auto; display: block; background: #060a12; border-radius: 10px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
+  .legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .meters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
+  .meter { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; }
+  .meter .ml { display: flex; justify-content: space-between; font-size: 0.74rem; color: var(--muted); gap: 8px; }
+  .meter .ml b { color: var(--text); font-weight: 600; text-align: right; }
+  .bar { height: 8px; background: #1b2540; border-radius: 4px; overflow: hidden; margin-top: 5px; }
+  .bar i { display: block; height: 100%; width: 0%; border-radius: 4px; transition: width 0.35s ease; }
+  .toggles { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tgl { background: #111a2c; border: 1px solid var(--line2); color: #cbd5e1; border-radius: 8px; padding: 6px 10px; font-size: 0.8rem; cursor: pointer; min-height: 36px; }
+  .tgl[aria-pressed="true"] { border-color: currentColor; font-weight: 700; }
+  .tgl.k-sert[aria-pressed="true"] { color: var(--ht); background: #1a1238; }
+  .tgl.k-net[aria-pressed="true"] { color: var(--na); background: #2a1608; }
+  .tgl.k-mao[aria-pressed="true"] { color: var(--maoi); background: var(--maoi-bg); }
+  .tgl.k-off[aria-pressed="true"] { color: var(--tca); background: var(--tca-bg); }
+  .tgl.k-chr[aria-pressed="true"] { color: #93c5fd; background: #0c1a33; }
+  .tgl.k-tyr[aria-pressed="true"] { color: var(--tyr); background: #15210f; }
+  .stage-panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; min-height: 330px; }
+  .stage-panel .sn { font-size: 0.72rem; color: var(--tyr); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+  .stage-panel h3 { margin: 2px 0 8px; font-size: 1.02rem; color: #fff; }
+  .stage-panel ul { margin-left: 18px; font-size: 0.9rem; }
+  .stage-panel .exam { margin-top: 10px; padding: 8px 10px; border-left: 3px solid #fbbf24; background: #1a1408; color: #fde68a; font-size: 0.86rem; border-radius: 4px; }
+  .stage-panel .watch { margin-top: 8px; font-size: 0.82rem; color: #67e8f9; }
+  .stage-nav { display: flex; gap: 8px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
+  .stage-nav .prog { flex: 1; min-width: 90px; height: 6px; background: #1b2540; border-radius: 3px; overflow: hidden; }
+  .stage-nav .prog i { display: block; height: 100%; background: linear-gradient(90deg, var(--tca), var(--ssri), var(--maoi)); width: 0%; transition: width 0.3s; }
+
+  /* Target map */
+  .tmap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .tm-col h3 { margin-top: 0; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 2px solid; }
+  .tm-col.c-t h3 { color: var(--tca); border-color: var(--tca-bd); }
+  .tm-col.c-s h3 { color: var(--ssri); border-color: var(--ssri-bd); }
+  .tm-col.c-m h3 { color: var(--maoi); border-color: var(--maoi-bd); }
+  .tm-list { display: grid; gap: 6px; }
+  .tm-node {
+    background: var(--panel); border: 1px solid var(--line2); border-radius: 9px; padding: 8px 11px;
+    cursor: pointer; text-align: left; color: var(--text); font-size: 0.86rem; width: 100%; min-height: 40px;
+  }
+  .tm-node .tt { font-weight: 700; color: #fff; display: block; }
+  .tm-node .tx { font-size: 0.76rem; color: var(--muted); display: block; }
+  .tm-col.c-t .tm-node:hover, .tm-col.c-t .tm-node[aria-pressed="true"] { border-color: var(--tca); background: var(--tca-bg); }
+  .tm-col.c-s .tm-node:hover, .tm-col.c-s .tm-node[aria-pressed="true"] { border-color: var(--ssri); background: var(--ssri-bg); }
+  .tm-col.c-m .tm-node:hover, .tm-col.c-m .tm-node[aria-pressed="true"] { border-color: var(--maoi); background: var(--maoi-bg); }
+  .tm-detail { margin-top: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 0.9rem; min-height: 80px; }
+  .tm-detail.empty { color: #64748b; font-style: italic; }
+  .chain { display: grid; grid-template-columns: minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr); gap: 4px; align-items: stretch; margin: 8px 0 6px; }
+  .chain .lk { background: #0b1220; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 0.84rem; opacity: 0; transform: translateY(6px); animation: lkIn 0.35s ease forwards; }
+  .chain .lk .lh { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; color: var(--muted); margin-bottom: 2px; }
+  .chain .lk.l1 { border-top: 3px solid #93c5fd; } .chain .lk.l2 { border-top: 3px solid #c4b5fd; animation-delay: 0.12s; }
+  .chain .lk.l3 { border-top: 3px solid #6ee7b7; animation-delay: 0.24s; } .chain .lk.l4 { border-top: 3px solid #fca5a5; animation-delay: 0.36s; }
+  .chain .ar { display: flex; align-items: center; justify-content: center; color: #64748b; font-size: 1.1rem; }
+  @keyframes lkIn { to { opacity: 1; transform: none; } }
+  .exc { margin-top: 6px; font-size: 0.85rem; color: #e5e7eb; background: #1f2937; border: 1px dashed #64748b; border-radius: 6px; padding: 7px 10px; }
+
+  /* Comparison lens */
+  .lens-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; align-items: center; }
+  tr.dim td { opacity: 0.18; }
+  td.cell.hidden-ans { color: transparent !important; background: repeating-linear-gradient(45deg, #16213a, #16213a 6px, #1b2848 6px, #1b2848 12px); cursor: pointer; position: relative; }
+  td.cell.hidden-ans * { visibility: hidden; }
+  td.cell.hidden-ans::after { content: "tap to reveal"; position: absolute; left: 10px; top: 9px; font-size: 0.74rem; color: var(--muted); visibility: visible; }
+  tr.grp td { background: #121a2e; color: #fde68a; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* Heat grid */
+  .heat { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 4px; font-size: 0.84rem; }
+  .heat .hh { font-weight: 700; text-align: center; padding: 6px 4px; border-radius: 6px; font-size: 0.8rem; }
+  .heat .hh.t { background: var(--tca-bg); color: var(--tca); } .heat .hh.s { background: var(--ssri-bg); color: var(--ssri); } .heat .hh.m { background: var(--maoi-bg); color: var(--maoi); }
+  .heat .rl { padding: 6px 8px; background: #0b1220; border-radius: 6px; color: #d5deea; display: flex; align-items: center; overflow-wrap: anywhere; hyphens: manual; min-width: 0; }
+  .hc { border: 1px solid var(--line); border-radius: 6px; background: #0b1220; cursor: pointer; padding: 6px 4px; display: flex; align-items: center; justify-content: center; gap: 3px; min-height: 36px; position: relative; color: var(--text); }
+  .hc .pip { width: 11px; height: 11px; border-radius: 50%; background: #1b2540; border: 1px solid #334155; transition: background 0.25s; }
+  .hc.t .pip.on { background: var(--tca); border-color: var(--tca); } .hc.s .pip.on { background: var(--ssri); border-color: var(--ssri); } .hc.m .pip.on { background: var(--maoi); border-color: var(--maoi); }
+  .hc .star { position: absolute; top: 1px; right: 4px; font-size: 0.72rem; color: #fde68a; }
+  .hc[aria-pressed="true"] { box-shadow: 0 0 0 2px #fde68a inset; }
+  .heat.quiz .hc:not(.revealed) .pip { background: #1b2540 !important; border-color: #334155 !important; }
+  .heat.quiz .hc:not(.revealed)::after { content: "?"; color: #64748b; font-weight: 700; position: absolute; }
+  .heat.quiz .hc:not(.revealed) .pip, .heat.quiz .hc:not(.revealed) .star { visibility: hidden; }
+  .heat-detail { margin-top: 10px; background: var(--panel); border-left: 3px solid #fde68a; border-radius: 8px; padding: 10px 14px; font-size: 0.88rem; min-height: 56px; }
+
+  /* ECG / Na channel */
+  .chart-box { background: #070b14; border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  input[type=range] { width: 100%; accent-color: var(--tca); height: 30px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 10px; }
+  .stat-card { background: var(--panel); padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); }
+  .stat-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat-val { font-size: 1.15rem; color: var(--tca); font-weight: 700; margin-top: 2px; }
+  .readout { background: var(--panel); padding: 10px 14px; border-radius: 8px; margin-top: 10px; font-size: 0.88rem; border-left: 3px solid var(--tca); }
+  .readout.r-ok { border-left-color: #10b981; } .readout.r-mid { border-left-color: #f59e0b; } .readout.r-bad { border-left-color: #ef4444; }
+
+  /* Step flow */
+  .flow { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+  .fstep { padding: 10px 14px; background: var(--panel); border-radius: 8px; border: 1px solid var(--line); border-left: 3px solid #475569; display: flex; gap: 10px; align-items: flex-start; cursor: pointer; text-align: left; color: var(--text); width: 100%; font-size: 0.9rem; }
+  .fstep .n { font-weight: 700; color: var(--maoi); min-width: 22px; }
+  .fstep .d { display: none; font-size: 0.84rem; color: #cbd5e1; margin-top: 3px; }
+  .fstep.on { border-left-color: var(--maoi); background: #1a0b18; }
+  .fstep.on .d { display: block; }
+
+  /* MAO drug cards */
+  .drug-card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-top: 10px; }
+  .drug-card h4 { color: #fff; font-size: 1rem; margin-bottom: 4px; }
+  .mao-bars { display: grid; grid-template-columns: 80px minmax(0,1fr) 44px; gap: 6px 8px; align-items: center; font-size: 0.8rem; margin: 8px 0; }
+  .mao-bars .bar { margin-top: 0; height: 12px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+  .kv { display: grid; grid-template-columns: minmax(110px, 0.35fr) minmax(0, 1fr); gap: 4px 10px; font-size: 0.86rem; }
+  .kv dt { color: var(--muted); }
+  .kv dd { color: var(--text); }
+
+  /* Interaction checker */
+  .ix { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 10px; }
+  .ix label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+  select { width: 100%; background: #111a2c; color: var(--text); border: 1px solid var(--line2); border-radius: 8px; padding: 9px 10px; font-size: 0.9rem; min-height: 42px; }
+  .verdict { margin-top: 12px; border-radius: 10px; padding: 12px 14px; border: 1px solid; font-size: 0.9rem; }
+  .verdict .vh { font-weight: 800; font-size: 1rem; display: block; margin-bottom: 4px; }
+  .verdict.v-avoid { background: #2d0d0d; border-color: #ef4444; } .verdict.v-avoid .vh { color: #fca5a5; }
+  .verdict.v-caution { background: #2c1c08; border-color: #f59e0b; } .verdict.v-caution .vh { color: #fcd34d; }
+  .verdict.v-ok { background: #0a2118; border-color: #10b981; } .verdict.v-ok .vh { color: #6ee7b7; }
+
+  /* Hunter */
+  .hunter { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+  .chk { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chk button { text-align: left; }
+  .hres { background: var(--panel); border-radius: 10px; padding: 12px 14px; border: 1px solid var(--line); font-size: 0.9rem; }
+  .hres.pos { border-color: #ef4444; background: #2d0d0d; }
+  .hres.neg { border-color: #334155; }
+  .rule { font-size: 0.84rem; padding: 4px 8px; border-radius: 6px; margin: 3px 0; background: #0b1220; border: 1px solid var(--line); color: #94a3b8; }
+  .rule.hit { color: #fecaca; border-color: #ef4444; background: #3a0d14; font-weight: 600; }
+
+  /* Cards grid */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 0.9rem; }
+  .card h4 { font-size: 0.95rem; color: #fff; margin-bottom: 6px; }
+  .card ul { margin-left: 18px; margin-bottom: 0; }
+  .card.k-t { border-top: 3px solid var(--tca); } .card.k-s { border-top: 3px solid var(--ssri); } .card.k-m { border-top: 3px solid var(--maoi); }
+
+  /* Model answer */
+  details.model { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin-top: 12px; }
+  details.model summary { cursor: pointer; font-weight: 700; color: #fcd34d; min-height: 30px; }
+  details.model[open] summary { margin-bottom: 8px; }
+
+  /* Numbers */
+  .nums-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+  .num-card { background: #1a1408; padding: 12px; border-radius: 8px; border: 1px solid #5d3f1f; text-align: center; }
+  .num-val { font-size: 1.2rem; color: #fcd34d; font-weight: 700; }
+  .num-lab { font-size: 0.76rem; color: #fde68a; margin-top: 4px; }
+
+  /* Flashcards */
+  .fc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+  .fc { background: #16102e; border-radius: 8px; padding: 14px 14px 22px; cursor: pointer; border: 1px solid #3b2f6b; transition: border-color 0.2s, background 0.2s; min-height: 90px; position: relative; }
+  .fc:hover { border-color: #a78bfa; }
+  .fc .q { color: #ddd6fe; font-size: 0.9rem; font-weight: 500; }
+  .fc .a { display: none; color: #6ee7b7; font-size: 0.88rem; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #3b2f6b; }
+  .fc.flipped .a { display: block; }
+  .fc.flipped { background: #0a2118; border-color: #34d399; }
+  .fc::after { content: "tap to reveal"; position: absolute; bottom: 4px; right: 10px; font-size: 0.68rem; color: #64748b; }
+  .fc.flipped::after { content: "tap to hide"; }
+  .fc-ctl { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; align-items: center; }
+
+  /* Quiz */
+  .quiz-q { background: #1a0e2c; padding: 14px 16px; border-radius: 8px; margin-bottom: 10px; border-left: 3px solid #a855f7; }
+  .quiz-q .qt { font-weight: 600; color: #ddd6fe; margin-bottom: 10px; font-size: 0.95rem; }
+  .quiz-opts { display: flex; flex-direction: column; gap: 6px; }
+  .quiz-opt { background: #0d0820; padding: 9px 12px; border-radius: 6px; border: 1px solid #3a2a5a; cursor: pointer; font-size: 0.88rem; color: #ddd6fe; transition: background 0.15s; text-align: left; width: 100%; min-height: 40px; }
+  .quiz-opt:hover { background: #1a124a; border-color: #a855f7; }
+  .quiz-opt.correct { background: #0a2118; border-color: #10b981; color: #6ee7b7; }
+  .quiz-opt.wrong { background: #2d0d0d; border-color: #ef4444; color: #fca5a5; }
+  .quiz-opt.locked { cursor: default; }
+  .quiz-explain { display: none; margin-top: 10px; padding: 10px; background: #0a1d33; border-radius: 5px; font-size: 0.86rem; color: #bfdbfe; border-left: 3px solid #3b82f6; }
+  .quiz-explain.shown { display: block; }
+  #scorebox { background: #110d26; padding: 14px 18px; border-radius: 10px; margin-bottom: 16px; border: 1px solid #3b2f6b; display: flex; justify-content: space-between; align-items: center; gap: 10px; position: sticky; top: 8px; z-index: 5; }
+  .score-label { font-size: 0.85rem; color: var(--muted); }
+  .score-val { font-size: 1.5rem; color: #c4b5fd; font-weight: 700; }
+
+  /* Write-then-reveal */
+  .wr { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; }
+  .wr .wq { font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .wr textarea { width: 100%; min-height: 110px; background: #070b14; color: var(--text); border: 1px solid var(--line2); border-radius: 8px; padding: 10px; font-size: 0.9rem; font-family: inherit; resize: vertical; }
+  .wr .wa { display: none; margin-top: 10px; }
+  .wr .wa.shown { display: block; }
+  .wr .wa label { display: flex; gap: 8px; align-items: flex-start; font-size: 0.88rem; padding: 4px 0; cursor: pointer; }
+  .wr .wa input[type=checkbox] { margin-top: 4px; accent-color: var(--tyr); width: 18px; height: 18px; flex: none; }
+
+  /* References */
+  ol.refs { font-size: 0.82rem; color: #cbd5e1; margin-left: 20px; }
+  ol.refs li { margin-bottom: 6px; scroll-margin-top: 70px; }
+  ol.refs li:target { background: #1a2410; border-radius: 4px; }
+
+  @media (max-width: 860px) {
+    .sim-layout { grid-template-columns: 1fr; }
+    .stage-panel { min-height: 0; }
+    .tmap { grid-template-columns: 1fr; }
+    .hunter { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .chain { grid-template-columns: 1fr; }
+    .chain .ar { transform: rotate(90deg); height: 18px; }
+  }
+  @media (max-width: 600px) {
+    body { padding: 12px 16px 48px; font-size: 14.5px; }
+    h1 { font-size: 1.38rem; }
+    section { padding: 16px 14px; border-radius: 10px; }
+    table.stack, table.stack tbody, table.stack tr, table.stack td { display: block; width: 100%; }
+    table.stack thead { display: none; }
+    table.stack { background: transparent; }
+    table.stack tr { background: #0b1220; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 10px; padding: 6px 0; }
+    table.stack tr.grp { background: transparent; border: none; margin: 14px 0 4px; padding: 0; }
+    table.stack tr.grp td { background: transparent; padding: 0 2px; }
+    table.stack tr.grp td::before { display: none; }
+    table.stack td { border: none; padding: 5px 12px; }
+    table.stack td::before { content: attr(data-label); display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; margin-bottom: 1px; }
+    table.stack td:first-child { border-bottom: 1px solid #1b2540; padding-bottom: 7px; }
+    table.stack td.cell.hidden-ans { min-height: 52px; }
+    table.stack td.cell.hidden-ans::after { top: 22px; left: 12px; }
+    nav.toc { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(10,15,26,0.96); padding: 8px 16px; margin-left: -16px; margin-right: -16px; }
+    section { scroll-margin-top: 60px; }
+    .meters { grid-template-columns: 1fr; }
+    .ix { grid-template-columns: 1fr; }
+    .heat { font-size: 0.78rem; grid-template-columns: minmax(0, 1.25fr) repeat(3, minmax(0, 1fr)); }
+    .hc .pip { width: 8px; height: 8px; }
+    .kv { grid-template-columns: 1fr; }
+    .kv dd { margin-bottom: 4px; }
+    #scorebox { top: 56px; padding: 10px 14px; }
+    .sim, .chart-box { padding: 10px; }
+    svg .sv-small { display: none; }
+    svg .sv-lab { font-size: 15px; }
+    svg .sv-mob { font-size: 13px; }
+    #synSvg .sv-key { font-size: 18px; }
+    #synSvg .sv-mob { font-size: 17px; }
+    #synSvg .sv-lab { font-size: 19px; }
+    #synSvg .sv-rec { font-size: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .bar i, .fc, .chain .lk, .hc .pip { transition: none; animation: none; opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🧠 <span class="c-t">TCAs</span> vs <span class="c-s">SSRIs</span> vs <span class="c-m">MAOIs</span>: Mechanism → Side Effects</h1>
+  <p class="sub">
+    <strong>2009A Q21</strong> · official <strong>Paper 2 Q09</strong> · Pharmacology (nervous system) · Pass rate <strong>40%</strong> (as reported by CICM Wrecks<sup class="ref"><a href="#r3">3</a></sup>) · Approach: <strong>target first → every side effect hangs off a target</strong>
+  </p>
+  <div class="qbox"><span class="ql">The question</span>“Compare and contrast the mechanism of action and side effects of tricyclic antidepressants, selective serotonin reuptake inhibitors and monoamine oxidase inhibitors.”</div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#fw">Framework</a>
+  <a href="#syn">Synapse sim</a>
+  <a href="#map">Target map</a>
+  <a href="#cmp">Side-by-side</a>
+  <a href="#heat">AE grid</a>
+  <a href="#tca">TCA heart</a>
+  <a href="#mao">MAO-A vs B</a>
+  <a href="#tyr">Tyramine</a>
+  <a href="#ix">Interactions</a>
+  <a href="#st">Serotonin toxicity</a>
+  <a href="#pit">Traps</a>
+  <a href="#nm">Numbers</a>
+  <a href="#fc">Flashcards</a>
+  <a href="#qz">Quiz</a>
+  <a href="#wr">Mini-SAQs</a>
+  <a href="#refs">Sources</a>
+</nav>
+
+<div class="callout c-slate" role="note">
+  <strong>Teaching page, not a prescribing or poisoning protocol.</strong> Items tagged <span class="tag-sim">Teaching model</span> are simplified illustrations: a composite 5-HT/NA synapse, relative “levels”, a QRS model and an E<sub>max</sub> tyramine curve fitted to published anchor points. Numbers tagged <span class="tag-clin">Published data</span> come from the cited literature. Class-level patterns have drug exceptions, and they are flagged as such. For a real patient use local guidelines and a clinical toxicologist (Australia: Poisons Information Centre <strong>13 11 26</strong>).
+</div>
+
+<!-- ================== FRAMEWORK ================== -->
+<section id="fw" class="s-lime">
+  <h2>⚡ Quick-Glance SAQ Framework</h2>
+  <p class="muted" style="margin-bottom:8px">Examiners said good answers were <strong>tabular</strong>, named the <strong>neurotransmitters</strong> each class raises and <strong>how</strong> (reuptake blockade vs enzyme inhibition), and earned extra marks for <strong>beneficial side effects</strong>.<sup class="ref"><a href="#r2">2</a></sup><sup class="ref"><a href="#r3">3</a></sup> The weights below are a suggested time split, not official marks.</p>
+  <div class="tbl-wrap">
+  <table class="stack">
+    <thead><tr><th>Row of your table</th><th>Weight</th><th>What earns the mark</th><th>Landmine</th></tr></thead>
+    <tbody>
+      <tr><td class="col-key" data-label="Row">1. Mechanism (target)</td><td data-label="Weight">~30%</td><td data-label="What earns the mark"><span class="t">TCA</span>: SERT + NET reuptake block. <span class="s">SSRI</span>: SERT only. <span class="m">MAOI</span>: inhibits mitochondrial MAO (A ± B) so less intraneuronal breakdown. Name 5-HT / NA / DA. All: <em>delayed</em> clinical effect from adaptive changes.</td><td data-label="Landmine">Writing “increase serotonin” for all three with no mechanism.</td></tr>
+      <tr><td class="col-key" data-label="Row">2. Selectivity / reversibility</td><td data-label="Weight">~10%</td><td data-label="What earns the mark">TCAs are “dirty” (M, H₁, α₁, Na⁺/K⁺ channels). MAO-A vs MAO-B; irreversible (phenelzine, tranylcypromine) vs reversible (moclobemide).</td><td data-label="Landmine">Calling moclobemide an MAO-B inhibitor.</td></tr>
+      <tr><td class="col-key" data-label="Row">3. Side effects at therapeutic dose</td><td data-label="Weight">~30%</td><td data-label="What earns the mark">TCA: anticholinergic, sedation, weight, orthostatic hypotension, conduction. SSRI: GI, sexual, SIADH, bleeding, activation, discontinuation. MAOI: orthostatic hypotension, insomnia, weight, sexual + diet/drug restrictions.</td><td data-label="Landmine">A list with no receptor attached to each effect.</td></tr>
+      <tr><td class="col-key" data-label="Row">4. Overdose / toxicity</td><td data-label="Weight">~15%</td><td data-label="What earns the mark">TCA cardiotoxicity (Na⁺ channel → broad QRS, VT) + seizures + coma. SSRI relatively benign (citalopram QT). MAOI delayed, severe sympathomimetic/serotonergic crisis.</td><td data-label="Landmine">Mixing therapeutic side effects with overdose features.</td></tr>
+      <tr><td class="col-key" data-label="Row">5. Interactions</td><td data-label="Weight">~10%</td><td data-label="What earns the mark">Tyramine and indirect sympathomimetics with MAOIs; pethidine/tramadol; MAOI + SRI serotonin toxicity; CYP2D6 (fluoxetine, paroxetine).</td><td data-label="Landmine">“Hypotensive crisis” with cheese: it is <strong>hypertensive</strong>.</td></tr>
+      <tr><td class="col-key" data-label="Row">6. Beneficial side effects</td><td data-label="Weight">~5%</td><td data-label="What earns the mark">TCA analgesia (neuropathic pain) and sedation; SSRI “energising”; MAO-B inhibitors in Parkinson’s.</td><td data-label="Landmine">Leaving these out: the examiners specifically gave marks for them.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="anchor">🔑 Anchor: “Two classes block the <u>transporter</u>, one blocks the <u>enzyme</u>. TCA toxicity comes from what else they bind; SSRI toxicity comes from serotonin itself; MAOI toxicity comes from what the enzyme can no longer destroy.”</div>
+
+  <details class="model">
+    <summary>📝 10-minute model answer as the examiners asked: a table (tap to open)</summary>
+    <div class="tbl-wrap">
+    <table class="stack">
+      <thead><tr><th style="width:18%">Feature</th><th class="h-t">TCA (amitriptyline)</th><th class="h-s">SSRI (sertraline)</th><th class="h-m">MAOI (phenelzine / moclobemide)</th></tr></thead>
+      <tbody>
+        <tr><td class="col-key" data-label="Feature">Target</td><td data-label="TCA">Competitive block of <strong>SERT + NET</strong> (not DAT)</td><td data-label="SSRI">Selective block of <strong>SERT</strong></td><td data-label="MAOI">Inhibits <strong>MAO</strong> on outer mitochondrial membrane; ↓ oxidative deamination</td></tr>
+        <tr><td class="col-key" data-label="Feature">Transmitters ↑</td><td data-label="TCA">5-HT, NA</td><td data-label="SSRI">5-HT</td><td data-label="MAOI">5-HT, NA, DA (+ tyramine, PEA)</td></tr>
+        <tr><td class="col-key" data-label="Feature">Other actions</td><td data-label="TCA">Antagonist at M, H₁, α₁ (± 5-HT₂); blocks fast Na⁺ and K⁺ channels</td><td data-label="SSRI">Few; drug-specific CYP inhibition (fluoxetine, paroxetine 2D6; fluvoxamine 1A2)</td><td data-label="MAOI">Irreversible non-selective (phenelzine, tranylcypromine) vs reversible MAO-A selective (moclobemide)</td></tr>
+        <tr><td class="col-key" data-label="Feature">Onset</td><td colspan="3" data-label="All classes">Transporter/enzyme block is immediate; mood effect takes weeks (autoreceptor desensitisation, receptor down-regulation, neuroplasticity)</td></tr>
+        <tr><td class="col-key" data-label="Feature">Therapeutic side effects</td><td data-label="TCA">Anticholinergic (dry mouth, constipation, retention, blurred vision, delirium) · sedation, weight gain (H₁) · orthostatic hypotension (α₁) · tachycardia, conduction delay · ↓ seizure threshold</td><td data-label="SSRI">Nausea, diarrhoea · insomnia, agitation, headache · sexual dysfunction · hyponatraemia (SIADH) · bleeding (platelet 5-HT depletion) · QT (citalopram) · discontinuation syndrome</td><td data-label="MAOI">Orthostatic hypotension (commonest) · insomnia, agitation · weight gain, oedema · sexual dysfunction · hepatotoxicity (hydrazines, rare)</td></tr>
+        <tr><td class="col-key" data-label="Feature">Overdose</td><td data-label="TCA"><strong>Most lethal</strong>: coma, seizures, hypotension, broad QRS, VT. Rx NaHCO₃</td><td data-label="SSRI">Relatively benign; mild serotonin toxicity; citalopram QT and seizures</td><td data-label="MAOI">Delayed (up to 24 h), severe: hyperthermia, rigidity, hypertension then collapse</td></tr>
+        <tr><td class="col-key" data-label="Feature">Key interactions</td><td data-label="TCA">↑ response to direct catecholamines; CYP2D6 inhibitors ↑ levels; MAOI (clomipramine, imipramine)</td><td data-label="SSRI">MAOIs (incl. linezolid, methylene blue), tramadol, pethidine → serotonin toxicity; NSAIDs/anticoagulants → bleeding</td><td data-label="MAOI">Tyramine, indirect sympathomimetics → <strong>hypertensive crisis</strong>; pethidine, tramadol, SRIs → serotonin toxicity</td></tr>
+        <tr><td class="col-key" data-label="Feature">Beneficial side effects</td><td data-label="TCA">Neuropathic pain analgesia, sedation for insomnia</td><td data-label="SSRI">Energising; anxiolytic (panic, OCD)</td><td data-label="MAOI">Atypical/resistant depression; MAO-B: Parkinson’s</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </details>
+</section>
+
+<!-- ================== SYNAPSE SIMULATOR ================== -->
+<section id="syn" class="s-violet">
+  <h2>🧪 Monoamine Synapse: step through the three mechanisms <span class="tag-sim">Teaching model</span></h2>
+  <p>Eight stages. Each stage sets the switches under the diagram; flip them yourself to build combinations. Watch the <em>meters</em> and where recaptured amine goes: to the <span class="m">mitochondrion (MAO)</span> to be destroyed, or back into <em>vesicles</em> when MAO is blocked.</p>
+
+  <div class="sim">
+    <div class="stage-chips" id="stageChips" role="group" aria-label="Stages"></div>
+    <div class="sim-layout">
+      <div>
+        <svg id="synSvg" class="dia" viewBox="0 0 640 418" role="img" aria-label="Animated composite monoamine synapse showing serotonin and noradrenaline release, SERT and NET transporters, mitochondrial monoamine oxidase, postsynaptic receptors and TCA off-target sites">
+          <defs>
+            <radialGradient id="gH" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#a78bfa" stop-opacity="0.95"/><stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/></radialGradient>
+            <radialGradient id="gN" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fb923c" stop-opacity="0.95"/><stop offset="100%" stop-color="#fb923c" stop-opacity="0"/></radialGradient>
+          </defs>
+          <!-- presynaptic terminal -->
+          <path d="M 90 14 H 550 Q 580 14 580 44 V 128 Q 580 150 558 150 H 82 Q 60 150 60 128 V 44 Q 60 14 90 14 Z" fill="#17122c" stroke="#7c6fd6" stroke-width="2"/>
+          <text class="sv-lab" x="76" y="34" fill="#c4b5fd" font-size="12" font-weight="600">Presynaptic terminal</text>
+          <text class="sv-small" x="566" y="34" fill="#94a3b8" font-size="10" text-anchor="end">composite: 5-HT + NA in one terminal</text>
+          <g id="vesG"></g>
+          <text class="sv-small" x="210" y="138" fill="#94a3b8" font-size="9.5" text-anchor="middle">vesicles (VMAT2)</text>
+          <!-- mitochondrion -->
+          <ellipse id="mito" cx="455" cy="80" rx="72" ry="30" fill="#2a0f22" stroke="#f472b6" stroke-width="2"/>
+          <path d="M 400 80 q 10 -16 20 0 q 10 16 20 0 q 10 -16 20 0 q 10 16 20 0 q 10 -16 20 0 q 10 16 20 0" fill="none" stroke="#7a1e55" stroke-width="1.5"/>
+          <text class="sv-key" x="455" y="80" fill="#f9a8d4" font-size="13" font-weight="700" text-anchor="middle">MAO</text>
+          <text class="sv-small" x="455" y="92" fill="#f9a8d4" font-size="9" text-anchor="middle">outer mitochondrial membrane</text>
+          <g id="maoCap" opacity="0">
+            <ellipse cx="455" cy="80" rx="76" ry="34" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6 4"/>
+            <text class="sv-mob" x="455" y="128" fill="#fca5a5" font-size="11" font-weight="700" text-anchor="middle">✕ MAO inhibited</text>
+          </g>
+          <!-- autoreceptor -->
+          <g id="autoR">
+            <circle id="autoGlow" cx="370" cy="150" r="22" fill="url(#gH)" opacity="0"/>
+            <path d="M 360 156 q 3 6 6 0 q 3 -6 6 0 q 3 6 6 0 q 2 4 4 0 V 136 H 360 Z" fill="#2e2363" stroke="#c4b5fd" stroke-width="1.5"/>
+            <text id="autoTxt" class="sv-small" x="370" y="174" fill="#c4b5fd" font-size="9" text-anchor="middle">autoreceptor</text>
+          </g>
+          <!-- transporters -->
+          <rect x="157" y="139" width="26" height="22" rx="5" fill="#1a1238" stroke="#a78bfa" stroke-width="2"/>
+          <text class="sv-key" x="170" y="180" fill="#c4b5fd" font-size="11" font-weight="700" text-anchor="middle">SERT</text>
+          <rect x="257" y="139" width="26" height="22" rx="5" fill="#2a1608" stroke="#fb923c" stroke-width="2"/>
+          <text class="sv-key" x="270" y="180" fill="#fdba74" font-size="11" font-weight="700" text-anchor="middle">NET</text>
+          <g id="sertCap" opacity="0"><rect x="153" y="134" width="34" height="32" rx="7" fill="#3a0d14" stroke="#ef4444" stroke-width="2"/><text x="170" y="155" fill="#fca5a5" font-size="15" font-weight="800" text-anchor="middle">✕</text></g>
+          <g id="netCap" opacity="0"><rect x="253" y="134" width="34" height="32" rx="7" fill="#3a0d14" stroke="#ef4444" stroke-width="2"/><text x="270" y="155" fill="#fca5a5" font-size="15" font-weight="800" text-anchor="middle">✕</text></g>
+          <!-- cleft -->
+          <text x="40" y="226" fill="#64748b" font-size="11" text-anchor="middle" transform="rotate(-90 40 226)">synaptic cleft</text>
+          <g id="tyrSrc" opacity="0"><text class="sv-mob" x="568" y="200" fill="#a3e635" font-size="10.5" text-anchor="end">tyramine from gut → blood</text></g>
+          <!-- postsynaptic -->
+          <path d="M 60 292 H 580 V 330 Q 580 340 570 340 H 70 Q 60 340 60 330 Z" fill="#0d1b30" stroke="#38bdf8" stroke-width="2"/>
+          <text class="sv-small" x="320" y="334" fill="#94a3b8" font-size="9.5" text-anchor="middle">postsynaptic neurone / effector</text>
+          <circle id="rg0" cx="150" cy="292" r="30" fill="url(#gH)" opacity="0"/>
+          <circle id="rg1" cx="220" cy="292" r="30" fill="url(#gH)" opacity="0"/>
+          <circle id="rg2" cx="400" cy="292" r="30" fill="url(#gN)" opacity="0"/>
+          <circle id="rg3" cx="470" cy="292" r="30" fill="url(#gN)" opacity="0"/>
+          <g>
+            <path d="M 136 288 q 3.5 -6 7 0 q 3.5 6 7 0 q 3.5 -6 7 0 q 3.5 6 7 0 V 320 H 136 Z" fill="#2e2363" stroke="#a78bfa" stroke-width="1.5"/>
+            <text x="150" y="312" fill="#ddd6fe" font-size="9.5" font-weight="700" text-anchor="middle" class="sv-rec">5-HT</text>
+            <path d="M 206 288 q 3.5 -6 7 0 q 3.5 6 7 0 q 3.5 -6 7 0 q 3.5 6 7 0 V 320 H 206 Z" fill="#2e2363" stroke="#a78bfa" stroke-width="1.5"/>
+            <text x="220" y="312" fill="#ddd6fe" font-size="9.5" font-weight="700" text-anchor="middle" class="sv-rec">5-HT</text>
+            <path d="M 386 288 q 3.5 -6 7 0 q 3.5 6 7 0 q 3.5 -6 7 0 q 3.5 6 7 0 V 320 H 386 Z" fill="#3a1d08" stroke="#fb923c" stroke-width="1.5"/>
+            <text x="400" y="312" fill="#fed7aa" font-size="9.5" font-weight="700" text-anchor="middle" class="sv-rec">α/β</text>
+            <path d="M 456 288 q 3.5 -6 7 0 q 3.5 6 7 0 q 3.5 -6 7 0 q 3.5 6 7 0 V 320 H 456 Z" fill="#3a1d08" stroke="#fb923c" stroke-width="1.5"/>
+            <text x="470" y="312" fill="#fed7aa" font-size="9.5" font-weight="700" text-anchor="middle" class="sv-rec">α/β</text>
+          </g>
+          <!-- off-target strip -->
+          <text class="sv-mob" x="20" y="361" fill="#94a3b8" font-size="10.5">Off-target sites and other tissues</text>
+          <g id="otG"></g>
+          <g id="flyL"></g>
+          <g id="pL"></g>
+        </svg>
+        <div class="legend">
+          <span><i class="dot" style="background:#a78bfa"></i>5-HT</span>
+          <span><i class="dot" style="background:#fb923c"></i>Noradrenaline</span>
+          <span><i class="dot" style="background:#a3e635"></i>Tyramine</span>
+          <span><i class="dot" style="background:#f472b6"></i>MAO (deamination)</span>
+          <span><i class="dot" style="background:#ef4444"></i>Blocked</span>
+        </div>
+        <div class="toggles" role="group" aria-label="Manual switches">
+          <button class="tgl k-sert" id="tSert" aria-pressed="false">SERT blocked</button>
+          <button class="tgl k-net" id="tNet" aria-pressed="false">NET blocked</button>
+          <button class="tgl k-mao" id="tMao" aria-pressed="false">MAO inhibited</button>
+          <button class="tgl k-off" id="tOff" aria-pressed="false">TCA off-target block</button>
+          <button class="tgl k-chr" id="tChr" aria-pressed="false">Weeks of treatment</button>
+          <button class="tgl k-tyr" id="tTyr" aria-pressed="false">Tyramine meal</button>
+          <button class="tgl" id="tPlay" aria-pressed="false">⏸ Pause</button>
+        </div>
+        <div class="meters" id="meters" aria-live="polite"></div>
+      </div>
+      <div class="stage-panel" id="stagePanel" aria-live="polite"></div>
+    </div>
+    <div class="stage-nav">
+      <button class="btn" id="stPrev">◀ Prev</button>
+      <div class="prog" aria-hidden="true"><i id="stProg"></i></div>
+      <button class="btn primary" id="stNext">Next ▶</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================== TARGET MAP ================== -->
+<section id="map" class="s-sky">
+  <h2>🗺️ Target → Consequence Map: hang every side effect on a target</h2>
+  <p>Tap a target. The chain reads <strong>target → what it does → therapeutic-dose effect → overdose / interaction effect</strong>, with the drug exception underneath. This is the “compare and contrast” spine: one target per line of your answer.</p>
+  <div class="tmap" id="tmap"></div>
+  <div class="tm-detail empty" id="tmDetail" aria-live="polite">Tap a target above…</div>
+</section>
+
+<!-- ================== COMPARISON TABLE ================== -->
+<section id="cmp" class="s-amber">
+  <h2>⚖️ Side-by-Side Comparison</h2>
+  <p>Use a <strong>lens</strong> to dim everything except one theme, or switch on <strong>self-test</strong> and tap each hidden cell after you have said the answer out loud.</p>
+  <div class="lens-row" role="group" aria-label="Table lens">
+    <button class="btn" data-lens="all" aria-pressed="true">All</button>
+    <button class="btn" data-lens="mech" aria-pressed="false">Mechanism</button>
+    <button class="btn" data-lens="ther" aria-pressed="false">Therapeutic AEs</button>
+    <button class="btn" data-lens="od" aria-pressed="false">Overdose</button>
+    <button class="btn" data-lens="ix" aria-pressed="false">Interactions</button>
+    <button class="btn" data-lens="exc" aria-pressed="false">Exceptions</button>
+    <button class="btn" id="cmpTest" aria-pressed="false">🙈 Self-test</button>
+  </div>
+  <div class="tbl-wrap">
+  <table class="stack" id="cmpTable">
+    <thead><tr><th style="width:17%">Feature</th><th class="h-t">TCA</th><th class="h-s">SSRI</th><th class="h-m">MAOI</th></tr></thead>
+    <tbody>
+      <tr class="grp" data-cat="mech"><td colspan="4">Mechanism</td></tr>
+      <tr data-cat="mech"><td class="col-key" data-label="Feature">Examples</td><td class="cell" data-label="TCA">Amitriptyline, nortriptyline, imipramine, clomipramine, doxepin, dosulepin</td><td class="cell" data-label="SSRI">Fluoxetine, sertraline, paroxetine, citalopram, escitalopram, fluvoxamine</td><td class="cell" data-label="MAOI">Phenelzine, tranylcypromine (irreversible, non-selective); moclobemide (reversible MAO-A); selegiline, rasagiline, safinamide (MAO-B)</td></tr>
+      <tr data-cat="mech"><td class="col-key" data-label="Feature">Primary target</td><td class="cell" data-label="TCA">SERT + NET: competitive reuptake inhibition (negligible DAT)</td><td class="cell" data-label="SSRI">SERT only</td><td class="cell" data-label="MAOI">MAO enzyme (FAD flavoprotein, outer mitochondrial membrane)</td></tr>
+      <tr data-cat="mech"><td class="col-key" data-label="Feature">Why transmitter rises</td><td class="cell" data-label="TCA">Less clearance from the cleft</td><td class="cell" data-label="SSRI">Less 5-HT clearance from the cleft</td><td class="cell" data-label="MAOI">Less intraneuronal breakdown → bigger cytosolic and vesicular stores → more released</td></tr>
+      <tr data-cat="mech"><td class="col-key" data-label="Feature">Transmitters ↑</td><td class="cell" data-label="TCA">5-HT + NA</td><td class="cell" data-label="SSRI">5-HT</td><td class="cell" data-label="MAOI">5-HT + NA + DA (+ trace amines)</td></tr>
+      <tr data-cat="mech"><td class="col-key" data-label="Feature">Off-target binding</td><td class="cell" data-label="TCA">Antagonist: muscarinic, H₁, α₁, 5-HT₂. Blocks fast Na⁺ (Naᵥ1.5), K⁺ (hERG), ± GABA<sub>A</sub></td><td class="cell" data-label="SSRI">Minimal receptor binding; drug-specific CYP inhibition</td><td class="cell" data-label="MAOI">No receptor binding needed: the enzyme is in gut, liver, platelets, neurones, so effects are widespread</td></tr>
+      <tr data-cat="mech"><td class="col-key" data-label="Feature">Reversibility</td><td class="cell" data-label="TCA">Reversible, competitive</td><td class="cell" data-label="SSRI">Reversible, competitive</td><td class="cell" data-label="MAOI">Irreversible (covalent; recovery needs new enzyme ≈ 2 weeks) or reversible (moclobemide)</td></tr>
+      <tr data-cat="mech"><td class="col-key" data-label="Feature">Onset of mood effect</td><td class="cell" colspan="3" data-label="All three">Weeks for all three, though transporter/enzyme block is immediate: acute 5-HT rise is braked by 5-HT₁A / α₂ autoreceptors, which desensitise over weeks (plus receptor down-regulation and neuroplasticity)</td></tr>
+
+      <tr class="grp" data-cat="ther"><td colspan="4">Therapeutic-dose adverse effects</td></tr>
+      <tr data-cat="ther"><td class="col-key" data-label="Feature">Autonomic</td><td class="cell" data-label="TCA"><strong>Anticholinergic</strong>: dry mouth, constipation, urinary retention, blurred vision, ↑ IOP (angle closure), tachycardia</td><td class="cell" data-label="SSRI">Sweating; minimal anticholinergic (paroxetine slight)</td><td class="cell" data-label="MAOI">Dry mouth, constipation (not antimuscarinic)</td></tr>
+      <tr data-cat="ther"><td class="col-key" data-label="Feature">CNS</td><td class="cell" data-label="TCA">Sedation (H₁), confusion/delirium in elderly, tremor, ↓ seizure threshold</td><td class="cell" data-label="SSRI">Early anxiety, agitation, insomnia, headache, akathisia; ↑ suicidal thinking early in under-25s</td><td class="cell" data-label="MAOI">Insomnia, agitation (tranylcypromine stimulant-like), sedation (phenelzine), myoclonus</td></tr>
+      <tr data-cat="ther"><td class="col-key" data-label="Feature">CVS</td><td class="cell" data-label="TCA">Orthostatic hypotension (α₁), tachycardia, conduction delay (Na⁺), QT (K⁺)</td><td class="cell" data-label="SSRI">Usually neutral; citalopram/escitalopram dose-related QT</td><td class="cell" data-label="MAOI"><strong>Orthostatic hypotension</strong> (commonest MAOI AE); hypertensive crisis only with tyramine or indirect sympathomimetics</td></tr>
+      <tr data-cat="ther"><td class="col-key" data-label="Feature">GI / metabolic</td><td class="cell" data-label="TCA">Constipation, weight gain (H₁, 5-HT₂C)</td><td class="cell" data-label="SSRI"><strong>Nausea</strong>, diarrhoea (gut 5-HT); weight variable</td><td class="cell" data-label="MAOI">Weight gain, oedema; hepatotoxicity (hydrazines, rare); pyridoxine deficiency (phenelzine)</td></tr>
+      <tr data-cat="ther"><td class="col-key" data-label="Feature">Sexual</td><td class="cell" data-label="TCA">Yes (clomipramine most)</td><td class="cell" data-label="SSRI"><strong>Common</strong>: delayed ejaculation, anorgasmia, ↓ libido</td><td class="cell" data-label="MAOI">Yes</td></tr>
+      <tr data-cat="ther"><td class="col-key" data-label="Feature">Haem / Na⁺</td><td class="cell" data-label="TCA">SIADH (less common)</td><td class="cell" data-label="SSRI"><strong>Hyponatraemia (SIADH)</strong>, esp. elderly; <strong>bleeding</strong> (platelet 5-HT depletion)</td><td class="cell" data-label="MAOI">SIADH reported</td></tr>
+      <tr data-cat="ther"><td class="col-key" data-label="Feature">Stopping</td><td class="cell" data-label="TCA">Cholinergic rebound: GI upset, sweating, malaise</td><td class="cell" data-label="SSRI">Discontinuation syndrome: dizziness, “electric shock” paraesthesia, irritability (paroxetine worst, fluoxetine least)</td><td class="cell" data-label="MAOI">Withdrawal can be severe: agitation, nightmares, delirium</td></tr>
+      <tr data-cat="ther"><td class="col-key" data-label="Feature">Beneficial side effects</td><td class="cell" data-label="TCA">Neuropathic pain analgesia, migraine prophylaxis, sedation for insomnia, enuresis (imipramine)</td><td class="cell" data-label="SSRI">Energising; anxiolytic (panic, OCD, GAD)</td><td class="cell" data-label="MAOI">Atypical / resistant depression; MAO-B inhibitors in Parkinson’s (↑ striatal DA)</td></tr>
+
+      <tr class="grp" data-cat="od"><td colspan="4">Overdose</td></tr>
+      <tr data-cat="od"><td class="col-key" data-label="Feature">Lethality</td><td class="cell" data-label="TCA"><strong>High</strong>, narrow margin; deterioration within hours</td><td class="cell" data-label="SSRI">Low (exception: citalopram, escitalopram)</td><td class="cell" data-label="MAOI">High; onset <strong>delayed</strong> up to ~24 h. Moclobemide alone is less toxic but deadly with an SRI</td></tr>
+      <tr data-cat="od"><td class="col-key" data-label="Feature">Picture</td><td class="cell" data-label="TCA">Coma, seizures, anticholinergic toxidrome, hypotension, broad QRS, terminal R in aVR, VT</td><td class="cell" data-label="SSRI">Nausea, tremor, tachycardia, drowsiness, mild–moderate serotonin toxicity; seizures uncommon</td><td class="cell" data-label="MAOI">Sympathomimetic + serotonergic: agitation, hyperthermia, rigidity, hypertension → cardiovascular collapse</td></tr>
+      <tr data-cat="od"><td class="col-key" data-label="Feature">Specific Rx</td><td class="cell" data-label="TCA">NaHCO₃ (Na⁺ load + alkalaemia), hyperventilate if intubated, benzodiazepines; avoid physostigmine, flumazenil, class Ia/Ic</td><td class="cell" data-label="SSRI">Supportive; ECG monitoring (citalopram); benzodiazepines; cyproheptadine if serotonin toxicity</td><td class="cell" data-label="MAOI">Benzodiazepines, cooling, paralysis for severe hyperthermia; direct-acting vasopressors for collapse</td></tr>
+
+      <tr class="grp" data-cat="ix"><td colspan="4">Interactions</td></tr>
+      <tr data-cat="ix"><td class="col-key" data-label="Feature">Sympathomimetics</td><td class="cell" data-label="TCA">Direct catecholamines (adrenaline, NA) <strong>potentiated</strong> (uptake-1 blocked); indirect agents (ephedrine, tyramine) <strong>blunted</strong></td><td class="cell" data-label="SSRI">No important effect</td><td class="cell" data-label="MAOI">Indirect agents (ephedrine, metaraminol, pseudoephedrine, amphetamines) → <strong>hypertensive crisis</strong>; direct agents modestly potentiated</td></tr>
+      <tr data-cat="ix"><td class="col-key" data-label="Feature">Serotonergic</td><td class="cell" data-label="TCA">Clomipramine, imipramine + MAOI → serotonin toxicity</td><td class="cell" data-label="SSRI">+ MAOI (incl. linezolid, methylene blue) → severe; + tramadol, pethidine → possible</td><td class="cell" data-label="MAOI">+ any SRI, pethidine, tramadol, methadone, dextromethorphan → severe serotonin toxicity</td></tr>
+      <tr data-cat="ix"><td class="col-key" data-label="Feature">Kinetic</td><td class="cell" data-label="TCA">CYP2D6 substrate: levels ↑ with fluoxetine, paroxetine</td><td class="cell" data-label="SSRI">Fluoxetine, paroxetine inhibit 2D6 (↑ TCAs, metoprolol; ↓ codeine, tramadol, tamoxifen activation); fluvoxamine inhibits 1A2 (clozapine, theophylline)</td><td class="cell" data-label="MAOI">Tyramine: gut and liver MAO-A first-pass lost</td></tr>
+      <tr data-cat="ix"><td class="col-key" data-label="Feature">Other</td><td class="cell" data-label="TCA">Antagonises clonidine; additive anticholinergic, sedative, QT drugs</td><td class="cell" data-label="SSRI">NSAIDs, antiplatelets, anticoagulants → GI bleeding</td><td class="cell" data-label="MAOI">L-dopa (non-selective MAOI) → hypertension</td></tr>
+
+      <tr class="grp" data-cat="exc"><td colspan="4">Exceptions within each class</td></tr>
+      <tr data-cat="exc"><td class="col-key" data-label="Feature">Drug outliers</td><td class="cell" data-label="TCA">Secondary amines (nortriptyline, desipramine): NET-selective, less anticholinergic and sedating. Clomipramine: most SERT-potent. Doxepin: very potent H₁</td><td class="cell" data-label="SSRI">Citalopram/escitalopram: QT. Paroxetine: anticholinergic, weight gain, worst discontinuation, potent 2D6 inhibitor. Fluoxetine: norfluoxetine t½ 7–15 days. Fluvoxamine: CYP1A2</td><td class="cell" data-label="MAOI">Moclobemide: reversible, MAO-A, minimal diet restriction. Selegiline ≤ 10 mg/day: MAO-B selective. Tranylcypromine: amphetamine-like. Phenelzine: hydrazine. Linezolid, methylene blue: hidden MAOIs</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ================== HEAT GRID ================== -->
+<section id="heat" class="s-teal">
+  <h2>🔥 Adverse-Effect Grid: who does what, and how much <span class="tag-sim">Teaching model</span></h2>
+  <p>Relative burden from 0 to 3 pips, summarised from the cited reviews and class pharmacology; it is a memory aid, not trial data. ★ marks a cell where one drug breaks the class pattern. Tap any cell for its mechanism.</p>
+  <div class="btn-row" style="margin:0 0 10px">
+    <button class="btn" id="heatQuiz" aria-pressed="false">🙈 Predict mode (hide pips)</button>
+    <button class="btn" id="heatReveal">Reveal all</button>
+  </div>
+  <div class="heat" id="heatGrid" role="group" aria-label="Adverse effect grid"></div>
+  <div class="heat-detail" id="heatDetail" aria-live="polite">Tap a cell…</div>
+</section>
+
+<!-- ================== TCA CARDIOTOXICITY ================== -->
+<section id="tca" class="s-amber">
+  <h2>❤️ Why TCAs Kill: Na⁺ channel block → broad QRS <span class="tag-sim">Teaching model</span> <span class="tag-clin">Published thresholds</span></h2>
+  <p>TCAs bind the open/inactivated fast Na⁺ channel (quinidine-like, use-dependent). Phase 0 slows, conduction slows, and the QRS widens. K⁺ (I<sub>Kr</sub>) block adds QT prolongation. Slide the dose; then add acidosis, tachycardia or bicarbonate.</p>
+  <div class="chart-box">
+    <label for="tcaDose" class="muted" style="display:block">Na⁺ channel occupancy (dose) <strong id="tcaDoseLab" style="color:#fbbf24">therapeutic</strong></label>
+    <input type="range" id="tcaDose" min="0" max="100" value="12" step="1" aria-describedby="tcaRead">
+    <div class="btn-row" role="group" aria-label="Modifiers" style="margin-top:2px">
+      <button class="btn" id="tcaAcid" aria-pressed="false">Acidaemia (seizure / hypoventilation)</button>
+      <button class="btn" id="tcaTachy" aria-pressed="false">Tachycardia (use-dependence)</button>
+      <button class="btn" id="tcaBicarb" aria-pressed="false">NaHCO₃ → pH 7.50–7.55</button>
+    </div>
+    <svg id="ecgSvg" class="dia" viewBox="0 0 640 250" role="img" aria-label="Ventricular action potential and ECG leads II and aVR changing with sodium channel block" style="margin-top:10px"></svg>
+    <div class="stats">
+      <div class="stat-card"><div class="stat-label">QRS (model)</div><div class="stat-val" id="sQrs">–</div></div>
+      <div class="stat-card"><div class="stat-label">Terminal R in aVR</div><div class="stat-val" id="sAvr">–</div></div>
+      <div class="stat-card"><div class="stat-label">Phase 0 slope</div><div class="stat-val" id="sV">–</div></div>
+    </div>
+    <div class="readout" id="tcaRead" aria-live="polite"></div>
+  </div>
+  <div class="grid-2" style="margin-top:12px">
+    <div class="card k-t"><h4>Boehnert &amp; Lovejoy thresholds<sup class="ref"><a href="#r19">19</a></sup></h4>
+      <ul><li>Limb-lead QRS <strong>&lt; 100 ms</strong>: no seizures or ventricular arrhythmias in their cohort.</li>
+      <li><strong>≥ 100 ms</strong>: seizures in 34%.</li>
+      <li><strong>≥ 160 ms</strong>: ventricular arrhythmias (14% of the ≥ 100 ms group).</li>
+      <li>Serum drug levels did <em>not</em> predict either.</li></ul></div>
+    <div class="card k-t"><h4>Why bicarbonate works<sup class="ref"><a href="#r21">21</a></sup></h4>
+      <ul><li><strong>Na⁺ load</strong> raises the gradient across partially blocked channels.</li>
+      <li><strong>Alkalaemia</strong> favours the un-ionised drug, which unbinds from the channel more easily (and protein binding rises).</li>
+      <li>Hypertonic saline or hyperventilation give part of the effect each.</li>
+      <li>Acidosis from seizures or hypoventilation does the reverse, so treat seizures fast (benzodiazepines).</li></ul></div>
+  </div>
+  <div class="callout c-red"><strong>Avoid in TCA overdose:</strong> physostigmine (bradyarrhythmia and asystole reported), flumazenil in mixed ingestions (seizures), class Ia and Ic antiarrhythmics (more Na⁺ block). Hypotension: fluids, bicarbonate, then a direct-acting vasopressor such as noradrenaline.<sup class="ref"><a href="#r20">20</a></sup></div>
+</section>
+
+<!-- ================== MAO-A vs MAO-B ================== -->
+<section id="mao" class="s-pink">
+  <h2>🧬 MAO-A vs MAO-B, Selectivity and Reversibility</h2>
+  <p>Both are FAD-containing flavoenzymes on the outer mitochondrial membrane. They oxidatively deaminate amines to aldehyde + NH₃ + H₂O₂.<sup class="ref"><a href="#r8">8</a></sup><sup class="ref"><a href="#r9">9</a></sup></p>
+  <div class="tbl-wrap">
+  <table class="stack">
+    <thead><tr><th style="width:22%">Feature</th><th class="h-m">MAO-A</th><th>MAO-B</th></tr></thead>
+    <tbody>
+      <tr><td class="col-key" data-label="Feature">Preferred substrates</td><td data-label="MAO-A"><strong>5-HT, NA</strong>, adrenaline</td><td data-label="MAO-B">β-phenylethylamine, benzylamine</td></tr>
+      <tr><td class="col-key" data-label="Feature">Shared substrates</td><td colspan="2" data-label="Both"><strong>Dopamine and tyramine</strong> (in human striatum, most DA breakdown is by glial MAO-B)</td></tr>
+      <tr><td class="col-key" data-label="Feature">Main sites</td><td data-label="MAO-A"><strong>Gut mucosa, liver</strong>, placenta, catecholaminergic neurones</td><td data-label="MAO-B"><strong>Platelets</strong>, astrocytes, serotonergic neurones, liver</td></tr>
+      <tr><td class="col-key" data-label="Feature">Clinical use of inhibitors</td><td data-label="MAO-A">Depression</td><td data-label="MAO-B">Parkinson’s disease</td></tr>
+      <tr><td class="col-key" data-label="Feature">Selective inhibitors</td><td data-label="MAO-A">Moclobemide (reversible); methylene blue (potent, reversible)</td><td data-label="MAO-B">Selegiline, rasagiline (irreversible); safinamide (reversible)</td></tr>
+      <tr><td class="col-key" data-label="Feature">Tyramine (“cheese”) risk</td><td data-label="MAO-A"><strong>Yes</strong>: losing gut and liver MAO-A removes tyramine first-pass</td><td data-label="MAO-B">Low at selective doses, because gut MAO-A is spared</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout c-purple"><strong>Reversibility, mechanistically.</strong> Irreversible inhibitors (hydrazines like phenelzine; tranylcypromine; selegiline; rasagiline) form a covalent adduct with the FAD cofactor. The effect outlasts the drug, and recovery needs <em>new enzyme synthesis</em>, hence the ~2-week washout. In one study, oral tyramine sensitivity took ~30 days to normalise after tranylcypromine.<sup class="ref"><a href="#r10">10</a></sup> A reversible competitive inhibitor (moclobemide) can be <em>displaced by a large tyramine load</em>, so the pressor response is far smaller.<sup class="ref"><a href="#r11">11</a></sup></div>
+
+  <h3>Drug selector: where each inhibitor sits <span class="tag-sim">Teaching model</span></h3>
+  <p class="muted">Bars show qualitative inhibition at usual clinical doses, not measured percentages.</p>
+  <div class="lens-row" id="maoChips" role="group" aria-label="MAO inhibitor"></div>
+  <div class="drug-card" id="maoCard" aria-live="polite"></div>
+</section>
+
+<!-- ================== TYRAMINE ================== -->
+<section id="tyr" class="s-rose">
+  <h2>🧀 Tyramine Reaction: step through, then slide the dose</h2>
+  <div class="flow" id="tyrFlow">
+    <button class="fstep"><span class="n">1</span><span><strong>Tyramine eaten</strong> (aged or fermented foods, tap beer, yeast extracts, soy and fish sauces)<span class="d">An indirectly acting sympathomimetic amine. Modern foods mostly contain much less than historical values.</span></span></button>
+    <button class="fstep"><span class="n">2</span><span><strong>Normally destroyed by gut and liver MAO-A</strong> (first-pass)<span class="d">Without an MAOI, about 200–800 mg of oral tyramine is needed to raise systolic BP by 30 mmHg.</span></span></button>
+    <button class="fstep"><span class="n">3</span><span><strong>MAO-A inhibited → tyramine reaches the circulation</strong><span class="d">Irreversible MAOIs: 20–56-fold more sensitive. Moclobemide: about 4-fold fasting, and less again with a meal.</span></span></button>
+    <button class="fstep"><span class="n">4</span><span><strong>Taken up into sympathetic terminals by NET</strong><span class="d">That is why a NET blocker (TCA) <em>blunts</em> the tyramine response, and why TCAs blunt ephedrine.</span></span></button>
+    <button class="fstep"><span class="n">5</span><span><strong>Displaces NA from vesicles that MAO inhibition has over-filled</strong><span class="d">Neuronal MAO can no longer mop up the displaced NA, so a large NA bolus is released.</span></span></button>
+    <button class="fstep"><span class="n">6</span><span><strong>α₁ vasoconstriction → hypertensive crisis</strong><span class="d">Occipital headache, palpitations, reflex bradycardia, sweating; risk of intracerebral haemorrhage, arrhythmia, pulmonary oedema. Treat with a short-acting α-blocker (phentolamine) or vasodilator; avoid unopposed β-blockade; don't over-treat simple urgency.</span></span></button>
+  </div>
+  <p class="muted" style="margin:0">Sources for these steps: <a href="#r10">10</a>, <a href="#r11">11</a>, <a href="#r12">12</a>, <a href="#r13">13</a>.</p>
+  <div class="btn-row"><button class="btn primary" id="tyrNext">Next step ▼</button><button class="btn" id="tyrAll">Reveal all</button><button class="btn" id="tyrReset">Reset</button></div>
+
+  <h3 style="margin-top:18px">Tyramine dose–pressor curves <span class="tag-sim">Teaching model</span> <span class="tag-clin">Published anchors</span></h3>
+  <p class="muted">Curves are an E<sub>max</sub> model drawn through the published PD30 (dose for +30 mmHg systolic): unmedicated ~400 mg (range 200–800); moclobemide fasting ~4× more sensitive, with a meal ~2× less again; irreversible MAOI ~40× (range 20–56).<sup class="ref"><a href="#r10">10</a></sup><sup class="ref"><a href="#r11">11</a></sup> Real responses vary widely between people.</p>
+  <div class="chart-box">
+    <div class="lens-row" id="tyrCurves" role="group" aria-label="Curves shown"></div>
+    <svg id="tyrSvg" class="dia" viewBox="0 0 640 300" role="img" aria-label="Log tyramine dose versus rise in systolic blood pressure for no MAOI, moclobemide and irreversible MAOI"></svg>
+    <label for="tyrDose" class="muted" style="display:block;margin-top:8px">Oral tyramine: <strong id="tyrDoseLab" style="color:#a3e635">10 mg</strong></label>
+    <input type="range" id="tyrDose" min="0" max="300" value="100" step="1" style="accent-color:#a3e635" aria-describedby="tyrRead">
+    <div class="readout" id="tyrRead" aria-live="polite" style="border-left-color:#a3e635"></div>
+  </div>
+</section>
+
+<!-- ================== INTERACTIONS ================== -->
+<section id="ix" class="s-emerald">
+  <h2>💊 Interaction Checker: the ICU version</h2>
+  <p>Pick what the patient takes and what you are about to give. Each verdict names the mechanism, because that is what the examiners mark.<sup class="ref"><a href="#r6">6</a></sup><sup class="ref"><a href="#r7">7</a></sup><sup class="ref"><a href="#r14">14</a></sup><sup class="ref"><a href="#r15">15</a></sup></p>
+  <div class="ix">
+    <div><label for="ixA">Patient is on</label><select id="ixA"></select></div>
+    <div><label for="ixB">You are about to give</label><select id="ixB"></select></div>
+  </div>
+  <div class="verdict" id="ixOut" aria-live="polite"></div>
+  <div class="grid-3" style="margin-top:14px">
+    <div class="card k-t"><h4>TCA + pressors</h4><p style="margin:0">NET is blocked, so <strong>direct</strong> catecholamines (adrenaline, NA) linger: exaggerated response. <strong>Indirect</strong> agents (ephedrine, tyramine) can't get into the terminal: blunted.</p></div>
+    <div class="card k-m"><h4>MAOI + pressors</h4><p style="margin:0">Vesicles are overfilled, so <strong>indirect</strong> agents release a huge NA bolus: crisis. <strong>Direct</strong> agents are mostly cleared by uptake and COMT, so they're modestly potentiated: start low and titrate.</p></div>
+    <div class="card k-s"><h4>MAOI + opioids</h4><p style="margin:0">Pethidine, tramadol, methadone and dextromethorphan are weak SRIs: serotonin toxicity. Morphine, codeine, oxycodone and buprenorphine are not SRIs.<sup class="ref"><a href="#r14">14</a></sup></p></div>
+  </div>
+</section>
+
+<!-- ================== SEROTONIN TOXICITY ================== -->
+<section id="st" class="s-violet">
+  <h2>🌡️ Serotonin Toxicity: a concentration-dependent spectrum</h2>
+  <p>Serotonin toxicity is dose-related. Therapeutic SRIs cause side effects; an SRI overdose alone causes mild–moderate toxicity (about 14% of SSRI overdoses<sup class="ref"><a href="#r18">18</a></sup>). <strong>Life-threatening toxicity needs drugs acting by different mechanisms, classically an MAOI plus an SRI.</strong><sup class="ref"><a href="#r14">14</a></sup></p>
+  <div class="hunter">
+    <div>
+      <h3 style="margin-top:0">Hunter criteria: tick the findings<sup class="ref"><a href="#r17">17</a></sup></h3>
+      <p class="muted">Applies only after a serotonergic agent. Sensitivity 84%, specificity 97% vs toxicologist diagnosis.</p>
+      <div class="chk" id="hChk" role="group" aria-label="Clinical findings"></div>
+      <div class="btn-row"><button class="btn" id="hClear">Clear</button></div>
+    </div>
+    <div>
+      <div class="hres neg" id="hRes" aria-live="polite"></div>
+      <div id="hRules" style="margin-top:8px"></div>
+    </div>
+  </div>
+  <h3>Management in one line each <span class="tag-clin">Published approach</span></h3>
+  <ul>
+    <li><strong>Stop</strong> serotonergic drugs; supportive care. Most cases settle within 24 h.<sup class="ref"><a href="#r16">16</a></sup></li>
+    <li><strong>Benzodiazepines</strong> for agitation and muscle activity. Avoid physical restraint (it drives isometric contraction and heat).</li>
+    <li><strong>Cyproheptadine</strong> (5-HT₂A antagonist, oral/NG only) for moderate cases; chlorpromazine is a parenteral alternative.</li>
+    <li><strong>Severe (temperature &gt; 38.5 °C, rising tone):</strong> intubate, <strong>paralyse with a non-depolarising agent</strong>, cool. The fever is muscle-generated, so antipyretics do not help.</li>
+  </ul>
+  <div class="tbl-wrap">
+  <table class="stack">
+    <thead><tr><th>Feature</th><th>Serotonin toxicity</th><th>Anticholinergic</th><th>NMS</th></tr></thead>
+    <tbody>
+      <tr><td class="col-key" data-label="Feature">Onset</td><td data-label="Serotonin toxicity">Hours</td><td data-label="Anticholinergic">Hours</td><td data-label="NMS">Days to weeks</td></tr>
+      <tr><td class="col-key" data-label="Feature">Neuromuscular</td><td data-label="Serotonin toxicity"><strong>Clonus, hyperreflexia</strong> (legs &gt; arms), tremor</td><td data-label="Anticholinergic">Normal</td><td data-label="NMS"><strong>Lead-pipe rigidity</strong>, bradykinesia</td></tr>
+      <tr><td class="col-key" data-label="Feature">Skin</td><td data-label="Serotonin toxicity">Diaphoresis</td><td data-label="Anticholinergic"><strong>Hot, dry, flushed</strong></td><td data-label="NMS">Diaphoresis</td></tr>
+      <tr><td class="col-key" data-label="Feature">Pupils / gut</td><td data-label="Serotonin toxicity">Mydriasis; hyperactive bowel sounds, diarrhoea</td><td data-label="Anticholinergic">Mydriasis; <strong>absent bowel sounds</strong>, urinary retention</td><td data-label="NMS">Normal; normal or reduced bowel sounds</td></tr>
+      <tr><td class="col-key" data-label="Feature">Cause</td><td data-label="Serotonin toxicity">Serotonergic drugs</td><td data-label="Anticholinergic">TCA overdose, antihistamines</td><td data-label="NMS">Dopamine antagonists</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ================== PITFALLS ================== -->
+<section id="pit" class="s-rose">
+  <h2>⚠️ Exam Discriminators &amp; Traps</h2>
+  <div class="callout c-red"><strong>1. “Cheese causes a hypotensive crisis.”</strong> It is <strong>hypertensive</strong>. But the commonest MAOI side effect at therapeutic dose <em>is</em> orthostatic <strong>hypotension</strong>. Write both, and keep them separate.</div>
+  <div class="callout c-red"><strong>2. One list for side effects and overdose.</strong> Split them: TCA anticholinergic effects at therapeutic dose versus Na⁺-channel cardiotoxicity and seizures in overdose.</div>
+  <div class="callout c-red"><strong>3. “Moclobemide is an MAO-B inhibitor.”</strong> No: <strong>reversible MAO-A</strong> (RIMA). Selegiline and rasagiline are the MAO-B drugs (Parkinson’s).</div>
+  <div class="callout c-amber"><strong>4. “SSRIs have no cardiac effects.”</strong> Class-level true; citalopram/escitalopram cause dose-dependent QT prolongation (FDA: citalopram max 40 mg/day, 20 mg/day over 60).<sup class="ref"><a href="#r23">23</a></sup></div>
+  <div class="callout c-amber"><strong>5. “SSRI overdose causes serotonin syndrome, so SSRIs are dangerous.”</strong> Alone, mostly mild–moderate. Severe toxicity needs a <strong>combination</strong> (MAOI + SRI).<sup class="ref"><a href="#r14">14</a></sup></div>
+  <div class="callout c-amber"><strong>6. “MAOIs potentiate all pressors.”</strong> The danger is <strong>indirect</strong> agents. And TCAs do the mirror image: they potentiate <strong>direct</strong> agents and blunt indirect ones.</div>
+  <div class="callout c-amber"><strong>7. Forgetting the hidden MAOIs.</strong> Linezolid (weak, non-selective) and methylene blue (potent MAO-A) cause serotonin toxicity with SRIs.<sup class="ref"><a href="#r15">15</a></sup></div>
+  <div class="callout c-amber"><strong>8. Oversimplifying the monoamine hypothesis.</strong> The transporter or enzyme is blocked within hours; the mood effect takes weeks. Name the adaptive change (autoreceptor desensitisation).</div>
+  <div class="callout c-amber"><strong>9. “TCAs block dopamine reuptake.”</strong> Not meaningfully. TCAs = SERT + NET. Only MAOIs raise DA among these three.</div>
+  <div class="callout c-amber"><strong>10. Leaving out the beneficial side effects.</strong> The examiners gave extra marks for TCA analgesia, sedation, and SSRI “energising”.<sup class="ref"><a href="#r2">2</a></sup></div>
+</section>
+
+<!-- ================== NUMBERS ================== -->
+<section id="nm" class="s-amber">
+  <h2>🔢 High-Yield Numbers</h2>
+  <div class="nums-grid">
+    <div class="num-card"><div class="num-val">≥ 100 ms</div><div class="num-lab">TCA QRS: seizure risk (34%)<sup class="ref"><a href="#r19">19</a></sup></div></div>
+    <div class="num-card"><div class="num-val">≥ 160 ms</div><div class="num-lab">TCA QRS: ventricular arrhythmia<sup class="ref"><a href="#r19">19</a></sup></div></div>
+    <div class="num-card"><div class="num-val">pH 7.50–7.55</div><div class="num-lab">Bicarbonate target in TCA toxicity<sup class="ref"><a href="#r21">21</a></sup></div></div>
+    <div class="num-card"><div class="num-val">200–800 mg</div><div class="num-lab">Oral tyramine for +30 mmHg, no MAOI<sup class="ref"><a href="#r10">10</a></sup></div></div>
+    <div class="num-card"><div class="num-val">20–56×</div><div class="num-lab">Tyramine sensitivity on tranylcypromine<sup class="ref"><a href="#r10">10</a></sup><sup class="ref"><a href="#r11">11</a></sup></div></div>
+    <div class="num-card"><div class="num-val">~4×</div><div class="num-lab">On moclobemide (fasting); less with food<sup class="ref"><a href="#r11">11</a></sup></div></div>
+    <div class="num-card"><div class="num-val">2 weeks</div><div class="num-lab">Washout after irreversible MAOI</div></div>
+    <div class="num-card"><div class="num-val">5 weeks</div><div class="num-lab">Stop fluoxetine → start MAOI (norfluoxetine t½ 7–15 d)<sup class="ref"><a href="#r7">7</a></sup></div></div>
+    <div class="num-card"><div class="num-val">~24 h</div><div class="num-lab">Moclobemide pressor effect gone after a single dose<sup class="ref"><a href="#r11">11</a></sup></div></div>
+    <div class="num-card"><div class="num-val">14%</div><div class="num-lab">Serotonin toxicity in SSRI overdose; seizures 1.9%<sup class="ref"><a href="#r18">18</a></sup></div></div>
+    <div class="num-card"><div class="num-val">68%</div><div class="num-lab">Citalopram overdoses with QTc &gt; 440 ms<sup class="ref"><a href="#r18">18</a></sup></div></div>
+    <div class="num-card"><div class="num-val">40 / 20 mg</div><div class="num-lab">Citalopram max daily dose (adult / &gt; 60 y)<sup class="ref"><a href="#r23">23</a></sup></div></div>
+    <div class="num-card"><div class="num-val">0.5–32%</div><div class="num-lab">Reported SSRI hyponatraemia incidence<sup class="ref"><a href="#r22">22</a></sup></div></div>
+    <div class="num-card"><div class="num-val">84% / 97%</div><div class="num-lab">Hunter criteria sensitivity / specificity<sup class="ref"><a href="#r17">17</a></sup></div></div>
+  </div>
+</section>
+
+<!-- ================== FLASHCARDS ================== -->
+<section id="fc" class="s-violet">
+  <h2>🃏 Flashcards: say it, then tap</h2>
+  <div class="fc-ctl"><button class="btn" id="fcShuffle">🔀 Shuffle</button><button class="btn" id="fcReset">Hide all</button><span class="muted" id="fcCount"></span></div>
+  <div class="fc-grid" id="fcGrid">
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">One sentence: how do the three classes raise synaptic monoamines differently?</div><div class="a">TCAs block SERT + NET; SSRIs block SERT only; MAOIs stop mitochondrial MAO breaking down amines inside the neurone, so stores and release increase.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Name the five TCA off-target actions and one consequence each.</div><div class="a">M antagonism → dry mouth, retention, delirium. H₁ → sedation, weight. α₁ → orthostatic hypotension. Fast Na⁺ block → broad QRS, VT. K⁺ (hERG) block → long QT.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Why do SSRIs cause bleeding?</div><div class="a">Platelets can't synthesise 5-HT; they take it up via SERT. SSRIs deplete platelet 5-HT, so 5-HT-amplified aggregation fails. Upper GI is the commonest site, worse with NSAIDs, antiplatelets or anticoagulants.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">MAO-A vs MAO-B: substrates and sites?</div><div class="a">A: 5-HT, NA (gut, liver, placenta, catecholaminergic neurones). B: PEA, benzylamine (platelets, astrocytes). Both: dopamine and tyramine.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Why is the tyramine reaction much less likely with moclobemide?</div><div class="a">Reversible, competitive MAO-A inhibition: tyramine displaces it. Pressor sensitivity rises ~4× fasting vs 20–56× with irreversible MAOIs, and less again when taken after food.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Commonest therapeutic-dose MAOI side effect, and the proposed mechanism?</div><div class="a">Orthostatic hypotension. Proposed: false transmitters (e.g. octopamine) displace NA in sympathetic vesicles, plus increased central α₂ tone.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Which opioids are dangerous with MAOIs and why?</div><div class="a">Pethidine, tramadol, methadone, dextromethorphan: weak serotonin reuptake inhibitors → serotonin toxicity. Morphine, codeine, oxycodone, buprenorphine are not SRIs.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">TCA vs MAOI: effect on ephedrine and on adrenaline?</div><div class="a">TCA: ephedrine blunted (can't enter via NET), adrenaline exaggerated (uptake-1 blocked). MAOI: ephedrine dangerous (releases overfilled stores), adrenaline modestly potentiated.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Which SSRI has the cardiac problem, and what is it?</div><div class="a">Citalopram (and escitalopram): dose-dependent QT prolongation. QTc &gt; 440 ms in 68% of citalopram overdoses (Isbister 2004).</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Why is the antidepressant effect delayed for weeks?</div><div class="a">Acute rise in 5-HT activates somatodendritic 5-HT₁A (and α₂) autoreceptors that reduce firing and release. These desensitise over weeks; postsynaptic receptor changes and neuroplasticity follow.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Two hidden MAOIs in ICU?</div><div class="a">Linezolid (weak, reversible, non-selective) and methylene blue (potent reversible MAO-A). Both can cause serotonin toxicity with SSRIs or SNRIs.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Fluoxetine and paroxetine share which kinetic interaction?</div><div class="a">Potent CYP2D6 inhibition: ↑ TCAs, metoprolol, some antipsychotics; ↓ activation of codeine, tramadol, tamoxifen.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Three beneficial side effects the examiners rewarded?</div><div class="a">TCA analgesia (neuropathic pain), sedation with TCAs or SSRIs, the energising effect of SSRIs/SNRIs.</div></div>
+    <div class="fc" tabindex="0" role="button" aria-expanded="false"><div class="q">Secondary vs tertiary amine TCAs?</div><div class="a">Tertiary (amitriptyline, imipramine, clomipramine): more SERT, more anticholinergic, sedating. Demethylated to secondary amines (nortriptyline, desipramine): NET-selective, fewer side effects.</div></div>
+  </div>
+</section>
+
+<!-- ================== QUIZ ================== -->
+<section id="qz" class="s-violet">
+  <h2>🎯 Practice Questions</h2>
+  <div id="scorebox">
+    <div><div class="score-label">Score this session</div><div class="score-val"><span id="scoreNum">0</span> / <span id="scoreTotal">0</span></div></div>
+    <button class="btn" id="resetQuiz">Reset</button>
+  </div>
+  <div id="quizContainer"></div>
+</section>
+
+<!-- ================== MINI SAQs ================== -->
+<section id="wr" class="s-lime">
+  <h2>✍️ Mini-SAQs: write, then reveal</h2>
+  <p class="muted">Nothing here is saved or sent anywhere. Write your answer, reveal the points, and tick what you covered.</p>
+  <div id="wrBox"></div>
+</section>
+
+<!-- ================== REFERENCES ================== -->
+<section id="refs" class="s-slate">
+  <h2>📚 Sources &amp; Scope</h2>
+  <p class="muted">Exam scope comes from reference 1. Its examiner comments are quoted via their reproductions at references 2 and 3, because the CICM PDF could not be opened from the build environment; the pass rate is CICM Wrecks’ figure. Pharmacology and numbers were checked against references 6–23. References 4–5 are suggested reading for CICM framing and weren't used to verify facts. Standard receptor pharmacology follows the examiners’ cited texts (Stoelting; Katzung).</p>
+  <ol class="refs">
+    <li id="r1">College of Intensive Care Medicine. First Part Examination, March/May 2009: examiners’ report (Paper 2 Q9), p. 10. <a href="https://cicm.org.au/common/Uploaded%20files/Assets/Training%20and%20Education/General%20and%20Paediatric%20Intensive%20Care/Assessments%20and%20Examination/First%20Part%20Examination/2007-2010/FP-MarchMay-2009.pdf#page=10" target="_blank" rel="noopener">cicm.org.au (PDF)</a></li>
+    <li id="r2">Deranged Physiology. 2009 Paper 1, Question 9 (p. 2): college answer and discussion. <a href="https://derangedphysiology.com/main/cicm-primary-exam/past-papers/2009-paper-1-saqs/question-9p2" target="_blank" rel="noopener">derangedphysiology.com</a></li>
+    <li id="r3">CICM Wrecks. 2009A (Mar/May) past paper index. <a href="https://cicmwrecks.com/pastpapers/2009a/" target="_blank" rel="noopener">cicmwrecks.com</a></li>
+    <li id="r4">Deranged Physiology. Pharmacology of antidepressants. <a href="https://derangedphysiology.com/main/cicm-primary-exam/required-reading/nervous-system/Chapter%20172/pharmacology-antidepressants" target="_blank" rel="noopener">derangedphysiology.com</a></li>
+    <li id="r5">Part One (LITFL). Antidepressants. <a href="https://partone.litfl.com/antidepressants.html" target="_blank" rel="noopener">partone.litfl.com</a></li>
+    <li id="r6">Gillman PK. Tricyclic antidepressant pharmacology and therapeutic drug interactions updated. <em>Br J Pharmacol</em> 2007;151:737–48. <a href="https://doi.org/10.1038/sj.bjp.0707253" target="_blank" rel="noopener">doi:10.1038/sj.bjp.0707253</a></li>
+    <li id="r7">Hiemke C, Härtter S. Pharmacokinetics of selective serotonin reuptake inhibitors. <em>Pharmacol Ther</em> 2000;85:11–28. <a href="https://doi.org/10.1016/s0163-7258(99)00048-0" target="_blank" rel="noopener">doi:10.1016/s0163-7258(99)00048-0</a></li>
+    <li id="r8">Youdim MBH, Edmondson D, Tipton KF. The therapeutic potential of monoamine oxidase inhibitors. <em>Nat Rev Neurosci</em> 2006;7:295–309. <a href="https://doi.org/10.1038/nrn1883" target="_blank" rel="noopener">doi:10.1038/nrn1883</a></li>
+    <li id="r9">Finberg JPM, Rabey JM. Inhibitors of MAO-A and MAO-B in psychiatry and neurology. <em>Front Pharmacol</em> 2016;7:340. <a href="https://doi.org/10.3389/fphar.2016.00340" target="_blank" rel="noopener">doi:10.3389/fphar.2016.00340</a></li>
+    <li id="r10">Bieck PR, Antonin KH. Oral tyramine pressor test and the safety of MAO inhibitor drugs: comparison of brofaromine and tranylcypromine in healthy subjects. <em>J Clin Psychopharmacol</em> 1988;8:237–45. <a href="https://pubmed.ncbi.nlm.nih.gov/3209716/" target="_blank" rel="noopener">PMID 3209716</a></li>
+    <li id="r11">Korn A, Da Prada M, Raffesberg W, et al. Effect of moclobemide, a new reversible MAO inhibitor, on absorption and pressor effect of tyramine. <em>J Cardiovasc Pharmacol</em> 1988;11:17–23. <a href="https://doi.org/10.1097/00005344-198801000-00003" target="_blank" rel="noopener">doi:10.1097/00005344-198801000-00003</a>; and Korn A et al. <em>J Neural Transm Suppl</em> 1988;26:57–71 (tranylcypromine 20–40-fold; single-dose effect gone by 24 h). <a href="https://pubmed.ncbi.nlm.nih.gov/3162952/" target="_blank" rel="noopener">PMID 3162952</a></li>
+    <li id="r12">Gillman PK. A reassessment of the safety profile of monoamine oxidase inhibitors: elucidating tired old tyramine myths. <em>J Neural Transm</em> 2018;125:1707–17. <a href="https://doi.org/10.1007/s00702-018-1932-y" target="_blank" rel="noopener">doi:10.1007/s00702-018-1932-y</a></li>
+    <li id="r13">Flockhart DA. Dietary restrictions and drug interactions with monoamine oxidase inhibitors: an update. <em>J Clin Psychiatry</em> 2012;73(Suppl 1):17–24. <a href="https://doi.org/10.4088/JCP.11096su1c.03" target="_blank" rel="noopener">doi:10.4088/JCP.11096su1c.03</a></li>
+    <li id="r14">Gillman PK. Monoamine oxidase inhibitors, opioid analgesics and serotonin toxicity. <em>Br J Anaesth</em> 2005;95:434–41. <a href="https://doi.org/10.1093/bja/aei210" target="_blank" rel="noopener">doi:10.1093/bja/aei210</a></li>
+    <li id="r15">Ramsay RR, Dunford C, Gillman PK. Methylene blue and serotonin toxicity: inhibition of monoamine oxidase A confirms a theoretical prediction. <em>Br J Pharmacol</em> 2007;152:946–51. <a href="https://doi.org/10.1038/sj.bjp.0707430" target="_blank" rel="noopener">doi:10.1038/sj.bjp.0707430</a></li>
+    <li id="r16">Boyer EW, Shannon M. The serotonin syndrome. <em>N Engl J Med</em> 2005;352:1112–20. <a href="https://doi.org/10.1056/NEJMra041867" target="_blank" rel="noopener">doi:10.1056/NEJMra041867</a></li>
+    <li id="r17">Dunkley EJC, Isbister GK, Sibbritt D, Dawson AH, Whyte IM. The Hunter Serotonin Toxicity Criteria. <em>QJM</em> 2003;96:635–42. <a href="https://doi.org/10.1093/qjmed/hcg109" target="_blank" rel="noopener">doi:10.1093/qjmed/hcg109</a></li>
+    <li id="r18">Isbister GK, Bowe SJ, Dawson A, Whyte IM. Relative toxicity of selective serotonin reuptake inhibitors (SSRIs) in overdose. <em>J Toxicol Clin Toxicol</em> 2004;42:277–85. <a href="https://doi.org/10.1081/clt-120037428" target="_blank" rel="noopener">doi:10.1081/clt-120037428</a></li>
+    <li id="r19">Boehnert MT, Lovejoy FH. Value of the QRS duration versus the serum drug level in predicting seizures and ventricular arrhythmias after an acute overdose of tricyclic antidepressants. <em>N Engl J Med</em> 1985;313:474–9. <a href="https://doi.org/10.1056/NEJM198508223130804" target="_blank" rel="noopener">doi:10.1056/NEJM198508223130804</a></li>
+    <li id="r20">Kerr GW, McGuffie AC, Wilkie S. Tricyclic antidepressant overdose: a review. <em>Emerg Med J</em> 2001;18:236–41. <a href="https://doi.org/10.1136/emj.18.4.236" target="_blank" rel="noopener">doi:10.1136/emj.18.4.236</a></li>
+    <li id="r21">Bruccoleri RE, Burns MM. A literature review of the use of sodium bicarbonate for the treatment of QRS widening. <em>J Med Toxicol</em> 2016;12:121–9. <a href="https://doi.org/10.1007/s13181-015-0483-y" target="_blank" rel="noopener">doi:10.1007/s13181-015-0483-y</a></li>
+    <li id="r22">Jacob S, Spinler SA. Hyponatremia associated with selective serotonin-reuptake inhibitors in older adults. <em>Ann Pharmacother</em> 2006;40:1618–22. <a href="https://doi.org/10.1345/aph.1G293" target="_blank" rel="noopener">doi:10.1345/aph.1G293</a>. Bleeding mechanism: Andrade C, Sharma E. <em>Psychiatr Clin North Am</em> 2016;39:413–26. <a href="https://doi.org/10.1016/j.psc.2016.04.010" target="_blank" rel="noopener">doi:10.1016/j.psc.2016.04.010</a></li>
+    <li id="r23">US FDA. Drug Safety Communication: revised recommendations for Celexa (citalopram hydrobromide) related to a potential risk of abnormal heart rhythms with high doses (2012). <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-revised-recommendations-celexa-citalopram-hydrobromide-related" target="_blank" rel="noopener">fda.gov</a></li>
+  </ol>
+</section>
+
+<script>
+(function () {
+  'use strict';
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  function $(id) { return document.getElementById(id); }
+  function mk(tag, attrs, parent) {
+    var el = document.createElementNS(SVGNS, tag);
+    for (var k in attrs) { if (Object.prototype.hasOwnProperty.call(attrs, k)) el.setAttribute(k, attrs[k]); }
+    if (parent) parent.appendChild(el);
+    return el;
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function press(btn, on) { btn.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+  /* =====================================================================
+     1. SYNAPSE SIMULATOR
+     ===================================================================== */
+  var svg = $('synSvg');
+  var pLayer = $('pL'), flyL = $('flyL');
+  var VES = [{ x: 120, y: 72 }, { x: 165, y: 106 }, { x: 210, y: 68 }, { x: 255, y: 106 }, { x: 300, y: 72 }];
+  var vesInner = VES.map(function (v) {
+    mk('circle', { cx: v.x, cy: v.y, r: 16, fill: '#1d1638', stroke: '#a78bfa', 'stroke-width': 1.5 }, $('vesG'));
+    return mk('circle', { cx: v.x, cy: v.y, r: 8, fill: '#c4b5fd', opacity: 0.55 }, $('vesG'));
+  });
+  var TR = { h: { x: 170, y: 150 }, n: { x: 270, y: 150 } };
+  var MITO = { x: 455, y: 80 };
+  var COL = { h: '#a78bfa', n: '#fb923c', t: '#a3e635' };
+  var RECS = [{ x: 150, t: 'h', el: $('rg0') }, { x: 220, t: 'h', el: $('rg1') }, { x: 400, t: 'n', el: $('rg2') }, { x: 470, t: 'n', el: $('rg3') }];
+
+  var OT = [
+    { n: 'Muscarinic', k: 'off' }, { n: 'Histamine H₁', k: 'off' }, { n: 'α₁-adrenergic', k: 'off' },
+    { n: 'Naᵥ1.5 (heart)', k: 'off' }, { n: 'hERG K⁺', k: 'off' }, { n: 'Platelet SERT', k: 'sert' }
+  ];
+  var otEls = [];
+  var otNarrow = null;
+  function layoutOT() {
+    var narrow = window.matchMedia('(max-width: 600px)').matches;
+    if (narrow === otNarrow) return;
+    otNarrow = narrow;
+    var g = $('otG'); while (g.firstChild) g.removeChild(g.firstChild);
+    svg.setAttribute('viewBox', narrow ? '0 0 640 478' : '0 0 640 418');
+    otEls = OT.map(function (o, i) {
+      var bw = narrow ? 196 : 96, bh = narrow ? 50 : 42;
+      var x = narrow ? 20 + (i % 3) * 204 : 20 + i * 101, y = narrow ? 370 + Math.floor(i / 3) * 56 : 368;
+      var gg = mk('g', {}, g);
+      var r = mk('rect', { x: x, y: y, width: bw, height: bh, rx: 7, fill: '#0d1424', stroke: '#2f3d5e', 'stroke-width': 1.5 }, gg);
+      var t1 = mk('text', { x: x + bw / 2, y: y + (narrow ? 21 : 17), fill: '#cbd5e1', 'font-size': narrow ? 17 : 10.5, 'font-weight': 700, 'text-anchor': 'middle' }, gg); t1.textContent = o.n;
+      var t2 = mk('text', { x: x + bw / 2, y: y + (narrow ? 42 : 33), fill: '#64748b', 'font-size': narrow ? 15 : 10, 'text-anchor': 'middle' }, gg); t2.textContent = 'free';
+      return { r: r, t2: t2 };
+    });
+  }
+  layoutOT();
+  window.addEventListener('resize', function () { var was = otNarrow; layoutOT(); if (was !== otNarrow) updateVisuals(); });
+
+  var state = { sert: false, net: false, mao: false, off: false, chr: false, tyr: false };
+  var particles = [], flyers = [];
+
+  function levels() {
+    var acute = !state.chr && (state.sert || state.net || state.mao);
+    var brake = acute ? 0.75 : 1;
+    var L5 = (state.sert ? 2.8 : 1) * (state.mao ? 1.6 : 1) * brake;
+    var tyrNA = state.tyr ? (state.net ? 0.1 : (state.mao ? 2.6 : 0.3)) : 0;
+    var LN = (state.net ? 2.6 : 1) * (state.mao ? 1.6 : 1) * brake + tyrNA;
+    return { L5: L5, LN: LN, acute: acute };
+  }
+
+  function spawnFree(type, x, y) {
+    var el = mk('circle', { cx: x, cy: y, r: type === 't' ? 3.6 : 4.2, fill: COL[type] }, pLayer);
+    var p = { type: type, x: x, y: y, vx: (Math.random() - 0.5) * 0.6, vy: 0.4 + Math.random() * 0.5, el: el };
+    particles.push(p);
+    return p;
+  }
+  function flyer(x0, y0, x1, y1, color, dur, done, r) {
+    if (reduceMotion || !visible) { if (done) done(); return; }
+    var el = mk('circle', { cx: x0, cy: y0, r: r || 4, fill: color }, flyL);
+    flyers.push({ el: el, x0: x0, y0: y0, x1: x1, y1: y1, t: 0, dur: dur, done: done });
+  }
+  function ring(x, y, color, r1) {
+    if (reduceMotion || !visible) return;
+    var el = mk('circle', { cx: x, cy: y, r: 3, fill: 'none', stroke: color, 'stroke-width': 2, opacity: 0.9 }, flyL);
+    flyers.push({ el: el, ring: true, x0: x, y0: y, r1: r1 || 16, t: 0, dur: 600 });
+  }
+  function count(type) { var c = 0; for (var i = 0; i < particles.length; i++) if (particles[i].type === type) c++; return c; }
+  function removeParticle(p) { var i = particles.indexOf(p); if (i >= 0) particles.splice(i, 1); if (p.el.parentNode) p.el.parentNode.removeChild(p.el); }
+  function pick(type) { var c = particles.filter(function (p) { return p.type === type; }); return c.length ? c[Math.floor(Math.random() * c.length)] : null; }
+
+  function release(type) {
+    var v = VES[Math.floor(Math.random() * VES.length)];
+    var x = 100 + Math.random() * 240;
+    flyer(v.x, v.y, x, 160, COL[type], 380, function () { spawnFree(type, x, 186); });
+  }
+  function reuptake(type) {
+    var p = pick(type); if (!p) return;
+    var tr = TR[type];
+    removeParticle(p);
+    flyer(p.x, p.y, tr.x, tr.y + 6, COL[type], 420, function () {
+      if (state.mao) {
+        var v = VES[Math.floor(Math.random() * VES.length)];
+        flyer(tr.x, tr.y - 6, v.x, v.y, COL[type], 520, function () { ring(v.x, v.y, COL[type], 20); });
+      } else {
+        flyer(tr.x, tr.y - 6, MITO.x - 30 + Math.random() * 60, MITO.y, COL[type], 640, function () { ring(MITO.x, MITO.y, '#f472b6', 26); });
+      }
+    });
+  }
+  function diffuseAway(type) {
+    var p = pick(type); if (!p) return;
+    removeParticle(p);
+  }
+  function tyramineIn() {
+    var y = 196 + Math.random() * 60;
+    flyer(570, y, TR.n.x + 6, TR.n.y + 10, COL.t, 900, function () {
+      if (state.net) { ring(TR.n.x, TR.n.y, '#ef4444', 18); return; }
+      if (!state.mao) {
+        flyer(TR.n.x, TR.n.y - 6, MITO.x, MITO.y, COL.t, 650, function () { ring(MITO.x, MITO.y, '#f472b6', 24); });
+      } else {
+        var v = VES[Math.floor(Math.random() * VES.length)];
+        flyer(TR.n.x, TR.n.y - 6, v.x, v.y, COL.t, 520, function () { ring(v.x, v.y, '#fb923c', 24); });
+      }
+    }, 3.6);
+  }
+
+  function logicTick() {
+    var L = levels();
+    var targets = { h: Math.round(4 * L.L5), n: Math.round(4 * L.LN) };
+    ['h', 'n'].forEach(function (type) {
+      var c = count(type), T = targets[type];
+      var blocked = type === 'h' ? state.sert : state.net;
+      if (c < T) release(type);
+      else if (c > T) { if (!blocked) reuptake(type); else diffuseAway(type); }
+      else if (Math.random() < 0.45) {
+        if (!blocked) { reuptake(type); release(type); }
+        else if (Math.random() < 0.5) ring(TR[type].x, TR[type].y, '#ef4444', 18);
+      }
+    });
+    if (state.tyr && Math.random() < 0.55) tyramineIn();
+    if (reduceMotion || !visible) syncCountsInstant(targets);
+  }
+  function syncCountsInstant(targets) {
+    ['h', 'n'].forEach(function (type) {
+      var c = count(type);
+      while (c < targets[type]) { spawnFree(type, 80 + Math.random() * 480, 190 + Math.random() * 90); c++; }
+      while (c > targets[type]) { diffuseAway(type); c--; }
+    });
+  }
+
+  function stepParticles(dt) {
+    var k = dt / 16;
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.vx += (Math.random() - 0.5) * 0.35 * k; p.vy += (Math.random() - 0.5) * 0.35 * k;
+      p.vx *= 0.96; p.vy *= 0.96;
+      p.x += p.vx * k; p.y += p.vy * k;
+      if (p.x < 74) { p.x = 74; p.vx = Math.abs(p.vx); } if (p.x > 566) { p.x = 566; p.vx = -Math.abs(p.vx); }
+      if (p.y < 184) { p.y = 184; p.vy = Math.abs(p.vy); } if (p.y > 282) { p.y = 282; p.vy = -Math.abs(p.vy); }
+      p.el.setAttribute('cx', p.x.toFixed(1)); p.el.setAttribute('cy', p.y.toFixed(1));
+    }
+    for (var j = flyers.length - 1; j >= 0; j--) {
+      var f = flyers[j]; f.t += dt; var u = Math.min(1, f.t / f.dur);
+      if (f.ring) { f.el.setAttribute('r', (3 + (f.r1 - 3) * u).toFixed(1)); f.el.setAttribute('opacity', (0.9 * (1 - u)).toFixed(2)); }
+      else { var e = u < 0.5 ? 2 * u * u : -1 + (4 - 2 * u) * u; f.el.setAttribute('cx', (f.x0 + (f.x1 - f.x0) * e).toFixed(1)); f.el.setAttribute('cy', (f.y0 + (f.y1 - f.y0) * e).toFixed(1)); }
+      if (u >= 1) { flyL.removeChild(f.el); flyers.splice(j, 1); if (f.done) f.done(); }
+    }
+    updateGlows();
+  }
+  function updateGlows() {
+    RECS.forEach(function (R) {
+      var n = 0;
+      for (var i = 0; i < particles.length; i++) { var p = particles[i]; if (p.type === R.t && Math.abs(p.x - R.x) < 60 && p.y > 220) n++; }
+      R.el.setAttribute('opacity', Math.min(0.95, n * 0.2).toFixed(2));
+    });
+  }
+
+  function meterHTML(label, val, pct, color) {
+    return '<div class="meter"><div class="ml"><span>' + label + '</span><b>' + val + '</b></div><div class="bar"><i style="width:' + pct + '%;background:' + color + '"></i></div></div>';
+  }
+  function updateVisuals() {
+    var L = levels();
+    $('sertCap').setAttribute('opacity', state.sert ? 1 : 0);
+    $('netCap').setAttribute('opacity', state.net ? 1 : 0);
+    $('maoCap').setAttribute('opacity', state.mao ? 1 : 0);
+    $('mito').setAttribute('fill', state.mao ? '#1a0a16' : '#2a0f22');
+    $('tyrSrc').setAttribute('opacity', state.tyr ? 1 : 0);
+    var store = state.mao ? 1 : 0;
+    vesInner.forEach(function (c) { c.setAttribute('r', store ? 12.5 : 8); c.setAttribute('opacity', store ? 0.9 : 0.55); });
+    var g = $('autoGlow'), tx = $('autoTxt'), ar = $('autoR');
+    if (state.chr) { g.setAttribute('opacity', 0); ar.setAttribute('opacity', 0.45); tx.textContent = 'autoreceptor desensitised'; }
+    else { ar.setAttribute('opacity', 1); g.setAttribute('opacity', L.acute ? 0.9 : 0.15); tx.textContent = L.acute ? 'autoreceptor: brake ON' : 'autoreceptor'; }
+    OT.forEach(function (o, i) {
+      var on = state[o.k];
+      otEls[i].r.setAttribute('stroke', on ? '#ef4444' : '#2f3d5e');
+      otEls[i].r.setAttribute('fill', on ? '#2d0d0d' : '#0d1424');
+      otEls[i].t2.textContent = on ? 'blocked' : 'free';
+      otEls[i].t2.setAttribute('fill', on ? '#fca5a5' : '#64748b');
+    });
+    var m5 = clamp(Math.round(L.L5 / 4.5 * 100), 0, 100), mN = clamp(Math.round(L.LN / 4.5 * 100), 0, 100);
+    var pr = state.tyr ? (state.net ? 6 : (state.mao ? 96 : 10)) : (state.mao ? 14 : 4);
+    var pressTxt = pr > 80 ? 'hypertensive crisis' : (state.tyr && state.net ? 'blunted (NET blocked)' : (state.mao ? 'low (orthostatic ↓ more likely)' : 'normal'));
+    var ser = state.sert && state.mao ? 96 : (state.sert ? (state.chr ? 30 : 24) : (state.mao ? 20 : 4));
+    var serTxt = ser > 80 ? 'SEVERE (combination)' : (ser > 15 ? 'side effects only' : 'nil');
+    var off = state.off ? 90 : 0;
+    $('meters').innerHTML =
+      meterHTML('Synaptic 5-HT', (L.L5).toFixed(1) + '×', m5, '#a78bfa') +
+      meterHTML('Synaptic NA', (L.LN).toFixed(1) + '×', mN, '#fb923c') +
+      meterHTML('Vesicular stores', state.mao ? 'expanded' : 'normal', state.mao ? 85 : 35, '#c4b5fd') +
+      meterHTML('Off-target block', state.off ? 'M, H₁, α₁, Na⁺, K⁺' : 'none', off, '#fbbf24') +
+      meterHTML('Pressor risk', pressTxt, pr, '#a3e635') +
+      meterHTML('Serotonin toxicity risk', serTxt, ser, '#f472b6');
+    $('tSert').setAttribute('aria-pressed', state.sert); $('tNet').setAttribute('aria-pressed', state.net);
+    $('tMao').setAttribute('aria-pressed', state.mao); $('tOff').setAttribute('aria-pressed', state.off);
+    $('tChr').setAttribute('aria-pressed', state.chr); $('tTyr').setAttribute('aria-pressed', state.tyr);
+    if (reduceMotion || !visible) { syncCountsInstant({ h: Math.round(4 * L.L5), n: Math.round(4 * L.LN) }); updateGlows(); }
+  }
+
+  var STAGES = [
+    { c: 'Normal', k: null, s: {}, sn: 'Stage 1 · Baseline',
+      t: 'Normal signalling: reuptake, then MAO',
+      b: ['5-HT and NA are released by exocytosis and act on postsynaptic receptors.', 'Action ends mainly by <strong>reuptake</strong>: SERT (5-HT) and NET (NA).', 'Inside the terminal, amine is either repackaged by VMAT2 or <strong>deaminated by mitochondrial MAO</strong> (pink rings).'],
+      e: 'Mechanism row: every class acts on one of these three steps: SERT, NET, or MAO.',
+      w: 'Watch recaptured amine fly to the mitochondrion and vanish.' },
+    { c: 'TCA', k: 'tca', s: { sert: true, net: true }, sn: 'Stage 2 · TCA',
+      t: 'TCA: SERT + NET reuptake blocked',
+      b: ['Competitive, reversible inhibition of <strong>both</strong> transporters, so 5-HT and NA build up in the cleft.', 'Tertiary amines (amitriptyline, clomipramine) lean to SERT; secondary amines (nortriptyline, desipramine) lean to NET.', 'Acutely, autoreceptors apply the brake (purple glow) and limit the rise.'],
+      e: 'Write: “TCAs inhibit presynaptic reuptake of NA and 5-HT (not DA)”.',
+      w: 'Both transporters are capped; amine stays in the cleft.' },
+    { c: 'TCA off-target', k: 'tca', s: { sert: true, net: true, off: true }, sn: 'Stage 3 · TCA',
+      t: 'TCA: the “dirty drug” hits',
+      b: ['<strong>Muscarinic</strong> antagonism: anticholinergic effects.', '<strong>H₁</strong>: sedation, weight gain. <strong>α₁</strong>: orthostatic hypotension.', '<strong>Fast Na⁺ channel</strong>: QRS widening in overdose; <strong>hERG K⁺</strong>: QT.', 'These cause most TCA side effects and nearly all of the overdose lethality.'],
+      e: 'Contrast line: TCA side effects are mostly off-target; SSRI side effects are mostly on-target (5-HT).',
+      w: 'Five off-target boxes turn red.' },
+    { c: 'SSRI', k: 'ssri', s: { sert: true }, sn: 'Stage 4 · SSRI',
+      t: 'SSRI: SERT only',
+      b: ['Only 5-HT rises. Few receptor actions, so far fewer anticholinergic, sedative and cardiac effects.', 'Side effects come from <strong>serotonin itself</strong>: gut 5-HT (nausea, diarrhoea), 5-HT₂ (sexual dysfunction, agitation), hypothalamus (SIADH).', '<strong>Platelet SERT</strong> is blocked too: platelet 5-HT is depleted, so bleeding risk rises.'],
+      e: 'Exception: citalopram/escitalopram QT; paroxetine anticholinergic; fluoxetine/paroxetine CYP2D6.',
+      w: 'Only SERT is capped; the platelet box turns red.' },
+    { c: 'Weeks later', k: 'ssri', s: { sert: true, chr: true }, sn: 'Stage 5 · All classes',
+      t: 'Weeks later: the brake comes off',
+      b: ['Acute 5-HT rise stimulates somatodendritic <strong>5-HT₁A autoreceptors</strong> (and α₂ for NA), cutting firing and release.', 'Over 2–6 weeks they <strong>desensitise</strong>, so release recovers on top of blocked reuptake.', 'Postsynaptic receptor down-regulation and neuroplasticity follow. This explains the therapeutic lag for all three classes.'],
+      e: 'One sentence on the lag shows the examiner you understand mechanism, not just targets.',
+      w: 'Autoreceptor greys out; synaptic 5-HT climbs from ~2.1× to ~2.8×.' },
+    { c: 'MAOI', k: 'maoi', s: { mao: true }, sn: 'Stage 6 · MAOI',
+      t: 'MAOI: the enzyme is blocked',
+      b: ['Recaptured and newly made amine is no longer deaminated. It goes back into vesicles, and <strong>stores expand</strong>.', 'Each impulse releases more 5-HT, NA and DA. The transporters still work.', 'MAO is also in <strong>gut, liver and platelets</strong>, which is where the dietary and drug problems start.'],
+      e: 'Contrast line: TCAs and SSRIs act in the cleft; MAOIs act inside the neurone.',
+      w: 'Recaptured amine now flies back into enlarged vesicles, not to the mitochondrion.' },
+    { c: 'MAOI + tyramine', k: 'maoi', s: { mao: true, tyr: true }, sn: 'Stage 7 · MAOI',
+      t: 'MAOI + tyramine: hypertensive crisis',
+      b: ['Gut and liver MAO-A no longer destroy dietary tyramine.', 'Tyramine enters sympathetic terminals <strong>via NET</strong> and displaces NA from over-full vesicles.', 'Massive NA release → α₁ vasoconstriction → hypertensive crisis. Indirect sympathomimetics (ephedrine, metaraminol) do the same.'],
+      e: 'Try it: also switch on “NET blocked”. A TCA blocks tyramine entry, so the pressor meter falls.',
+      w: 'Lime tyramine enters NET and lands in vesicles; NA and the pressor meter surge.' },
+    { c: 'MAOI + SRI', k: 'maoi', s: { mao: true, sert: true }, sn: 'Stage 8 · Combination',
+      t: 'MAOI + SRI: life-threatening serotonin toxicity',
+      b: ['Two mechanisms multiply: more 5-HT released <em>and</em> none cleared.', 'SRIs include SSRIs, SNRIs, clomipramine, imipramine, pethidine, tramadol, methadone, dextromethorphan.', 'Hidden MAOIs: <strong>linezolid</strong>, <strong>methylene blue</strong>, moclobemide.'],
+      e: 'Single-agent SRI overdose usually stays mild to moderate. Severe toxicity is a combination problem.',
+      w: '5-HT meter maxes out; serotonin toxicity risk turns severe.' }
+  ];
+  var KCOL = { tca: '#fbbf24', ssri: '#2dd4bf', maoi: '#f472b6' };
+  var cur = 0, chips = [];
+  STAGES.forEach(function (s, i) {
+    var b = h('button', 'chip', (s.k ? '<span class="k" style="background:' + KCOL[s.k] + '"></span>' : '') + (i + 1) + '. ' + s.c);
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { goStage(i); });
+    $('stageChips').appendChild(b); chips.push(b);
+  });
+  function goStage(i) {
+    cur = i; var s = STAGES[i];
+    state = { sert: !!s.s.sert, net: !!s.s.net, mao: !!s.s.mao, off: !!s.s.off, chr: !!s.s.chr, tyr: !!s.s.tyr };
+    chips.forEach(function (c, j) { press(c, j === i); });
+    $('stagePanel').innerHTML = '<div class="sn">' + s.sn + '</div><h3>' + s.t + '</h3><ul>' + s.b.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul><div class="exam">🎯 ' + s.e + '</div><div class="watch">👁 ' + s.w + '</div>';
+    $('stProg').style.width = ((i + 1) / STAGES.length * 100) + '%';
+    $('stPrev').disabled = i === 0; $('stNext').disabled = i === STAGES.length - 1;
+    updateVisuals();
+  }
+  function custom(key) {
+    state[key] = !state[key];
+    chips.forEach(function (c) { press(c, false); });
+    var on = Object.keys(state).filter(function (k) { return state[k]; });
+    var names = { sert: 'SERT blocked', net: 'NET blocked', mao: 'MAO inhibited', off: 'off-target block', chr: 'weeks of treatment', tyr: 'tyramine load' };
+    var note = [];
+    if (state.sert && state.net && !state.off) note.push('SERT + NET without off-target block is an SNRI/“clean TCA” idea; real TCAs also hit M, H₁, α₁ and Na⁺ channels.');
+    if (state.tyr && state.net) note.push('NET block stops tyramine entering the terminal: TCAs <em>blunt</em> the tyramine response.');
+    if (state.tyr && state.mao && !state.net) note.push('Tyramine + MAO inhibition: hypertensive crisis.');
+    if (state.sert && state.mao) note.push('SRI + MAOI: severe serotonin toxicity.');
+    if (state.off && !state.sert && !state.net) note.push('Off-target block alone resembles an anticholinergic/antihistamine overdose.');
+    $('stagePanel').innerHTML = '<div class="sn">Custom combination</div><h3>' + (on.length ? on.map(function (k) { return names[k]; }).join(' + ') : 'Nothing switched on') + '</h3>' + (note.length ? '<ul>' + note.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>' : '<p class="muted">Flip more switches, or pick a stage above.</p>');
+    updateVisuals();
+  }
+  $('stPrev').addEventListener('click', function () { if (cur > 0) goStage(cur - 1); });
+  $('stNext').addEventListener('click', function () { if (cur < STAGES.length - 1) goStage(cur + 1); });
+  $('tSert').addEventListener('click', function () { custom('sert'); });
+  $('tNet').addEventListener('click', function () { custom('net'); });
+  $('tMao').addEventListener('click', function () { custom('mao'); });
+  $('tOff').addEventListener('click', function () { custom('off'); });
+  $('tChr').addEventListener('click', function () { custom('chr'); });
+  $('tTyr').addEventListener('click', function () { custom('tyr'); });
+
+  var visible = true, userPaused = false, running = false, last = 0, acc = 0, rafId = null;
+  function loop(t) {
+    if (!running) return;
+    var dt = last ? Math.min(60, t - last) : 16; last = t;
+    acc += dt;
+    if (acc > 300) { acc = 0; logicTick(); }
+    stepParticles(dt);
+    rafId = requestAnimationFrame(loop);
+  }
+  function setRunning() {
+    var should = visible && !userPaused && !reduceMotion;
+    $('tPlay').textContent = userPaused ? '▶ Play' : '⏸ Pause';
+    press($('tPlay'), userPaused);
+    if (should && !running) { running = true; last = 0; rafId = requestAnimationFrame(loop); }
+    else if (!should && running) { running = false; if (rafId) cancelAnimationFrame(rafId); }
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; setRunning(); }, { threshold: 0.05 }).observe(svg);
+  }
+  document.addEventListener('visibilitychange', function () { visible = !document.hidden; setRunning(); });
+  $('tPlay').addEventListener('click', function () { userPaused = !userPaused; setRunning(); });
+  if (reduceMotion) { $('tPlay').disabled = true; $('tPlay').textContent = 'Animation off (reduced motion)'; }
+  goStage(0);
+  setRunning();
+
+  /* =====================================================================
+     2. TARGET MAP
+     ===================================================================== */
+  var TM = {
+    tca: { title: 'TCA', cls: 'c-t', items: [
+      { k: 'SERT + NET', x: 'reuptake inhibition', l: ['SERT + NET inhibition', '↑ synaptic 5-HT and NA (not DA)', 'Antidepressant over weeks; neuropathic pain analgesia (descending NA inhibition); sweating, tremor', 'Serotonin toxicity with MAOIs (clomipramine, imipramine)'], ex: 'Tertiary amines (amitriptyline, imipramine, clomipramine) are more serotonergic; their secondary-amine metabolites (nortriptyline, desipramine) are NET-selective. Clomipramine is the most potent SRI.' },
+      { k: 'Muscarinic M₁–M₅', x: 'antagonist', l: ['Muscarinic antagonism', '↓ parasympathetic and central cholinergic tone', 'Dry mouth, constipation, urinary retention, blurred vision, ↑ IOP, tachycardia, confusion in elderly', 'Anticholinergic toxidrome: hot dry skin, mydriasis, ileus, retention, agitated delirium'], ex: 'Amitriptyline is the most anticholinergic; nortriptyline and desipramine the least. Do not use physostigmine in TCA overdose.' },
+      { k: 'Histamine H₁', x: 'antagonist', l: ['H₁ antagonism', 'Central H₁ blockade (± 5-HT₂C)', 'Sedation (useful at night), weight gain', 'Coma (with anticholinergic and GABA effects)'], ex: 'Doxepin is an extremely potent H₁ blocker (used at very low dose as a hypnotic).' },
+      { k: 'α₁-adrenoceptor', x: 'antagonist', l: ['α₁ antagonism', 'Vasodilatation, blunted postural reflex', 'Orthostatic hypotension, dizziness, falls (elderly)', 'Hypotension (with Na⁺-channel negative inotropy)'], ex: 'Worse with amitriptyline, imipramine; less with nortriptyline.' },
+      { k: 'Fast Na⁺ channel', x: 'Naᵥ1.5 block', l: ['Fast Na⁺ channel block (class Ia-like)', 'Slower phase 0, slower conduction; use-dependent (worse when fast)', 'Conduction delay in pre-existing bundle branch block', 'QRS > 100 ms, terminal R in aVR, negative inotropy, VT/VF, seizures. Treat with NaHCO₃'], ex: 'This is the main reason TCAs are more lethal than SSRIs. Citalopram, venlafaxine and some others can cause QRS widening in big overdoses too.' },
+      { k: 'K⁺ channel (hERG)', x: 'I<sub>Kr</sub> block', l: ['hERG (I<sub>Kr</sub>) block', 'Delayed repolarisation', 'QT prolongation', 'Long QT; torsades is less common than wide-complex tachycardia because these patients are tachycardic'], ex: 'Additive with other QT drugs (citalopram, antipsychotics, macrolides, ondansetron).' },
+      { k: 'GABA<sub>A</sub> / seizure threshold', x: 'lowered', l: ['GABA<sub>A</sub> antagonism (proposed) ± other mechanisms', 'Lowered seizure threshold', 'Seizures in predisposed patients', 'Seizures → acidosis → more Na⁺ block: a vicious cycle. Benzodiazepines first'], ex: 'Bupropion and venlafaxine also lower seizure threshold in overdose.' }
+    ] },
+    ssri: { title: 'SSRI', cls: 'c-s', items: [
+      { k: 'Central SERT', x: 'selective block', l: ['Selective SERT inhibition', '↑ synaptic 5-HT; autoreceptor brake early', 'Weeks to effect; early anxiety, agitation, insomnia, headache; akathisia; ↑ suicidal thinking early in under-25s', 'Alone in overdose: mild–moderate serotonin toxicity (≈ 14%)'], ex: 'Fluoxetine is activating; paroxetine more sedating.' },
+      { k: 'Gut 5-HT', x: '5-HT₃ / 5-HT₄', l: ['↑ 5-HT at gut receptors (most body 5-HT is in enterochromaffin cells)', '5-HT₃ (vagal/CTZ) and 5-HT₄ (motility) stimulation', 'Nausea (commonest, early, settles), diarrhoea, dyspepsia', 'Vomiting in overdose'], ex: 'Sertraline has the most diarrhoea; paroxetine more constipation (anticholinergic).' },
+      { k: '5-HT₂ / dopamine', x: 'sexual, emotional', l: ['5-HT₂ stimulation, ↓ dopaminergic tone', 'Spinal and hypothalamic 5-HT inhibition of sexual reflexes', 'Delayed ejaculation, anorgasmia, ↓ libido; emotional blunting', '—'], ex: 'Beneficial use: premature ejaculation (dapoxetine).' },
+      { k: 'Platelet SERT', x: '5-HT depletion', l: ['Platelet SERT blockade', 'Platelets can’t make 5-HT; uptake blocked → depleted stores → weaker aggregation; ↑ gastric acid', 'GI bleeding, bruising; worse with NSAIDs, antiplatelets, anticoagulants', 'Additive bleeding risk in trauma, surgery'], ex: 'Clomipramine (potent SRI) shares this; noradrenergic TCAs don’t.' },
+      { k: 'Hypothalamus → ADH', x: 'SIADH', l: ['5-HT-stimulated ADH release', 'SIADH: euvolaemic hypotonic hyponatraemia', 'Hyponatraemia in first weeks; risk: elderly, female, diuretics, low weight', 'Confusion, seizures if severe'], ex: 'All SSRIs; also SNRIs and, less often, TCAs and MAOIs.' },
+      { k: 'Cardiac K⁺ (some)', x: 'citalopram QT', l: ['hERG block by citalopram / escitalopram', 'Dose-dependent repolarisation delay', 'QTc ↑ (FDA: citalopram max 40 mg/day; 20 mg/day over 60, CYP2C19 poor metabolisers, hepatic impairment)', 'QTc > 440 ms in 68% of citalopram overdoses; delayed seizures'], ex: 'Class pattern = cardiac-safe; citalopram and escitalopram are the exception.' },
+      { k: 'CYP inhibition', x: 'drug-specific', l: ['Hepatic CYP inhibition', 'Fluoxetine and paroxetine: potent CYP2D6. Fluvoxamine: CYP1A2, 2C19', '↑ TCAs, metoprolol, some antipsychotics; ↓ activation of codeine, tramadol, tamoxifen; fluvoxamine ↑ clozapine, theophylline', 'TCA toxicity when combined with fluoxetine or paroxetine'], ex: 'Sertraline, citalopram and escitalopram have few CYP interactions.' }
+    ] },
+    maoi: { title: 'MAOI', cls: 'c-m', items: [
+      { k: 'Neuronal MAO', x: 'A ± B', l: ['Neuronal MAO inhibition', '↑ cytosolic and vesicular 5-HT, NA, DA → more release', 'Antidepressant (atypical/resistant depression); insomnia, agitation, hypomania', 'Overdose: delayed (up to 24 h) agitation, hyperthermia, rigidity, hypertension → collapse'], ex: 'Tranylcypromine is amphetamine-like (stimulant); phenelzine is more sedating with weight gain.' },
+      { k: 'Gut + liver MAO-A', x: 'first-pass lost', l: ['Intestinal and hepatic MAO-A inhibition', 'Dietary tyramine escapes first-pass; enters terminals via NET; displaces NA', 'Hypertensive crisis after tyramine-rich food or indirect sympathomimetics', 'Headache, severe hypertension, ICH, arrhythmia, pulmonary oedema'], ex: 'Moclobemide: reversible, ~4× sensitivity (vs 20–56×). Selegiline ≤ 10 mg/day spares gut MAO-A.' },
+      { k: 'MAO-A + any SRI', x: 'serotonin toxicity', l: ['MAO inhibition plus blocked 5-HT reuptake', 'Synaptic 5-HT rises far more than either alone', 'Contraindicated combinations: SSRIs, SNRIs, clomipramine, pethidine, tramadol, methadone, dextromethorphan', 'Severe serotonin toxicity: hyperthermia, rigidity, death'], ex: 'Morphine, oxycodone, codeine and buprenorphine are not SRIs. Linezolid and methylene blue are MAOIs.' },
+      { k: 'Sympathetic tone', x: 'false transmitter', l: ['Proposed: false transmitter (octopamine) and ↑ central α₂ tone', 'Less effective NA release at sympathetic terminals', '<strong>Orthostatic hypotension</strong> (commonest therapeutic-dose AE), oedema', '—'], ex: 'Same drug class, opposite BP problems: hypotension day to day, hypertension with tyramine.' },
+      { k: 'Hydrazine moiety', x: 'phenelzine', l: ['Hydrazine structure (phenelzine, isocarboxazid)', 'Reactive metabolites; pyridoxine binding', 'Hepatotoxicity (rare), pyridoxine deficiency (neuropathy), weight gain', '—'], ex: 'Tranylcypromine is not a hydrazine.' },
+      { k: 'MAO-B', x: 'Parkinson’s', l: ['Selective MAO-B inhibition (selegiline, rasagiline, safinamide)', '↑ striatal dopamine (glial MAO-B)', 'L-dopa sparing in Parkinson’s; insomnia (selegiline’s amphetamine metabolites)', 'Selectivity lost at high doses → tyramine and serotonin risk'], ex: 'Transdermal selegiline (US) bypasses gut MAO-A and is used for depression.' },
+      { k: 'Irreversibility', x: 'covalent FAD adduct', l: ['Covalent binding to FAD', 'Effect outlasts drug; recovery needs new enzyme synthesis', '2-week washout before serotonergic drugs (5 weeks after fluoxetine before starting an MAOI)', 'Interactions persist after the drug is stopped'], ex: 'Moclobemide: reversible; single-dose pressor effect gone by 24 h.' }
+    ] }
+  };
+  var tmBtns = [];
+  ['tca', 'ssri', 'maoi'].forEach(function (key) {
+    var col = h('div', 'tm-col ' + TM[key].cls);
+    col.appendChild(h('h3', null, TM[key].title));
+    var list = h('div', 'tm-list');
+    TM[key].items.forEach(function (it) {
+      var b = h('button', 'tm-node', '<span class="tt">' + it.k + '</span><span class="tx">' + it.x + '</span>');
+      b.setAttribute('aria-pressed', 'false');
+      b.addEventListener('click', function () {
+        tmBtns.forEach(function (x) { press(x, false); }); press(b, true);
+        var d = $('tmDetail'); d.classList.remove('empty');
+        if (window.matchMedia('(max-width: 860px)').matches) b.parentNode.insertBefore(d, b.nextSibling); else $('tmap').parentNode.insertBefore(d, $('tmap').nextSibling);
+        var hd = ['Target', 'What it does', 'Therapeutic dose', 'Overdose / interaction'];
+        var html = '<strong style="color:' + KCOL[key] + '">' + TM[key].title + ' · ' + it.k + '</strong><div class="chain">';
+        it.l.forEach(function (v, i) { html += '<div class="lk l' + (i + 1) + '"><span class="lh">' + hd[i] + '</span>' + v + '</div>'; if (i < 3) html += '<div class="ar" aria-hidden="true">→</div>'; });
+        html += '</div><div class="exc">⭐ <strong>Exception / nuance:</strong> ' + it.ex + '</div>';
+        d.innerHTML = html;
+      });
+      tmBtns.push(b); list.appendChild(b);
+    });
+    col.appendChild(list); $('tmap').appendChild(col);
+  });
+
+  /* =====================================================================
+     3. COMPARISON LENS + SELF-TEST
+     ===================================================================== */
+  var lensBtns = document.querySelectorAll('[data-lens]');
+  var cmpRows = document.querySelectorAll('#cmpTable tbody tr');
+  Array.prototype.forEach.call(lensBtns, function (b) {
+    b.addEventListener('click', function () {
+      Array.prototype.forEach.call(lensBtns, function (x) { press(x, x === b); });
+      var lens = b.getAttribute('data-lens');
+      Array.prototype.forEach.call(cmpRows, function (r) { r.classList.toggle('dim', lens !== 'all' && r.getAttribute('data-cat') !== lens); });
+    });
+  });
+  var cells = document.querySelectorAll('#cmpTable td.cell');
+  Array.prototype.forEach.call(cells, function (c) {
+    c.addEventListener('click', function () { if (c.classList.contains('hidden-ans')) { c.classList.remove('hidden-ans'); c.removeAttribute('tabindex'); c.removeAttribute('role'); } });
+    c.addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.key === ' ') && c.classList.contains('hidden-ans')) { e.preventDefault(); c.click(); } });
+  });
+  $('cmpTest').addEventListener('click', function () {
+    var on = this.getAttribute('aria-pressed') !== 'true'; press(this, on);
+    Array.prototype.forEach.call(cells, function (c) {
+      c.classList.toggle('hidden-ans', on);
+      if (on) { c.setAttribute('tabindex', '0'); c.setAttribute('role', 'button'); c.setAttribute('aria-label', 'Hidden answer: ' + (c.getAttribute('data-label') || '') + '. Press to reveal'); }
+      else { c.removeAttribute('tabindex'); c.removeAttribute('role'); c.removeAttribute('aria-label'); }
+    });
+  });
+
+  /* =====================================================================
+     4. HEAT GRID
+     ===================================================================== */
+  var HEAT = [
+    ['Anti&shy;cholinergic', [3, 'Muscarinic antagonism: dry mouth, constipation, retention, blurred vision, delirium.'], [0, 'SSRIs have negligible muscarinic affinity.', 'Paroxetine: modest antimuscarinic effect.'], [1, 'Dry mouth and constipation occur but are not antimuscarinic.']],
+    ['Sedation', [3, 'H₁ antagonism (amitriptyline, doxepin).', 'Nortriptyline, desipramine much less.'], [1, 'Variable; drowsiness or insomnia.', 'Paroxetine more sedating; fluoxetine activating.'], [1, 'Phenelzine can sedate.', 'Tranylcypromine is activating.']],
+    ['Insomnia / activation', [0, 'TCAs are usually sedating.'], [2, '5-HT₂ stimulation: early anxiety, jitteriness, insomnia, akathisia.'], [2, 'Insomnia and agitation, from ↑ NA and DA.']],
+    ['Weight gain', [3, 'H₁ and 5-HT₂C antagonism.'], [1, 'Roughly weight-neutral.', 'Paroxetine causes more weight gain.'], [2, 'Phenelzine especially.']],
+    ['Orthostatic hypotension', [2, 'α₁ antagonism.'], [0, 'Not typical.'], [3, 'Commonest MAOI side effect: false transmitters, ↑ central α₂ tone (proposed).']],
+    ['Nausea / GI upset', [1, 'Constipation more than nausea.'], [3, 'Gut 5-HT₃ / 5-HT₄ stimulation: nausea, diarrhoea (early, settles).'], [1, 'Mild.']],
+    ['Sexual dysfunction', [2, 'Especially clomipramine.'], [3, '5-HT₂ stimulation, ↓ DA: delayed ejaculation, anorgasmia.'], [2, 'Common.']],
+    ['Hypo&shy;natraemia (SIADH)', [1, 'Reported, less often.'], [2, '5-HT-driven ADH release; elderly, female, diuretics; first weeks.'], [1, 'Reported.']],
+    ['Bleeding', [1, 'Only with potent SRI TCAs (clomipramine).'], [2, 'Platelet SERT block → platelet 5-HT depletion; ↑ gastric acid.'], [0, 'Not a recognised class effect.']],
+    ['Conduction / QT (therapeutic)', [2, 'Na⁺ and K⁺ channel block; caution in conduction disease or after MI.'], [1, 'Usually neutral.', 'Citalopram/escitalopram: dose-dependent QT.'], [0, 'Not typical.']],
+    ['Seizure threshold ↓', [2, 'Proposed GABA<sub>A</sub> antagonism.'], [1, 'Small effect; seizures in about 2% of overdoses.'], [1, 'Seizures mainly in overdose.']],
+    ['Hypertensive crisis', [0, 'TCAs blunt tyramine entry (NET block).'], [0, 'No.'], [3, 'Tyramine or indirect sympathomimetics: NA released from overfilled stores.', 'Moclobemide: much smaller risk (reversible).']],
+    ['Serotonin toxicity (combin&shy;ations)', [1, 'Mostly with MAOIs.', 'Clomipramine, imipramine: potent SRIs → dangerous with MAOIs.'], [2, 'With MAOIs, linezolid, methylene blue, tramadol, pethidine.'], [3, 'With any SRI: life-threatening.']],
+    ['Overdose lethality', [3, 'Na⁺ channel cardiotoxicity, seizures, coma.'], [1, 'Relatively benign.', 'Citalopram/escitalopram: QT, seizures.'], [3, 'Delayed, severe hyperthermic/sympathomimetic crisis.', 'Moclobemide alone: less toxic; lethal with SRIs.']],
+    ['Discontin&shy;uation', [1, 'Cholinergic rebound.'], [2, 'Dizziness, “electric shock” paraesthesia, irritability.', 'Paroxetine worst; fluoxetine least (long t½).'], [2, 'Can be severe: agitation, delirium.']]
+  ];
+  var heatCells = [];
+  (function buildHeat() {
+    var g = $('heatGrid');
+    g.appendChild(h('div', '', ''));
+    g.appendChild(h('div', 'hh t', 'TCA')); g.appendChild(h('div', 'hh s', 'SSRI')); g.appendChild(h('div', 'hh m', 'MAOI'));
+    var cn = ['t', 's', 'm'], cname = ['TCA', 'SSRI', 'MAOI'];
+    HEAT.forEach(function (row) {
+      g.appendChild(h('div', 'rl', row[0]));
+      for (var j = 0; j < 3; j++) {
+        (function (cell, j) {
+          var pips = ''; for (var k = 0; k < 3; k++) pips += '<span class="pip' + (k < cell[0] ? ' on' : '') + '"></span>';
+          var b = h('button', 'hc ' + cn[j], pips + (cell[2] ? '<span class="star" aria-hidden="true">★</span>' : ''));
+          b.setAttribute('aria-pressed', 'false');
+          b.setAttribute('aria-label', row[0].replace(/&shy;/g, '') + ', ' + cname[j]);
+          b.addEventListener('click', function () {
+            heatCells.forEach(function (x) { press(x, false); }); press(b, true);
+            b.classList.add('revealed');
+            $('heatDetail').innerHTML = '<strong>' + row[0].replace(/&shy;/g, '') + ' · <span class="' + cn[j] + '">' + cname[j] + '</span></strong>: ' + cell[0] + '/3. ' + cell[1] + (cell[2] ? '<br>★ <strong>Exception:</strong> ' + cell[2] : '');
+          });
+          heatCells.push(b); g.appendChild(b);
+        })(row[j + 1], j);
+      }
+    });
+  })();
+  $('heatQuiz').addEventListener('click', function () {
+    var on = this.getAttribute('aria-pressed') !== 'true'; press(this, on);
+    $('heatGrid').classList.toggle('quiz', on);
+    heatCells.forEach(function (c) { c.classList.remove('revealed'); });
+    $('heatDetail').textContent = on ? 'Predict each cell (0–3), then tap it to check.' : 'Tap a cell…';
+  });
+  $('heatReveal').addEventListener('click', function () { heatCells.forEach(function (c) { c.classList.add('revealed'); }); });
+
+  /* =====================================================================
+     5. TCA ECG MODEL
+     ===================================================================== */
+  var ecg = $('ecgSvg');
+  var tcaS = { acid: false, tachy: false, bicarb: false };
+  function effBlock() {
+    var s = +$('tcaDose').value / 100;
+    var b = s * (tcaS.acid ? 1.25 : 1) * (tcaS.tachy ? 1.12 : 1) * (tcaS.bicarb ? 0.65 : 1);
+    return clamp(b, 0, 1.25);
+  }
+  function apPath(b, x0) {
+    var up = 2 + 34 * b, peakY = 48 + 40 * b, plat = 110 + 22 * b;
+    var x = x0 + 20;
+    return 'M ' + x0 + ' 200 L ' + x + ' 200 L ' + (x + up) + ' ' + peakY + ' L ' + (x + up + 8) + ' ' + (peakY + 26) + ' L ' + (x + up + plat) + ' ' + (peakY + 40) +
+      ' C ' + (x + up + plat + 25) + ' ' + (peakY + 50) + ', ' + (x + up + plat + 30) + ' 200, ' + (x + up + plat + 55) + ' 200 L ' + (x0 + 270) + ' 200';
+  }
+  function ecgPath(x0, y0, w, avr, rA) {
+    var p = 'M ' + x0 + ' ' + y0 + ' L ' + (x0 + 14) + ' ' + y0;
+    var s = avr ? 1 : -1;
+    p += ' q 9 ' + (s * 9) + ' 18 0 L ' + (x0 + 44) + ' ' + y0;
+    var q = x0 + 44;
+    if (!avr) {
+      p += ' L ' + (q + w * 0.12) + ' ' + (y0 + 5) + ' L ' + (q + w * 0.35) + ' ' + (y0 - 52) + ' L ' + (q + w * 0.62) + ' ' + (y0 + 14) + ' L ' + (q + w) + ' ' + y0;
+    } else {
+      p += ' L ' + (q + w * 0.1) + ' ' + (y0 - 4) + ' L ' + (q + w * 0.45) + ' ' + (y0 + 44) + ' L ' + (q + w * 0.78) + ' ' + (y0 - rA) + ' L ' + (q + w) + ' ' + y0;
+    }
+    var e = q + w;
+    p += ' L ' + (e + 22) + ' ' + y0 + ' q 22 ' + (s * 22) + ' 44 0 L ' + (x0 + 290) + ' ' + y0;
+    return p;
+  }
+  function drawEcg() {
+    var b = effBlock();
+    var qrs = Math.round(85 + 125 * Math.pow(b, 1.6));
+    var w = qrs * 0.42;
+    var rA = 4 + 30 * b;
+    var narrow = ecg.getBoundingClientRect().width < 520;
+    var ex = narrow ? -320 : 0, ay = narrow ? 250 : 0;
+    ecg.setAttribute('viewBox', narrow ? '0 0 320 500' : '0 0 640 250');
+    var html = '';
+    html += '<text x="16" y="20" fill="#fcd34d" font-size="13" font-weight="700">Ventricular action potential</text>';
+    html += '<line x1="10" y1="200" x2="300" y2="200" stroke="#1b2540"/>';
+    html += '<path d="' + apPath(0, 16) + '" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="4 4"/>';
+    html += '<path d="' + apPath(Math.min(b, 1.1), 16) + '" fill="none" stroke="#fbbf24" stroke-width="3"/>';
+    html += '<text x="16" y="232" fill="#94a3b8" font-size="11">phase 0 slows (Na⁺) · plateau lengthens (K⁺)</text>';
+    html += '<g transform="translate(' + ex + ' ' + ay + ')">';
+    html += '<text x="340" y="20" fill="#fcd34d" font-size="13" font-weight="700">Lead II</text>';
+    html += '<path d="' + ecgPath(330, 95, w, false, 0) + '" fill="none" stroke="#fbbf24" stroke-width="2.4"/>';
+    html += '<text x="340" y="140" fill="#fcd34d" font-size="13" font-weight="700">aVR</text>';
+    html += '<path d="' + ecgPath(330, 190, w, true, rA) + '" fill="none" stroke="#fbbf24" stroke-width="2.4"/>';
+    var qx = 374;
+    html += '<line x1="' + qx + '" y1="110" x2="' + (qx + w) + '" y2="110" stroke="#fca5a5" stroke-width="2"/><text x="' + (qx + w / 2) + '" y="125" fill="#fca5a5" font-size="11" text-anchor="middle">QRS ' + qrs + ' ms</text>';
+    if (rA > 14) html += '<text x="' + (qx + w * 0.78 + 12) + '" y="' + (190 - rA + 4) + '" fill="#fca5a5" font-size="11">terminal R</text>';
+    html += '</g>';
+    ecg.innerHTML = html;
+    $('sQrs').textContent = qrs + ' ms';
+    $('sAvr').textContent = rA > 14 ? 'prominent' : 'small';
+    $('sV').textContent = Math.round(100 - 70 * Math.min(b, 1)) + '% of normal';
+    var v = +$('tcaDose').value;
+    $('tcaDoseLab').textContent = v < 5 ? 'no drug' : v < 22 ? 'therapeutic' : v < 55 ? 'moderate overdose' : 'massive overdose';
+    var r = $('tcaRead');
+    r.className = 'readout ' + (qrs >= 160 ? 'r-bad' : qrs >= 100 ? 'r-mid' : 'r-ok');
+    var mods = [];
+    if (tcaS.acid) mods.push('acidaemia increases block');
+    if (tcaS.tachy) mods.push('tachycardia leaves less recovery time (use-dependence)');
+    if (tcaS.bicarb) mods.push('NaHCO₃ narrows the QRS (Na⁺ load + alkalaemia)');
+    r.innerHTML = (qrs >= 160 ? '<strong>≥ 160 ms: ventricular arrhythmia risk.</strong> ' : qrs >= 100 ? '<strong>≥ 100 ms: seizure risk.</strong> ' : '<strong>&lt; 100 ms:</strong> no seizures or VT in Boehnert’s cohort. ') +
+      'Model QRS ' + qrs + ' ms.' + (mods.length ? ' Modifiers: ' + mods.join('; ') + '.' : '') + ' <span class="muted">Teaching model; thresholds from Boehnert &amp; Lovejoy.</span>';
+  }
+  $('tcaDose').addEventListener('input', drawEcg);
+  var rsT = null;
+  window.addEventListener('resize', function () { clearTimeout(rsT); rsT = setTimeout(function () { drawEcg(); drawTyr(); }, 150); });
+  [['tcaAcid', 'acid'], ['tcaTachy', 'tachy'], ['tcaBicarb', 'bicarb']].forEach(function (p) {
+    $(p[0]).addEventListener('click', function () { tcaS[p[1]] = !tcaS[p[1]]; press(this, tcaS[p[1]]); drawEcg(); });
+  });
+  drawEcg();
+
+  /* =====================================================================
+     6. MAO DRUG SELECTOR
+     ===================================================================== */
+  var MAOD = [
+    { n: 'Phenelzine', a: 95, b: 95, bd: [['Irreversible', 'p-od'], ['Non-selective', 'p-m'], ['Hydrazine', 'p-x']], use: 'Depression (atypical, resistant)', tyr: 'High: tyramine diet needed', ser: 'Severe with any SRI', wash: '≈ 2 weeks (enzyme resynthesis)', note: 'Sedation, weight gain, orthostatic hypotension, hepatotoxicity (rare), pyridoxine deficiency.' },
+    { n: 'Tranylcypromine', a: 95, b: 95, bd: [['Irreversible', 'p-od'], ['Non-selective', 'p-m'], ['Amphetamine-like', 'p-x']], use: 'Depression (resistant)', tyr: 'High: 20–56× sensitivity', ser: 'Severe with any SRI', wash: '≈ 2 weeks; oral pressor sensitivity normalised by ~30 days in one study', note: 'Activating, insomnia; most hypertensive reactions of the class.' },
+    { n: 'Moclobemide', a: 80, b: 10, bd: [['Reversible', 'p-tx'], ['MAO-A selective (RIMA)', 'p-m']], use: 'Depression, social anxiety', tyr: 'Low: ~4× fasting, less after food. Take after meals', ser: 'Yes: dangerous with SRIs, especially in overdose', wash: '~24 h (short t½, reversible)', note: 'Relatively benign in overdose alone; combination overdoses are deadly.' },
+    { n: 'Selegiline ≤ 10 mg/day', a: 10, b: 90, bd: [['Irreversible', 'p-od'], ['MAO-B selective', 'p-x']], use: 'Parkinson’s disease', tyr: 'Minimal at selective dose (gut MAO-A spared)', ser: 'Caution with SRIs', wash: '≈ 2 weeks', note: 'Amphetamine metabolites (L-methamphetamine): insomnia. Selectivity is dose-dependent.' },
+    { n: 'Selegiline, higher dose / transdermal', a: 70, b: 95, bd: [['Irreversible', 'p-od'], ['Selectivity lost', 'p-m']], use: 'Depression (transdermal, US)', tyr: 'Oral high dose: yes. Transdermal bypasses gut MAO-A, so lowest patch dose needs no diet restriction', ser: 'Severe with SRIs', wash: '≈ 2 weeks', note: 'Good example of route changing selectivity.' },
+    { n: 'Rasagiline', a: 10, b: 90, bd: [['Irreversible', 'p-od'], ['MAO-B selective', 'p-x']], use: 'Parkinson’s disease', tyr: 'Minimal at recommended dose', ser: 'Caution with SRIs', wash: '≈ 2 weeks', note: 'No amphetamine metabolites.' },
+    { n: 'Safinamide', a: 3, b: 85, bd: [['Reversible', 'p-tx'], ['MAO-B selective', 'p-x']], use: 'Parkinson’s add-on', tyr: 'Minimal', ser: 'Caution with SRIs', wash: 'Short', note: 'Also blocks Na⁺ channels and glutamate release.' },
+    { n: 'Linezolid', a: 40, b: 40, bd: [['Reversible', 'p-tx'], ['Weak, non-selective', 'p-m'], ['Antibiotic', 'p-x']], use: 'MRSA, VRE', tyr: 'Mild potentiation: avoid large tyramine loads', ser: 'Yes with SSRIs/SNRIs: monitor or pause the SRI', wash: 'Short', note: 'A hidden MAOI in ICU.' },
+    { n: 'Methylene blue', a: 95, b: 30, bd: [['Reversible', 'p-tx'], ['Potent MAO-A', 'p-m'], ['Dye / vasopressor adjunct', 'p-x']], use: 'Methaemoglobinaemia, vasoplegia, parathyroid localisation', tyr: 'n/a (IV use)', ser: 'Severe with SRIs (fully inhibits MAO-A at IV doses)', wash: 'Short', note: 'Ramsay 2007 confirmed potent MAO-A inhibition.' }
+  ];
+  var maoBtns = [];
+  MAOD.forEach(function (d, i) {
+    var b = h('button', 'btn', d.n); b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { showMao(i); });
+    $('maoChips').appendChild(b); maoBtns.push(b);
+  });
+  function showMao(i) {
+    maoBtns.forEach(function (x, j) { press(x, i === j); });
+    var d = MAOD[i];
+    $('maoCard').innerHTML = '<h4>' + d.n + '</h4><div class="badges">' + d.bd.map(function (x) { return '<span class="pill ' + x[1] + '">' + x[0] + '</span>'; }).join('') + '</div>' +
+      '<div class="mao-bars"><span>MAO-A</span><div class="bar"><i style="width:' + d.a + '%;background:#f472b6"></i></div><span class="muted">' + (d.a > 70 ? 'high' : d.a > 30 ? 'mod' : 'low') + '</span>' +
+      '<span>MAO-B</span><div class="bar"><i style="width:' + d.b + '%;background:#94a3b8"></i></div><span class="muted">' + (d.b > 70 ? 'high' : d.b > 30 ? 'mod' : 'low') + '</span></div>' +
+      '<dl class="kv"><dt>Use</dt><dd>' + d.use + '</dd><dt>Tyramine</dt><dd>' + d.tyr + '</dd><dt>Serotonin toxicity</dt><dd>' + d.ser + '</dd><dt>Washout</dt><dd>' + d.wash + '</dd><dt>Notes</dt><dd>' + d.note + '</dd></dl>';
+  }
+  showMao(0);
+
+  /* =====================================================================
+     7. TYRAMINE FLOW + CURVES
+     ===================================================================== */
+  var fsteps = document.querySelectorAll('#tyrFlow .fstep');
+  var fcur = 0;
+  function syncFlow() { Array.prototype.forEach.call(fsteps, function (s, i) { s.setAttribute('aria-expanded', s.classList.contains('on') ? 'true' : 'false'); }); }
+  Array.prototype.forEach.call(fsteps, function (s) { s.addEventListener('click', function () { s.classList.toggle('on'); syncFlow(); }); });
+  $('tyrNext').addEventListener('click', function () { if (fcur < fsteps.length) { fsteps[fcur].classList.add('on'); fcur++; syncFlow(); } });
+  $('tyrAll').addEventListener('click', function () { Array.prototype.forEach.call(fsteps, function (s) { s.classList.add('on'); }); fcur = fsteps.length; syncFlow(); });
+  $('tyrReset').addEventListener('click', function () { Array.prototype.forEach.call(fsteps, function (s) { s.classList.remove('on'); }); fcur = 0; syncFlow(); });
+  syncFlow();
+
+  var CURVES = [
+    { n: 'No MAOI', pd: 400, c: '#94a3b8', on: true },
+    { n: 'Moclobemide + meal', pd: 200, c: '#5eead4', on: true },
+    { n: 'Moclobemide fasting', pd: 100, c: '#2dd4bf', on: true },
+    { n: 'Irreversible MAOI', pd: 10, c: '#f472b6', on: true }
+  ];
+  var EMAX = 80, HN = 1.5, F = Math.pow(0.6, 1 / HN);
+  function rise(dose, pd) { var ed = pd / F; var x = Math.pow(dose / ed, HN); return EMAX * x / (1 + x); }
+  var X0 = 64, X1 = 612, Y0 = 250, Y1 = 26, TW = 640;
+  function xs(d) { return X0 + (Math.log(d) / Math.LN10) / 3 * (X1 - X0); }
+  function ys(v) { return Y0 - v / EMAX * (Y0 - Y1); }
+  var curveBtns = [];
+  CURVES.forEach(function (c, i) {
+    var b = h('button', 'btn', '<span class="dot" style="background:' + c.c + ';margin-right:6px"></span>' + c.n);
+    press(b, true);
+    b.addEventListener('click', function () { c.on = !c.on; press(b, c.on); drawTyr(); });
+    $('tyrCurves').appendChild(b); curveBtns.push(b);
+  });
+  function drawTyr() {
+    var s = $('tyrSvg'), html = '';
+    var narrow = s.getBoundingClientRect().width < 520;
+    TW = narrow ? 380 : 640; X0 = narrow ? 52 : 64; X1 = TW - 18;
+    s.setAttribute('viewBox', '0 0 ' + TW + ' 300');
+    [1, 10, 100, 1000].forEach(function (d) { var x = xs(d); html += '<line x1="' + x + '" y1="' + Y1 + '" x2="' + x + '" y2="' + Y0 + '" stroke="#1b2540"/><text x="' + x + '" y="' + (Y0 + 18) + '" fill="#94a3b8" font-size="11" text-anchor="middle">' + d + '</text>'; });
+    [0, 20, 40, 60, 80].forEach(function (v) { var y = ys(v); html += '<line x1="' + X0 + '" y1="' + y + '" x2="' + X1 + '" y2="' + y + '" stroke="#1b2540"/><text x="' + (X0 - 8) + '" y="' + (y + 4) + '" fill="#94a3b8" font-size="11" text-anchor="end">' + v + '</text>'; });
+    html += '<text x="' + ((X0 + X1) / 2) + '" y="' + (Y0 + 40) + '" fill="#cbd5e1" font-size="12" text-anchor="middle">Oral tyramine (mg, log scale)</text>';
+    html += '<text x="16" y="' + ((Y0 + Y1) / 2) + '" fill="#cbd5e1" font-size="12" text-anchor="middle" transform="rotate(-90 16 ' + ((Y0 + Y1) / 2) + ')">↑ systolic BP (mmHg)</text>';
+    html += '<line x1="' + X0 + '" y1="' + ys(30) + '" x2="' + X1 + '" y2="' + ys(30) + '" stroke="#fca5a5" stroke-dasharray="6 4"/><text x="' + (X0 + 6) + '" y="' + (ys(30) - 6) + '" fill="#fca5a5" font-size="11">PD30: +30 mmHg</text>';
+    CURVES.forEach(function (c) {
+      if (!c.on) return;
+      var d = '';
+      for (var i = 0; i <= 120; i++) { var lg = i / 40; var dose = Math.pow(10, lg); d += (i ? ' L ' : 'M ') + xs(dose).toFixed(1) + ' ' + ys(rise(dose, c.pd)).toFixed(1); }
+      html += '<path d="' + d + '" fill="none" stroke="' + c.c + '" stroke-width="3"/>';
+    });
+    var dose = Math.pow(10, +$('tyrDose').value / 100);
+    var x = xs(dose);
+    html += '<line x1="' + x + '" y1="' + Y1 + '" x2="' + x + '" y2="' + Y0 + '" stroke="#a3e635" stroke-width="2"/>';
+    var rows = [];
+    CURVES.forEach(function (c) {
+      var r = rise(dose, c.pd);
+      if (c.on) html += '<circle cx="' + x + '" cy="' + ys(r) + '" r="5.5" fill="' + c.c + '" stroke="#070b14" stroke-width="2"/>';
+      rows.push('<span style="color:' + c.c + ';font-weight:700">' + c.n + '</span>: +' + Math.round(r) + ' mmHg' + (r >= 30 ? ' ⚠️' : ''));
+    });
+    s.innerHTML = html;
+    $('tyrDoseLab').textContent = (dose < 10 ? dose.toFixed(1) : Math.round(dose)) + ' mg';
+    $('tyrRead').innerHTML = rows.join(' · ') + '<br><span class="muted">⚠️ = at or above PD30. Teaching model; individual sensitivity varies several-fold.</span>';
+  }
+  $('tyrDose').addEventListener('input', drawTyr);
+  drawTyr();
+
+  /* =====================================================================
+     8. INTERACTION CHECKER
+     ===================================================================== */
+  var PAT = [
+    ['ami', 'Amitriptyline (TCA)'], ['clo', 'Clomipramine (TCA, potent SRI)'], ['f2d6', 'Fluoxetine or paroxetine (SSRI)'],
+    ['cit', 'Citalopram / escitalopram (SSRI)'], ['ser', 'Sertraline (SSRI)'], ['maoi', 'Phenelzine / tranylcypromine (irreversible MAOI)'], ['rima', 'Moclobemide (RIMA)']
+  ];
+  var GIVE = [
+    ['peth', 'Pethidine'], ['tram', 'Tramadol'], ['morph', 'Morphine'], ['fent', 'Fentanyl'], ['cod', 'Codeine'],
+    ['ephed', 'Ephedrine / metaraminol (indirect)'], ['nad', 'Noradrenaline / adrenaline (direct)'], ['linez', 'Linezolid'],
+    ['mb', 'Methylene blue'], ['ond', 'Ondansetron'], ['meto', 'Metoprolol'], ['bleed', 'NSAID / antiplatelet / anticoagulant'],
+    ['clon', 'Clonidine'], ['tyr', 'Tyramine-rich meal'], ['ssri', 'Adding an SSRI']
+  ];
+  PAT.forEach(function (p) { var o = document.createElement('option'); o.value = p[0]; o.textContent = p[1]; $('ixA').appendChild(o); });
+  GIVE.forEach(function (p) { var o = document.createElement('option'); o.value = p[0]; o.textContent = p[1]; $('ixB').appendChild(o); });
+  function V(level, mech, act) { return { l: level, m: mech, a: act }; }
+  function judge(a, b) {
+    var isMAO = a === 'maoi' || a === 'rima', isSSRI = a === 'f2d6' || a === 'cit' || a === 'ser', isTCA = a === 'ami' || a === 'clo';
+    var potentSRI = isSSRI || a === 'clo';
+    switch (b) {
+      case 'peth':
+        if (isMAO) return V('avoid', 'Pethidine is a weak serotonin reuptake inhibitor. With MAO inhibition this gives severe serotonin toxicity (fatalities reported).', 'Use morphine, oxycodone or buprenorphine instead.');
+        if (potentSRI) return V('caution', 'Additive serotonergic effect (pethidine is a weak SRI); seizure threshold lowered by norpethidine.', 'Prefer a non-serotonergic opioid.');
+        return V('caution', 'Mild additive serotonergic and anticholinergic effects; norpethidine lowers the seizure threshold.', 'Prefer a non-serotonergic opioid.');
+      case 'tram':
+        if (isMAO) return V('avoid', 'Tramadol inhibits 5-HT and NA reuptake: serotonin toxicity with MAOIs.', 'Avoid. Choose morphine or oxycodone.');
+        if (a === 'f2d6') return V('caution', 'Serotonergic and seizure risk. CYP2D6 inhibition also blocks conversion to O-desmethyltramadol, so analgesia falls while parent-drug serotonergic effect rises.', 'Prefer another analgesic.');
+        if (potentSRI) return V('caution', 'Additive serotonergic effect; lowers seizure threshold.', 'Use cautiously, monitor for clonus.');
+        return V('caution', 'Lowers seizure threshold (additive with TCAs); mild serotonergic effect.', 'Use cautiously.');
+      case 'morph':
+        return V('ok', 'Morphine is not a serotonin reuptake inhibitor and doesn’t cause serotonin toxicity' + (isMAO ? ' with MAOIs (Gillman 2005).' : '.') + (isTCA ? ' Expect additive sedation and constipation.' : ''), 'Titrate as usual.');
+      case 'fent':
+        if (isMAO) return V('caution', 'No clinically meaningful SRI activity has been established, but regulators include it in serotonin class warnings after case reports.', 'Generally acceptable; titrate and watch for clonus.');
+        return V('ok', 'No meaningful SRI activity; rare case reports with SRIs.', 'Titrate as usual; monitor.');
+      case 'cod':
+        if (a === 'f2d6') return V('caution', 'Codeine needs CYP2D6 to become morphine. Fluoxetine/paroxetine block 2D6, so analgesia is reduced.', 'Use morphine or oxycodone.');
+        return V('ok', 'Codeine is not an SRI' + (isMAO ? '; acceptable with MAOIs.' : '.'), 'Titrate as usual.');
+      case 'ephed':
+        if (a === 'maoi') return V('avoid', 'Indirect sympathomimetics release NA from vesicles that MAO inhibition has over-filled: hypertensive crisis.', 'Use a direct-acting agent (phenylephrine, noradrenaline, adrenaline) at low dose and titrate.');
+        if (a === 'rima') return V('caution', 'Reversible MAO-A inhibition: smaller but real potentiation of indirect agents.', 'Prefer direct agents; if used, small doses.');
+        if (isTCA) return V('caution', 'Indirect agents need NET to enter the terminal; NET is blocked, so the response is <strong>blunted</strong>.', 'Expect a poor response; use a direct agent.');
+        return V('ok', 'No significant interaction.', 'Use as usual.');
+      case 'nad':
+        if (isTCA) return V('caution', 'Uptake-1 (NET) is blocked, so direct catecholamines linger: <strong>exaggerated</strong> pressor and arrhythmic response.', 'Start at a lower dose and titrate.');
+        if (isMAO) return V('caution', 'Direct catecholamines are cleared mainly by uptake and COMT, so potentiation is modest.', 'Preferred over indirect agents; start low, titrate.');
+        return V('ok', 'No important interaction.', 'Use as usual.');
+      case 'linez':
+        if (isMAO) return V('avoid', 'Linezolid is itself a (weak, non-selective) MAOI: additive MAO inhibition, pressor and serotonergic risk.', 'Choose another agent or get specialist advice.');
+        if (potentSRI) return V('caution', 'Linezolid is a weak reversible MAOI. With an SRI: serotonin toxicity reported.', 'If linezolid is essential, consider withholding the SRI and monitor for clonus, hyperthermia.');
+        return V('caution', 'Weak MAOI + weakly serotonergic TCA: low risk.', 'Monitor.');
+      case 'mb':
+        if (potentSRI || isMAO) return V('avoid', 'Methylene blue is a potent reversible MAO-A inhibitor at IV doses. With an SRI (or MAOI): severe serotonin toxicity.', 'Avoid if possible; if unavoidable, monitor closely for serotonin toxicity.');
+        return V('caution', 'Potent MAO-A inhibition + a weakly serotonergic TCA.', 'Monitor.');
+      case 'ond':
+        if (a === 'cit' || isTCA) return V('caution', 'Additive QT prolongation (hERG block).', 'Check QTc and electrolytes.');
+        return V('ok', '5-HT₃ antagonist; serotonin toxicity reports are rare and mechanistically weak.', 'Use as usual.');
+      case 'meto':
+        if (a === 'f2d6') return V('caution', 'Metoprolol is a CYP2D6 substrate; fluoxetine/paroxetine raise its levels: bradycardia, hypotension.', 'Lower dose or choose a non-2D6 β-blocker.');
+        return V('ok', 'No important interaction' + (isMAO ? ' (watch additive orthostatic hypotension).' : '.'), 'Use as usual.');
+      case 'bleed':
+        if (potentSRI) return V('caution', 'SRIs deplete platelet 5-HT and raise gastric acid: ↑ upper GI bleeding with NSAIDs, antiplatelets, anticoagulants.', 'Consider a PPI; monitor.');
+        return V('ok', 'No important platelet effect.', 'Use as usual.');
+      case 'clon':
+        if (isTCA) return V('caution', 'TCAs antagonise clonidine’s central α₂ antihypertensive effect.', 'Expect less BP lowering; beware rebound if clonidine is stopped.');
+        return V('ok', 'No important interaction' + (isMAO ? ' (additive hypotension possible).' : '.'), 'Use as usual.');
+      case 'tyr':
+        if (a === 'maoi') return V('avoid', 'Gut and liver MAO-A are inhibited; tyramine enters the circulation, displaces NA: hypertensive crisis (sensitivity 20–56×).', 'Tyramine-restricted diet.');
+        if (a === 'rima') return V('caution', 'Reversible MAO-A: ~4× sensitivity fasting, less after food.', 'Take after meals; avoid very large tyramine loads.');
+        if (isTCA) return V('ok', 'NET block actually <strong>reduces</strong> tyramine uptake into nerve terminals.', 'No restriction needed.');
+        return V('ok', 'No interaction.', 'No restriction needed.');
+      case 'ssri':
+        if (isMAO) return V('avoid', 'MAOI + SRI: the classic life-threatening serotonin toxicity combination.', 'Washout: ≥ 2 weeks after an irreversible MAOI (~24 h after moclobemide); 5 weeks after fluoxetine before starting an MAOI.');
+        if (isTCA) return V('caution', 'Fluoxetine or paroxetine inhibit CYP2D6 and raise TCA levels (TCA toxicity); with clomipramine, additive serotonergic effect.', 'Specialist combination only; check levels and ECG.');
+        return V('avoid', 'Duplicate SSRI therapy: additive serotonergic effect with no added benefit.', 'Switch rather than combine.');
+    }
+    return V('ok', '—', '—');
+  }
+  function runIx() {
+    var a = $('ixA').value, b = $('ixB').value, v = judge(a, b);
+    var lab = { avoid: '⛔ Avoid', caution: '⚠️ Caution', ok: '✅ Generally OK' }[v.l];
+    var out = $('ixOut');
+    out.className = 'verdict v-' + v.l;
+    out.innerHTML = '<span class="vh">' + lab + '</span><strong>Mechanism:</strong> ' + v.m + '<br><strong>Action:</strong> ' + v.a;
+  }
+  $('ixA').addEventListener('change', runIx); $('ixB').addEventListener('change', runIx);
+  $('ixA').value = 'maoi'; $('ixB').value = 'peth'; runIx();
+
+  /* =====================================================================
+     9. HUNTER CRITERIA
+     ===================================================================== */
+  var HF = [['sc', 'Spontaneous clonus'], ['ic', 'Inducible clonus'], ['oc', 'Ocular clonus'], ['ag', 'Agitation'], ['di', 'Diaphoresis'], ['tr', 'Tremor'], ['hr', 'Hyperreflexia'], ['ht', 'Hypertonia'], ['t38', 'Temperature > 38 °C']];
+  var hs = {}, hBtns = {};
+  HF.forEach(function (f) {
+    var b = h('button', 'btn', f[1]); b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { hs[f[0]] = !hs[f[0]]; press(b, hs[f[0]]); runH(); });
+    hBtns[f[0]] = b; $('hChk').appendChild(b);
+  });
+  var RULES = [
+    ['Spontaneous clonus', function () { return hs.sc; }],
+    ['Inducible clonus + (agitation or diaphoresis)', function () { return hs.ic && (hs.ag || hs.di); }],
+    ['Ocular clonus + (agitation or diaphoresis)', function () { return hs.oc && (hs.ag || hs.di); }],
+    ['Tremor + hyperreflexia', function () { return hs.tr && hs.hr; }],
+    ['Hypertonia + temperature > 38 °C + (ocular or inducible clonus)', function () { return hs.ht && hs.t38 && (hs.oc || hs.ic); }]
+  ];
+  function runH() {
+    var hit = false, html = '';
+    RULES.forEach(function (r) { var ok = !!r[1](); if (ok) hit = true; html += '<div class="rule' + (ok ? ' hit' : '') + '">' + (ok ? '✔ ' : '○ ') + r[0] + '</div>'; });
+    $('hRules').innerHTML = html;
+    var res = $('hRes');
+    res.className = 'hres ' + (hit ? 'pos' : 'neg');
+    var severe = hs.ht && hs.t38;
+    res.innerHTML = hit ? '<strong>Meets Hunter criteria</strong> (if a serotonergic agent was taken).' + (severe ? '<br>Hypertonia and fever: <strong>severe, life-threatening</strong>. Intubate, paralyse (non-depolarising), cool.' : '<br>Stop serotonergic drugs; benzodiazepines; consider cyproheptadine.')
+      : '<strong>Not met</strong> with the findings ticked. Mild features (tremor, diaphoresis alone) are serotonergic side effects, not toxicity.';
+  }
+  $('hClear').addEventListener('click', function () { hs = {}; for (var k in hBtns) press(hBtns[k], false); runH(); });
+  runH();
+
+  /* =====================================================================
+     10. FLASHCARDS
+     ===================================================================== */
+  var fcGrid = $('fcGrid');
+  function fcCount() { var all = fcGrid.querySelectorAll('.fc'), fl = fcGrid.querySelectorAll('.fc.flipped'); $('fcCount').textContent = fl.length + ' / ' + all.length + ' revealed'; }
+  function flip(c) { c.classList.toggle('flipped'); c.setAttribute('aria-expanded', c.classList.contains('flipped') ? 'true' : 'false'); fcCount(); }
+  Array.prototype.forEach.call(fcGrid.querySelectorAll('.fc'), function (c) {
+    c.addEventListener('click', function () { flip(c); });
+    c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(c); } });
+  });
+  $('fcShuffle').addEventListener('click', function () {
+    var arr = Array.prototype.slice.call(fcGrid.querySelectorAll('.fc'));
+    for (var i = arr.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = arr[i]; arr[i] = arr[j]; arr[j] = t; }
+    arr.forEach(function (c) { fcGrid.appendChild(c); });
+  });
+  $('fcReset').addEventListener('click', function () { Array.prototype.forEach.call(fcGrid.querySelectorAll('.fc.flipped'), function (c) { c.classList.remove('flipped'); c.setAttribute('aria-expanded', 'false'); }); fcCount(); });
+  fcCount();
+
+  /* =====================================================================
+     11. QUIZ
+     ===================================================================== */
+  var quizData = [
+    { q: 'Which action is chiefly responsible for QRS widening in TCA overdose?', opts: ['Muscarinic antagonism', 'Fast Na⁺ channel blockade', 'α₁ antagonism', 'hERG K⁺ channel block'], a: 1, ex: 'Na⁺ channel (Naᵥ1.5) block slows phase 0 and ventricular conduction (class Ia-like, use-dependent). hERG block prolongs QT, not QRS. Muscarinic block gives tachycardia, which worsens use-dependent block but doesn’t widen the QRS itself.' },
+    { q: 'A patient on phenelzine becomes hypotensive under anaesthesia. Best vasopressor?', opts: ['Ephedrine', 'Metaraminol', 'Low-dose noradrenaline, titrated', 'Pseudoephedrine'], a: 2, ex: 'Indirect agents release NA from the expanded vesicular stores: hypertensive crisis. Direct agents (noradrenaline, adrenaline, phenylephrine) are cleared mainly by uptake and COMT and are only modestly potentiated: start low and titrate.' },
+    { q: 'The tyramine (“cheese”) reaction depends mainly on inhibition of:', opts: ['Platelet MAO-B', 'Gut and liver MAO-A', 'COMT', 'Neuronal SERT'], a: 1, ex: 'Intestinal and hepatic MAO-A normally destroy dietary tyramine on first pass. Selective MAO-B inhibitors at usual doses spare gut MAO-A, so the risk is low.' },
+    { q: 'Why is the tyramine reaction much less likely with moclobemide?', opts: ['It is MAO-B selective', 'Reversible competitive MAO-A inhibition: tyramine displaces it', 'It blocks NET', 'It isn’t absorbed orally'], a: 1, ex: 'Moclobemide is a reversible inhibitor of MAO-A (RIMA). Large tyramine loads compete it off the enzyme. Oral tyramine sensitivity rises ~4× fasting, versus 20–56× with tranylcypromine (Korn 1988; Bieck 1988).' },
+    { q: 'Which SSRI is most associated with dose-dependent QT prolongation?', opts: ['Sertraline', 'Fluoxetine', 'Citalopram', 'Fluvoxamine'], a: 2, ex: 'Citalopram (and escitalopram). FDA: maximum 40 mg/day, 20 mg/day over 60. In overdose, 68% of citalopram cases had QTc > 440 ms (Isbister 2004).' },
+    { q: 'Mechanism of SSRI-associated bleeding?', opts: ['COX-1 inhibition', 'Depletion of platelet 5-HT via platelet SERT blockade', 'Thrombocytopenia', 'Vitamin K antagonism'], a: 1, ex: 'Platelets can’t synthesise 5-HT; they take it up via SERT. SSRIs deplete platelet stores and blunt 5-HT-amplified aggregation. Higher gastric acidity adds to upper-GI risk.' },
+    { q: 'Which opioid is NOT a serotonin reuptake inhibitor and is the traditional choice with MAOIs?', opts: ['Pethidine', 'Tramadol', 'Methadone', 'Morphine'], a: 3, ex: 'Pethidine, tramadol, methadone and dextromethorphan are weak SRIs and have caused serotonin toxicity with MAOIs. Morphine, codeine, oxycodone and buprenorphine are not SRIs (Gillman 2005).' },
+    { q: 'Which ICU drug is an MAO inhibitor?', opts: ['Vancomycin', 'Linezolid', 'Meropenem', 'Ciprofloxacin'], a: 1, ex: 'Linezolid is a weak, reversible, non-selective MAOI. Methylene blue is the other hidden one, and it is a potent MAO-A inhibitor.' },
+    { q: 'Life-threatening serotonin toxicity most typically requires:', opts: ['A single SSRI overdose', 'An MAOI combined with a serotonin reuptake inhibitor', 'A therapeutic dose of a TCA', 'SSRI discontinuation'], a: 1, ex: 'Serotonin toxicity is concentration-dependent. Single-agent SRI overdose gives mild–moderate toxicity (~14%); severe hyperthermic toxicity needs drugs acting by different mechanisms, classically MAOI + SRI.' },
+    { q: 'Commonest adverse effect of MAOIs at therapeutic dose?', opts: ['Hypertensive crisis', 'Orthostatic hypotension', 'Bradycardia', 'Hyperkalaemia'], a: 1, ex: 'Orthostatic hypotension is the most frequent. Hypertensive crisis needs a trigger (tyramine or an indirect sympathomimetic). Keep the two separate in your answer.' },
+    { q: 'A patient on amitriptyline is given IV adrenaline. Expected response?', opts: ['Attenuated', 'Exaggerated', 'Unchanged', 'Reversed (vasodilatation)'], a: 1, ex: 'TCAs block uptake-1 (NET), the main route that terminates the action of exogenous catecholamines, so pressor and arrhythmic responses are exaggerated. Indirect agents such as ephedrine are blunted instead.' },
+    { q: 'Which single finding meets the Hunter criteria (after a serotonergic drug)?', opts: ['Tremor', 'Spontaneous clonus', 'Diaphoresis', 'Mydriasis'], a: 1, ex: 'Spontaneous clonus alone is enough. Others need combinations: inducible or ocular clonus + agitation or diaphoresis; tremor + hyperreflexia; hypertonia + T > 38 °C + ocular or inducible clonus.' },
+    { q: 'After stopping fluoxetine, how long before starting an MAOI?', opts: ['24 hours', '1 week', '2 weeks', '5 weeks'], a: 3, ex: 'Norfluoxetine, the active metabolite, has a t½ of 7–15 days at steady state (Hiemke 2000), so a 5-week washout is needed. Most other SSRIs: about 2 weeks.' },
+    { q: 'Compared with amitriptyline, nortriptyline is:', opts: ['More anticholinergic', 'More NET-selective, less anticholinergic and sedating', 'An MAO inhibitor', 'A selective SERT inhibitor'], a: 1, ex: 'Nortriptyline is the demethylated (secondary-amine) metabolite of amitriptyline: noradrenergic, with less M, H₁ and α₁ blockade.' },
+    { q: 'Why is the antidepressant effect delayed despite immediate transporter block?', opts: ['Slow oral absorption', 'Adaptive changes, e.g. 5-HT₁A autoreceptor desensitisation', 'Time to form active metabolites', 'Hepatic enzyme induction'], a: 1, ex: 'The acute 5-HT rise activates inhibitory 5-HT₁A (and α₂) autoreceptors. They desensitise over weeks; downstream receptor changes and neuroplasticity follow.' },
+    { q: 'Sodium bicarbonate in TCA cardiotoxicity works mainly by:', opts: ['Increasing renal TCA excretion', 'Na⁺ loading and alkalaemia, reducing effective Na⁺ channel block', 'Chelating the drug in plasma', 'Blocking muscarinic receptors'], a: 1, ex: 'Both parts matter: the Na⁺ load increases the gradient through partially blocked channels, and alkalaemia reduces drug binding to the channel. Target pH 7.50–7.55 (Bruccoleri 2016).' }
+  ];
+  var score = 0, answered = {};
+  function shuffleOpts() {
+    quizData.forEach(function (q) {
+      var idx = q.opts.map(function (o, i) { return i; });
+      for (var i = idx.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = idx[i]; idx[i] = idx[j]; idx[j] = t; }
+      var ans = q.opts[q.a];
+      q.opts = idx.map(function (i) { return q.opts[i]; });
+      q.a = q.opts.indexOf(ans);
+    });
+  }
+  function renderQuiz() {
+    shuffleOpts();
+    var qc = $('quizContainer'); qc.innerHTML = '';
+    $('scoreTotal').textContent = quizData.length;
+    quizData.forEach(function (q, i) {
+      var div = h('div', 'quiz-q');
+      var html = '<div class="qt" id="qt-' + i + '">Q' + (i + 1) + '. ' + q.q + '</div><div class="quiz-opts" role="group" aria-labelledby="qt-' + i + '">';
+      q.opts.forEach(function (o, j) { html += '<button class="quiz-opt" data-q="' + i + '" data-opt="' + j + '">' + String.fromCharCode(65 + j) + '. ' + o + '</button>'; });
+      html += '</div><div class="quiz-explain" id="ex-' + i + '" aria-live="polite">' + q.ex + '</div>';
+      div.innerHTML = html; qc.appendChild(div);
+    });
+    Array.prototype.forEach.call(qc.querySelectorAll('.quiz-opt'), function (btn) {
+      btn.addEventListener('click', function () {
+        var qi = +btn.getAttribute('data-q'), oi = +btn.getAttribute('data-opt');
+        if (answered[qi]) return; answered[qi] = true;
+        var correct = quizData[qi].a;
+        Array.prototype.forEach.call(qc.querySelectorAll('.quiz-opt[data-q="' + qi + '"]'), function (b) {
+          var k = +b.getAttribute('data-opt');
+          b.classList.add('locked'); b.setAttribute('aria-disabled', 'true');
+          if (k === correct) b.classList.add('correct');
+          else if (k === oi) b.classList.add('wrong');
+        });
+        if (oi === correct) score++;
+        $('scoreNum').textContent = score;
+        $('ex-' + qi).classList.add('shown');
+      });
+    });
+  }
+  $('resetQuiz').addEventListener('click', function () { score = 0; answered = {}; $('scoreNum').textContent = 0; renderQuiz(); });
+  renderQuiz();
+
+  /* =====================================================================
+     12. WRITE-THEN-REVEAL
+     ===================================================================== */
+  var WR = [
+    { q: '3 minutes: why are TCAs far more lethal in overdose than SSRIs?', pts: ['TCAs block fast Na⁺ channels (class Ia-like) → slowed conduction, QRS > 100 ms, VT, negative inotropy', 'α₁ blockade + myocardial depression → refractory hypotension', 'Seizures (lowered threshold) → acidosis → more Na⁺ block', 'Anticholinergic and H₁ effects → coma, delirium, hyperthermia; delayed gastric emptying', 'Narrow therapeutic index, large Vd and high protein binding (dialysis useless)', 'SSRIs are selective (few off-target sites): overdose mostly mild serotonin toxicity; exception citalopram QT'] },
+    { q: '3 minutes: explain the tyramine reaction and why moclobemide carries less risk.', pts: ['Tyramine is an indirect sympathomimetic, normally removed by gut and hepatic MAO-A on first pass', 'MAO-A inhibition → systemic tyramine → enters sympathetic terminals via NET', 'Displaces NA from vesicles already expanded by MAO inhibition → α₁ vasoconstriction → hypertensive crisis (ICH, arrhythmia)', 'Irreversible MAOIs: sensitivity ↑ 20–56×; recovery needs enzyme resynthesis', 'Moclobemide is reversible and competitive: tyramine displaces it; ~4× sensitivity fasting, less with food', 'MAO-B-selective doses (selegiline ≤ 10 mg) spare gut MAO-A'] },
+    { q: '3 minutes: a patient on phenelzine in ICU needs analgesia and a vasopressor. What do you choose, and why?', pts: ['Avoid pethidine, tramadol, methadone, dextromethorphan: weak SRIs → serotonin toxicity', 'Morphine, oxycodone, buprenorphine: not SRIs; fentanyl generally acceptable with monitoring', 'Avoid indirect sympathomimetics (ephedrine, metaraminol): NA release from overfilled stores → crisis', 'Use direct agents (noradrenaline, adrenaline, phenylephrine) at low dose and titrate', 'Avoid linezolid and methylene blue if possible (MAOIs) and any SRI', 'Effects persist ~2 weeks after stopping an irreversible MAOI'] }
+  ];
+  WR.forEach(function (w, i) {
+    var box = h('div', 'wr');
+    var ptsHtml = w.pts.map(function (p, j) { return '<label><input type="checkbox" id="wr' + i + '_' + j + '"> <span>' + p + '</span></label>'; }).join('');
+    box.innerHTML = '<div class="wq" id="wq' + i + '">' + (i + 1) + '. ' + w.q + '</div>' +
+      '<textarea aria-labelledby="wq' + i + '" placeholder="Write your answer here (not saved)…"></textarea>' +
+      '<div class="btn-row"><button class="btn primary" aria-expanded="false" aria-controls="wa' + i + '">Reveal model points</button><span class="muted" id="wc' + i + '"></span></div>' +
+      '<div class="wa" id="wa' + i + '">' + ptsHtml + '</div>';
+    $('wrBox').appendChild(box);
+    var btn = box.querySelector('button'), wa = box.querySelector('.wa');
+    btn.addEventListener('click', function () {
+      var on = !wa.classList.contains('shown'); wa.classList.toggle('shown', on);
+      btn.setAttribute('aria-expanded', on ? 'true' : 'false'); btn.textContent = on ? 'Hide model points' : 'Reveal model points';
+    });
+    Array.prototype.forEach.call(wa.querySelectorAll('input'), function (cb) {
+      cb.addEventListener('change', function () { var n = wa.querySelectorAll('input:checked').length; $('wc' + i).textContent = n + ' / ' + w.pts.length + ' points covered'; });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
