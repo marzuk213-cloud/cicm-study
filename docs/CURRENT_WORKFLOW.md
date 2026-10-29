@@ -1,5 +1,7 @@
 # Maz's CICM workflow — current guide
 
+**30 Oct 2026:** current rules (one chunk per message, clean chunks, cloud handover, tone) are in `CLAUDE.md` → Current rules, and the full mainstay is `.claude/skills/cicm-output-workflow/SKILL.md`; they win over anything older here.
+
 **Event:** `CICM-OUTPUT-WORKFLOW-20261028` · set by Maz 28 Oct 2026 · supersedes all older
 CICM skill defaults. Portable: paste this into any Claude surface (projectless chat,
 CICM Sidekick, Cowork, local or cloud Claude Code).
